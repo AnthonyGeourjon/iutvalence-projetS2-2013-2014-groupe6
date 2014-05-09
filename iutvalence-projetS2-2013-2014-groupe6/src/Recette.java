@@ -44,9 +44,14 @@ public class Recette
 	/**
 	 * @return l'ensemble des recettes disponibles
 	 */
-	public HashSet<Recette> obtenirToutesLesRecettesDisponibles()
+	public static HashSet<Recette> obtenirToutesLesRecettesDisponibles()
 	{
 		return toutesLesRecettesDisponibles;
+	}
+	
+	public HashSet<Aliment> obtenirAlimentNecessaire()
+	{
+		return this.alimentsNecessaires;
 	}
 
 }

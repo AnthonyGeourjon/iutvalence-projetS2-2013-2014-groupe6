@@ -1,5 +1,3 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -13,17 +11,13 @@ public class Aliment
 
 	private Date datePeremption;
 
-	private Integer nombreDExemplaire;
-
 	private Integer prix;
 
-	public Aliment(Date datePeremption, String nomAliment, Integer quantiteInitiale, Integer nombreDExemplaireInitial,
-			Integer prix)
+	public Aliment(Date datePeremption, String nomAliment, Integer quantiteInitiale, Integer prix)
 	{
 		this.datePeremption = datePeremption;
 		this.nom = nomAliment;
 		this.quantite = quantiteInitiale;
-		this.nombreDExemplaire = nombreDExemplaireInitial;
 
 		Aliment.ensembleDesAlimentsConnus.add(this);
 
@@ -39,9 +33,9 @@ public class Aliment
 		return this.datePeremption;
 	}
 
-	public void changerNombreDExemplaire(Integer variation)
+	public void changerQuantite(Integer variation)
 	{
-		this.nombreDExemplaire += variation;
+		this.quantite += variation;
 	}
 
 	public Integer obtenirPrix()
