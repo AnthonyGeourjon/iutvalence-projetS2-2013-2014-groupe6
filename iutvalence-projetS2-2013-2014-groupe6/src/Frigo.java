@@ -1,28 +1,52 @@
+import java.util.HashSet;
+import java.util.Iterator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
-public class Frigo {
+public class Frigo
+{
 
+	private HashSet<Aliment> alimentsDuFrigo;
+	
+	
+	public void insererAliment(Aliment alimentAAjouter)
+	{
+		this.alimentsDuFrigo.add(alimentAAjouter);
+	}
 
+	public void supprimerAliment(Aliment alimentASupprimer) throws alimentsInexistantException
+	{
+		if(!this.alimentsDuFrigo.remove(alimentASupprimer))
+			throw new alimentsInexistantException();
+	}
 
-  public void insererAliment( Aliment alimentAAjouter) {
-  }
+	public HashSet<Aliment> alimentsPerimes()
+	{
+		HashSet<Aliment> alimentsPerimes = new HashSet<>();
+		
+		Object[] lesAliments = this.alimentsDuFrigo.toArray();
+		
+		for( Object alimentCourant : lesAliments)
+		{
+			if((Aliment)alimentCourant).obtenirDateDePeremption()<=
+		}
+		
+	}
 
-  public void supprimerAliment( Aliment alimentASupprimer) {
-  }
+	public Frigo()
+	{
 
-  public Aliment alimentsPerimes() {
-  return null;
-  }
+	}
 
-  public Frigo() {
-  
-  }
+	private void mAJRecettePossible()
+	{
+	}
 
-  private void mAJRecettePossible() {
-  }
-
-  public Aliment obtenirAlimenstDuFrigo() {
-  return null;
-  }
+	public Aliment obtenirAlimenstDuFrigo()
+	{
+		return null;
+	}
 
 }
