@@ -1,28 +1,37 @@
-public class Aliment {
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-  private String nom;
+public class Aliment
+{
 
-  private Integer quantite;
+	private String nom;
 
-  private Date datePeremption;
+	private Integer quantite;
 
-  private Integer nombreDExemplaire;
+	private Date datePeremption;
 
-  private Integer prix;
+	private Integer nombreDExemplaire;
 
-  public String obtenirNom() {
-  return null;
-  }
+	private Integer prix;
 
-  public Date obtenirDateDePeremption() {
-  return null;
-  }
+	public String obtenirNom()
+	{
+		return null;
+	}
 
-  public Aliment(Date datePeremption, String nomAliment, Integer quantiteInitiale, Integer nombreDExemplaireInitial) {
-  
-  }
+	public Date obtenirDateDePeremption()
+	{
+		return null;
+	}
 
-  public void changerNombreDExemplaire(Integer variation) {
-  }
+	public Aliment(Date datePeremption, String nomAliment, Integer quantiteInitiale, Integer nombreDExemplaireInitial)
+	{
+
+	}
+
+	public void changerNombreDExemplaire(Integer variation)
+	{
+	}
 
 }
