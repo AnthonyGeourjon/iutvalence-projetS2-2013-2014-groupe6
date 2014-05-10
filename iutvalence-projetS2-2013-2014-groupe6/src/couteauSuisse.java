@@ -79,7 +79,7 @@ public class couteauSuisse
 	}
 
 	/**
-	 * Permet d'acceder au module Frigo
+	 * Permet d'acceder au module Frigo.
 	 */
 	private void optionDuModuleFrigo()
 	{
