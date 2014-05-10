@@ -76,7 +76,9 @@ public class couteauSuisse
 			default:
 				try
 				{
+					sc.close();
 					throw new choixIncorrectException();
+					
 				}
 				catch (choixIncorrectException e)
 				{
@@ -85,7 +87,11 @@ public class couteauSuisse
 				}
 
 			}
+			
+			sc.close();
 		}
+		
+		
 	}
 
 	/**
@@ -129,6 +135,7 @@ public class couteauSuisse
 		default:
 			try
 			{
+				sc.close();
 				throw new choixIncorrectException();
 			}
 			catch (choixIncorrectException e)
@@ -137,6 +144,8 @@ public class couteauSuisse
 				e.printStackTrace();
 			}
 		}
+		
+		sc.close();
 
 	}
 
