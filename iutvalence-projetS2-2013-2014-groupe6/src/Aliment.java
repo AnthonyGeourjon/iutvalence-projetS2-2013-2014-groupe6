@@ -43,4 +43,9 @@ public class Aliment
 		return this.prix;
 	}
 
+	public String toString()
+	{
+		return (this.nom + "(" + this.quantite + " unité(s)");
+	}
+
 }
