@@ -3,7 +3,7 @@ import java.util.HashSet;
 public class Recette
 {
 
-	// Ajouter des variables "Qualité" et "difficulté"
+	// Ajouter des variables "Qualité", "Auteur" et "difficulté"
 
 	/**
 	 * Ensemble des recettes enregistrés.
@@ -52,6 +52,11 @@ public class Recette
 	public HashSet<Aliment> obtenirAlimentNecessaire()
 	{
 		return this.alimentsNecessaires;
+	}
+	
+	public String toString()
+	{
+		return this.nom;
 	}
 
 }
