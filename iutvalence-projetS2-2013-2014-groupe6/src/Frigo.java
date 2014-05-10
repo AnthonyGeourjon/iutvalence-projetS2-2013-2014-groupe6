@@ -35,13 +35,13 @@ public class Frigo
 	/**
 	 * @param alimentASupprimer
 	 *            aliment qui sera retiré du frigo
-	 * @throws alimentsInexistantException
+	 * @throws AlimentsInexistantException
 	 *             levé si l'aliment n'est pas dans le frigo
 	 */
-	public void supprimerAliment(Aliment alimentASupprimer) throws alimentsInexistantException
+	public void supprimerAliment(Aliment alimentASupprimer) throws AlimentsInexistantException
 	{
 		if (!this.alimentsDuFrigo.remove(alimentASupprimer))
-			throw new alimentsInexistantException();
+			throw new AlimentsInexistantException();
 		mAJRecettePossible();
 	}
 
@@ -54,7 +54,7 @@ public class Frigo
 				this.supprimerAliment(alimentASupprimer);
 			}
 
-			catch (alimentsInexistantException e)
+			catch (AlimentsInexistantException e)
 			{
 				// Inutile ici car l'aliment est forcément dans le frigo si il
 				// est périmé

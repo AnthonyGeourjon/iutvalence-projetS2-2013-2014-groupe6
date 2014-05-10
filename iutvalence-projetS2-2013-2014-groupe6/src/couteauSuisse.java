@@ -25,7 +25,7 @@ public class couteauSuisse
 		{
 			this.leFrigo.supprimerAliment(alimentASupprimer);
 		}
-		catch (alimentsInexistantException e)
+		catch (AlimentsInexistantException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,10 +77,10 @@ public class couteauSuisse
 				try
 				{
 					sc.close();
-					throw new choixIncorrectException();
+					throw new ChoixIncorrectException();
 					
 				}
-				catch (choixIncorrectException e)
+				catch (ChoixIncorrectException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -136,9 +136,9 @@ public class couteauSuisse
 			try
 			{
 				sc.close();
-				throw new choixIncorrectException();
+				throw new ChoixIncorrectException();
 			}
-			catch (choixIncorrectException e)
+			catch (ChoixIncorrectException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
