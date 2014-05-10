@@ -8,7 +8,7 @@ public class Frigo
 	 * Ensemble des aliments du frigo
 	 */
 	private HashSet<Aliment> alimentsDuFrigo;
-	
+
 	/**
 	 * Ensemble des recettes pouvant etre réalisé avec le frigo en l'état
 	 */
@@ -23,7 +23,8 @@ public class Frigo
 	}
 
 	/**
-	 * @param alimentAAjouter aliment qui sera ajouté au frigo
+	 * @param alimentAAjouter
+	 *            aliment qui sera ajouté au frigo
 	 */
 	public void insererAliment(Aliment alimentAAjouter)
 	{
@@ -32,8 +33,10 @@ public class Frigo
 	}
 
 	/**
-	 * @param alimentASupprimer aliment qui sera retiré du frigo
-	 * @throws alimentsInexistantException levé si l'aliment n'est pas dans le frigo 
+	 * @param alimentASupprimer
+	 *            aliment qui sera retiré du frigo
+	 * @throws alimentsInexistantException
+	 *             levé si l'aliment n'est pas dans le frigo
 	 */
 	public void supprimerAliment(Aliment alimentASupprimer) throws alimentsInexistantException
 	{
@@ -41,24 +44,24 @@ public class Frigo
 			throw new alimentsInexistantException();
 		mAJRecettePossible();
 	}
-	
+
 	public void supprimerAlimentsPerimes()
 	{
-		for ( Aliment alimentASupprimer : this.alimentsPerimes())
+		for (Aliment alimentASupprimer : this.alimentsPerimes())
 		{
 			try
 			{
 				this.supprimerAliment(alimentASupprimer);
 			}
-			
-			//Inutile ici car l'aliment est forcément dans le frigo si il est périmé
+
 			catch (alimentsInexistantException e)
 			{
+				// Inutile ici car l'aliment est forcément dans le frigo si il
+				// est périmé
 			}
-			
+
 		}
 	}
-	
 
 	/**
 	 * @return la liste des aliments périmés
@@ -87,26 +90,25 @@ public class Frigo
 	 */
 	private void mAJRecettePossible()
 	{
-		Recette[] recettesDisponibles = (Recette[])Recette.obtenirToutesLesRecettesDisponibles().toArray();
+		Recette[] recettesDisponibles = (Recette[]) Recette.obtenirToutesLesRecettesDisponibles().toArray();
 		Boolean recetteValide;
-		
-		for ( Recette recetteCourante: recettesDisponibles)
+
+		for (Recette recetteCourante : recettesDisponibles)
 		{
-			recetteValide=true;
-			
-			for ( Aliment alimentCourant : recetteCourante.obtenirAlimentNecessaire())
+			recetteValide = true;
+
+			for (Aliment alimentCourant : recetteCourante.obtenirAlimentNecessaire())
 			{
-				if(!this.alimentsDuFrigo.contains(alimentCourant))
+				if (!this.alimentsDuFrigo.contains(alimentCourant))
 				{
-					recetteValide=false;
+					recetteValide = false;
 				}
 			}
-			
-			if(recetteValide)
+
+			if (recetteValide)
 				this.recettesDisponibles.add(recetteCourante);
 		}
-		
-		
+
 	}
 
 	/**
@@ -115,6 +117,27 @@ public class Frigo
 	public HashSet<Aliment> obtenirAlimenstDuFrigo()
 	{
 		return this.alimentsDuFrigo;
+	}
+	
+	public String toString()
+	{
+		String affichage="Les aliments du frigo : \n\n";
+		
+		for (Aliment alimentCourant : (Aliment[]) this.alimentsDuFrigo.toArray())
+		{
+			affichage+=alimentCourant + ", ";
+		}
+		
+		affichage+=".\n \nLes recettes disponibles : \n\n";
+		
+		for (Recette recetteCourante : (Recette[]) this.recettesDisponibles.toArray())
+		{
+			affichage+=recetteCourante + ", ";
+		}
+		
+		affichage+=".";
+		
+		return affichage;
 	}
 
 }
