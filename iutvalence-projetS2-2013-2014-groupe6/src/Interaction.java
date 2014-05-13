@@ -5,6 +5,8 @@
  */
 public interface Interaction
 {
-	abstract public int choixNumerique();
+	public abstract int choixNumerique();
+	
+	//public abstract Aliment saisirUnAliment();
 	
 }
