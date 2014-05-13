@@ -3,17 +3,28 @@ import java.util.Scanner;
 
 public class couteauSuisse
 {
-	// ****** Variable(s) ******
-	
+	// ****** Attribut(s) ******
+
+	private Interaction interaction;
+
+	private Affichage affichage;
+
 	/**
 	 * Frigo associé à l'application
 	 */
 	private Frigo leFrigo;
 
 	// ****** Constructeur(s) ******
-	
+
+	public couteauSuisse(Interaction interaction, Affichage affichage, Frigo frigo)
+	{
+		this.affichage = affichage;
+		this.interaction = interaction;
+		this.leFrigo = frigo;
+	}
+
 	// ****** Méthode(s) ******
-	
+
 	private void insererAliment(Aliment alimentAAjouter)
 	{
 		this.leFrigo.insererAliment(alimentAAjouter);
@@ -54,31 +65,28 @@ public class couteauSuisse
 	{
 		Boolean application = true;
 
-		System.out.println("Le couteau suisse de l'étudiant :\n\n");
+		this.affichage.afficherLeNomDeLApplication();
 
 		while (application)
 		{
-			Scanner sc = new Scanner(System.in);
+			this.affichage.afficherLeMenu();
 
-			System.out.println("Menu principal : \n\n1-Module Frigo, \n0-Quitter.\n");
-
-			System.out.println("Veuillez saisir votre choix :");
-
-			switch (sc.nextInt())
+			switch (this.interaction.choixNumerique())
 			{
 			case 1:
-				this.optionDuModuleFrigo();
+				this.affichage.afficherSousMenu();
+				this.affichage.demanderUnChoix();
+				this.executerChoixSousMenuFrigo(this.interaction.choixNumerique());
 				break;
 			case 0:
-				application=false;
+				application = false;
 				break;
-			
+
 			default:
 				try
 				{
-					sc.close();
 					throw new ChoixIncorrectException();
-					
+
 				}
 				catch (ChoixIncorrectException e)
 				{
@@ -87,26 +95,16 @@ public class couteauSuisse
 				}
 
 			}
-			
-			sc.close();
 		}
-		
-		
+
 	}
 
 	/**
 	 * Permet d'acceder au module Frigo.
 	 */
-	private void optionDuModuleFrigo()
+	private void executerChoixSousMenuFrigo(int choix)
 	{
-
-		Scanner sc = new Scanner(System.in);
-
-		System.out
-				.println("Module Gestion de frigo : \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, \n3-Afficher les aliments périmés\n4-Supprimer les aliments perimés, \n5-Afficher le frigo\n0-Menu prinicpal");
-		System.out.println("Veuillez saisir votre choix :");
-
-		switch (sc.nextInt())
+		switch (choix)
 		{
 		case 1:
 
@@ -135,7 +133,6 @@ public class couteauSuisse
 		default:
 			try
 			{
-				sc.close();
 				throw new ChoixIncorrectException();
 			}
 			catch (ChoixIncorrectException e)
@@ -144,8 +141,6 @@ public class couteauSuisse
 				e.printStackTrace();
 			}
 		}
-		
-		sc.close();
 
 	}
 
