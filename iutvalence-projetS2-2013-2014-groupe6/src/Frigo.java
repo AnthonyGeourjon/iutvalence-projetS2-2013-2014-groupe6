@@ -20,6 +20,7 @@ public class Frigo
 	public Frigo()
 	{
 		this.alimentsDuFrigo = new HashSet<>();
+		this.recettesDisponibles = new HashSet<>();
 	}
 
 	/**
@@ -90,23 +91,27 @@ public class Frigo
 	 */
 	private void mAJRecettePossible()
 	{
-		Recette[] recettesDisponibles = (Recette[]) Recette.obtenirToutesLesRecettesDisponibles().toArray();
-		Boolean recetteValide;
-
-		for (Recette recetteCourante : recettesDisponibles)
+		if (Recette.obtenirToutesLesRecettesDisponibles().toArray() != null)
 		{
-			recetteValide = true;
+			Recette[] recettesDisponibles = (Recette[]) Recette.obtenirToutesLesRecettesDisponibles().toArray();
 
-			for (Aliment alimentCourant : recetteCourante.obtenirAlimentNecessaire())
+			Boolean recetteValide;
+
+			for (Recette recetteCourante : recettesDisponibles)
 			{
-				if (!this.alimentsDuFrigo.contains(alimentCourant))
-				{
-					recetteValide = false;
-				}
-			}
+				recetteValide = true;
 
-			if (recetteValide)
-				this.recettesDisponibles.add(recetteCourante);
+				for (Aliment alimentCourant : recetteCourante.obtenirAlimentNecessaire())
+				{
+					if (!this.alimentsDuFrigo.contains(alimentCourant))
+					{
+						recetteValide = false;
+					}
+				}
+
+				if (recetteValide)
+					this.recettesDisponibles.add(recetteCourante);
+			}
 		}
 
 	}
@@ -118,25 +123,25 @@ public class Frigo
 	{
 		return this.alimentsDuFrigo;
 	}
-	
+
 	public String toString()
 	{
-		String affichage="Les aliments du frigo : \n\n";
-		
-		for (Aliment alimentCourant : (Aliment[]) this.alimentsDuFrigo.toArray())
+		String affichage = "Les aliments du frigo : \n\n";
+
+		for (Object alimentCourant : this.alimentsDuFrigo.toArray())
 		{
-			affichage+=alimentCourant + ", ";
+			affichage += alimentCourant.toString() + ", ";
 		}
-		
-		affichage+=".\n \nLes recettes disponibles : \n\n";
-		
-		for (Recette recetteCourante : (Recette[]) this.recettesDisponibles.toArray())
+
+		affichage += ".\n \nLes recettes disponibles : \n\n";
+
+		for (Object recetteCourante : this.recettesDisponibles.toArray())
 		{
-			affichage+=recetteCourante + ", ";
+			affichage += recetteCourante.toString() + ", ";
 		}
-		
-		affichage+=".";
-		
+
+		affichage += ".";
+
 		return affichage;
 	}
 
