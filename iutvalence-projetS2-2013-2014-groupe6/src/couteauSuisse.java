@@ -107,9 +107,8 @@ public class couteauSuisse
 		switch (choix)
 		{
 		case 1:
-
-			// Demander à l'utilisateur un aliment
-			// this.insererAliment(alimentAAjouter);;
+			this.affichage.demanderUnAliment();
+			this.insererAliment(this.interaction.saisirUnAliment());;
 			break;
 		case 2:
 			// Demander à l'utilisateur un aliment
