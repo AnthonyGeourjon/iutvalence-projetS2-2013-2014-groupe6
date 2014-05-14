@@ -8,4 +8,6 @@ public interface Affichage
 	public abstract void afficherLeNomDeLApplication();
 
 	public abstract void afficherSousMenu();
+	
+	public abstract void demanderUnAliment();
 }
