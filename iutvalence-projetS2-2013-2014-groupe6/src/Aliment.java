@@ -13,13 +13,14 @@ public class Aliment
 
 	private Integer prix;
 
-	public Aliment(Date datePeremption, String nomAliment, Integer quantiteInitiale, Integer prix)
+	public Aliment(String nomAliment, Date datePeremption, Integer quantiteInitiale, Integer prix)
 	{
 		this.datePeremption = datePeremption;
 		this.nom = nomAliment;
 		this.quantite = quantiteInitiale;
+		this.prix= prix;
 
-		Aliment.ensembleDesAlimentsConnus.add(this);
+		
 
 	}
 
