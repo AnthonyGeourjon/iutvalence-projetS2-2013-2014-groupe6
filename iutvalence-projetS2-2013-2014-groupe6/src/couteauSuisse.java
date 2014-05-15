@@ -73,14 +73,32 @@ public class couteauSuisse
 
 			switch (this.interaction.choixNumerique())
 			{
-			case 1:
-				this.affichage.afficherSousMenu();
-				this.affichage.demanderUnChoix();
-				this.executerChoixSousMenuFrigo(this.interaction.choixNumerique());
-				break;
 			case 0:
 				application = false;
 				break;
+			case 1:
+				this.affichage.demanderUnAliment();
+				this.insererAliment(this.interaction.saisirUnAliment());;
+				break;
+			case 2:
+				// Demander à l'utilisateur un aliment
+				// this.supprimerAliment(alimentASupprimer);
+				break;
+			case 3:
+				for (Aliment alimentCourant : ((Aliment[]) this.obtenirAlimentsPerimes().toArray()))
+				{
+					System.out.println(alimentCourant);
+				}
+			case 4:
+				this.supprimerAlimentsPerimes();
+				break;
+			case 5:
+				System.out.println(this.leFrigo);
+				break;
+			case 6 :
+				this.affichage.demanderUneRecette();
+				Recette.ajouterUneRecette(this.interaction.demanderUneRecette());
+			
 
 			default:
 				try
@@ -97,49 +115,9 @@ public class couteauSuisse
 			}
 		}
 
-	}
+	
 
-	/**
-	 * Permet d'acceder au module Frigo.
-	 */
-	private void executerChoixSousMenuFrigo(int choix)
-	{
-		switch (choix)
-		{
-		case 1:
-			this.affichage.demanderUnAliment();
-			this.insererAliment(this.interaction.saisirUnAliment());;
-			break;
-		case 2:
-			// Demander à l'utilisateur un aliment
-			// this.supprimerAliment(alimentASupprimer);
-			break;
-		case 3:
-			for (Aliment alimentCourant : ((Aliment[]) this.obtenirAlimentsPerimes().toArray()))
-			{
-				System.out.println(alimentCourant);
-			}
-			break;
-		case 4:
-			this.supprimerAlimentsPerimes();
-			break;
-		case 5:
-			System.out.println(this.leFrigo);
-			break;
-		case 0:
-			break;
-
-		default:
-			try
-			{
-				throw new ChoixIncorrectException();
-			}
-			catch (ChoixIncorrectException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	
 
 	}
 

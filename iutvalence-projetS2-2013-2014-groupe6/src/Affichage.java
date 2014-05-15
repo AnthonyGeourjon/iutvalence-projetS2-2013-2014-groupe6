@@ -6,8 +6,8 @@ public interface Affichage
 	public abstract void demanderUnChoix();
 	
 	public abstract void afficherLeNomDeLApplication();
-
-	public abstract void afficherSousMenu();
 	
 	public abstract void demanderUnAliment();
+
+	public abstract void demanderUneRecette();
 }

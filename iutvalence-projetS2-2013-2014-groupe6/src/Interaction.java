@@ -8,5 +8,7 @@ public interface Interaction
 	public abstract int choixNumerique();
 	
 	public abstract Aliment saisirUnAliment();
+
+	public abstract Recette demanderUneRecette();
 	
 }

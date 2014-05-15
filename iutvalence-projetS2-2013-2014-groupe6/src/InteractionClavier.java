@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class InteractionClavier extends InteractionAbstraite
@@ -42,5 +43,22 @@ public class InteractionClavier extends InteractionAbstraite
 		int prix = sc.nextInt();
 		
 		return new Aliment(nom, date, quantite, prix);
+	}
+	
+	@Override
+	public Recette demanderUneRecette()
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		String nom = sc.next();
+		
+		HashSet<Aliment> alimentsNecessaires = new HashSet<>();
+		
+		for(int alimentNuméro=0; alimentNuméro<sc.nextInt(); alimentNuméro++)
+		{
+			alimentsNecessaires.add(this.saisirUnAliment());
+		}
+		
+		return new Recette(alimentsNecessaires, nom);
 	}
 }

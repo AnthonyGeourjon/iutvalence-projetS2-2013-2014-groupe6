@@ -91,7 +91,7 @@ public class Frigo
 	 */
 	private void mAJRecettePossible()
 	{
-		if (Recette.obtenirToutesLesRecettesDisponibles().toArray() != null)
+		if (!Recette.obtenirToutesLesRecettesDisponibles().isEmpty())
 		{
 			Recette[] recettesDisponibles = (Recette[]) Recette.obtenirToutesLesRecettesDisponibles().toArray();
 

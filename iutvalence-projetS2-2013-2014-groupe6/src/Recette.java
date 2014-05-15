@@ -21,19 +21,16 @@ public class Recette
 	private HashSet<Aliment> alimentsNecessaires;
 
 	/**
-	 * @param alimentsNecessaires aliments nécessaires à sa confection 
+	 * @param hashSet aliments nécessaires à sa confection 
 	 * @param nom nom de la recette 
 	 */
-	public Recette(Aliment[] alimentsNecessaires, String nom)
+	public Recette(HashSet<Aliment> aliments, String nom)
 
 	{
 		this.nom = nom;
-		this.alimentsNecessaires = new HashSet<>();
+		this.alimentsNecessaires = aliments;
 
-		for (Aliment alimentCourant : alimentsNecessaires)
-		{
-			this.alimentsNecessaires.add(alimentCourant);
-		}
+		
 
 		Recette.toutesLesRecettesDisponibles.add(this);
 
@@ -57,6 +54,11 @@ public class Recette
 	public String toString()
 	{
 		return this.nom;
+	}
+	
+	public static void ajouterUneRecette(Recette recetteAAjouter)
+	{
+		Recette.toutesLesRecettesDisponibles.add(recetteAAjouter);
 	}
 
 }
