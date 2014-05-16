@@ -1,8 +1,15 @@
 import java.util.Date;
 import java.util.HashSet;
 
+/**
+ * @author geourjoa
+ *
+ */
 public class Aliment
 {
+	/**
+	 * 
+	 */
 	private static HashSet<Aliment> ensembleDesAlimentsConnus;
 
 	private String nom;
@@ -46,7 +53,7 @@ public class Aliment
 
 	public String toString()
 	{
-		return (this.nom + "(" + this.quantite + " unité(s)");
+		return (this.nom + "(" + this.quantite + " unitï¿½(s)");
 	}
 
 }

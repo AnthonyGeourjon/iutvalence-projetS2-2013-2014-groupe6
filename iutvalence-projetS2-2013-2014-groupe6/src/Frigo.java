@@ -1,6 +1,10 @@
 import java.util.HashSet;
 import java.util.Date;
 
+/**
+ * @author geourjoa
+ *
+ */
 public class Frigo
 {
 
@@ -46,6 +50,9 @@ public class Frigo
 		mAJRecettePossible();
 	}
 
+	/**
+	 * Supprimer les aliments périmées
+	 */
 	public void supprimerAlimentsPerimes()
 	{
 		for (Aliment alimentASupprimer : this.alimentsPerimes())

@@ -1,3 +1,7 @@
+/**
+ * @author geourjoa
+ *
+ */
 public class AffichageConsole implements Affichage
 {
 	@Override
