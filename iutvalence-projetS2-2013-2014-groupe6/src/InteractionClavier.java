@@ -54,7 +54,7 @@ public class InteractionClavier extends InteractionAbstraite
 		
 		HashSet<Aliment> alimentsNecessaires = new HashSet<>();
 		
-		for(int alimentNuméro=0; alimentNuméro<sc.nextInt(); alimentNuméro++)
+		for(int alimentNumero=0; alimentNumero<sc.nextInt(); alimentNumero++)
 		{
 			alimentsNecessaires.add(this.saisirUnAliment());
 		}

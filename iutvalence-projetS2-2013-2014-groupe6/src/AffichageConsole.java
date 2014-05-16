@@ -3,14 +3,14 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void afficherLeNomDeLApplication()
 	{
-		System.out.println("Le couteau suisse de l'étudiant :\n\n");
+		System.out.println("Le couteau suisse de l'etudiant :\n\n");
 	}
 
 	@Override
 	public void afficherLeMenu()
 	{
 
-		System.out.println("Menu principal : \n\nModule Gestion de frigo : \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, \n3-Afficher les aliments périmés\n4-Supprimer les aliments perimés, \n5-Afficher le frigo\n0-Quitter.\n");
+		System.out.println("Menu principal : \n\nModule Gestion de frigo : \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, \n3-Afficher les aliments pï¿½rimï¿½s\n4-Supprimer les aliments perimï¿½s, \n5-Afficher le frigo\n0-Quitter.\n");
 
 	}
 

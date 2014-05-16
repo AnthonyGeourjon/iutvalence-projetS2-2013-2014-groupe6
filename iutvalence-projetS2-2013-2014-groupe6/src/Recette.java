@@ -3,10 +3,10 @@ import java.util.HashSet;
 public class Recette
 {
 
-	// Ajouter des variables "Qualité", "Auteur" et "difficulté"
+	// Ajouter des variables "QualitÃ©", "Auteur" et "difficultÃ©"
 
 	/**
-	 * Ensemble des recettes enregistrés.
+	 * Ensemble des recettes enregistrÃ©s.
 	 */
 	private static HashSet<Recette> toutesLesRecettesDisponibles;
 
@@ -16,13 +16,13 @@ public class Recette
 	private String nom;
 
 	/**
-	 * Ensemble des aliments nécessaires à sa confection 
+	 * Ensemble des aliments nÃ©cessaires Ã  sa confection 
 	 */
 	private HashSet<Aliment> alimentsNecessaires;
 
 	/**
-	 * @param hashSet aliments nécessaires à sa confection 
-	 * @param nom nom de la recette 
+	 * @param hashSet aliments nï¿½cessaires Ã  sa confection 
+	 * @param nom de la recette 
 	 */
 	public Recette(HashSet<Aliment> aliments, String nom)
 
@@ -46,16 +46,25 @@ public class Recette
 		return toutesLesRecettesDisponibles;
 	}
 	
+	/**
+	 * @return l'ensemble des aliment nÃ©cessaires.
+	 */
 	public HashSet<Aliment> obtenirAlimentNecessaire()
 	{
 		return this.alimentsNecessaires;
 	}
 	
+	/**
+	 * @return le nom de la recette
+	 */
 	public String toString()
 	{
 		return this.nom;
 	}
 	
+	/**
+	 * MÃ©thode utilisÃ©e pour ajouter la recette
+	 */
 	public static void ajouterUneRecette(Recette recetteAAjouter)
 	{
 		Recette.toutesLesRecettesDisponibles.add(recetteAAjouter);

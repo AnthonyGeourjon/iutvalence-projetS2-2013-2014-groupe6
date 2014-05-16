@@ -10,7 +10,7 @@ public class Frigo
 	private HashSet<Aliment> alimentsDuFrigo;
 
 	/**
-	 * Ensemble des recettes pouvant etre réalisé avec le frigo en l'état
+	 * Ensemble des recettes pouvant etre rï¿½alisï¿½ avec le frigo en l'ï¿½tat
 	 */
 	private HashSet<Recette> recettesDisponibles;
 
@@ -25,7 +25,7 @@ public class Frigo
 
 	/**
 	 * @param alimentAAjouter
-	 *            aliment qui sera ajouté au frigo
+	 *            aliment qui sera ajoutï¿½ au frigo
 	 */
 	public void insererAliment(Aliment alimentAAjouter)
 	{
@@ -35,9 +35,9 @@ public class Frigo
 
 	/**
 	 * @param alimentASupprimer
-	 *            aliment qui sera retiré du frigo
+	 *            aliment qui sera retirï¿½ du frigo
 	 * @throws AlimentsInexistantException
-	 *             levé si l'aliment n'est pas dans le frigo
+	 *             levï¿½ si l'aliment n'est pas dans le frigo
 	 */
 	public void supprimerAliment(Aliment alimentASupprimer) throws AlimentsInexistantException
 	{
@@ -57,15 +57,15 @@ public class Frigo
 
 			catch (AlimentsInexistantException e)
 			{
-				// Inutile ici car l'aliment est forcément dans le frigo si il
-				// est périmé
+				// Inutile ici car l'aliment est forcï¿½ment dans le frigo si il
+				// est pÃ©rimÃ©
 			}
 
 		}
 	}
 
 	/**
-	 * @return la liste des aliments périmés
+	 * @return la liste des aliments pÃ©rimÃ©s
 	 */
 	public HashSet<Aliment> alimentsPerimes()
 	{
@@ -87,7 +87,7 @@ public class Frigo
 	}
 
 	/**
-	 * Méthode qui met à jour les recettes possibles
+	 * MÃ©thode qui met Ã  jour les recettes possibles
 	 */
 	private void mAJRecettePossible()
 	{
@@ -117,7 +117,7 @@ public class Frigo
 	}
 
 	/**
-	 * @return les éléments du frigo
+	 * @return les Ã©lÃ©ments du frigo
 	 */
 	public HashSet<Aliment> obtenirAlimenstDuFrigo()
 	{
