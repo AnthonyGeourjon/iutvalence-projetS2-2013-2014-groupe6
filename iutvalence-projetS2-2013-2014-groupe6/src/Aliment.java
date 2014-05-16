@@ -12,12 +12,24 @@ public class Aliment
 	 */
 	private static HashSet<Aliment> ensembleDesAlimentsConnus;
 
+	/**
+	 * Nom de l'aliment.
+	 */
 	private String nom;
 
+	/**
+	 * Quantité que l'on rajoute dans le frigo.
+	 */
 	private Integer quantite;
 
+	/**
+	 * Date de péremption de l'aliment.
+	 */
 	private Date datePeremption;
 
+	/**
+	 * Prix unitaire de l'aliment
+	 */
 	private Integer prix;
 
 	public Aliment(String nomAliment, Date datePeremption, Integer quantiteInitiale, Integer prix)
@@ -27,7 +39,8 @@ public class Aliment
 		this.quantite = quantiteInitiale;
 		this.prix= prix;
 
-		
+	
+		//TODO Ajouter l'aliment à la bibliothèque des aliments connus
 
 	}
 

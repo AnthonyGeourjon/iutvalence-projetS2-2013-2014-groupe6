@@ -11,7 +11,7 @@ public interface Affichage
 	public abstract void afficherLeMenu();
 	
 	/**
-	 * demander un choix numérique
+	 * Demander un choix numérique
 	 */
 	public abstract void demanderUnChoix();
 	
