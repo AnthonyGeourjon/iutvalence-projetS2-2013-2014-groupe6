@@ -5,7 +5,7 @@ public class Recette
 
 	// Ajouter des variables "Qualité", "Auteur" et "difficulté"
 
-	/**
+	/*
 	 * Ensemble des recettes enregistrés.
 	 */
 	private static HashSet<Recette> toutesLesRecettesDisponibles;
@@ -38,7 +38,7 @@ public class Recette
 
 	}
 
-	/**
+	/*
 	 * @return l'ensemble des recettes disponibles
 	 */
 	public static HashSet<Recette> obtenirToutesLesRecettesDisponibles()

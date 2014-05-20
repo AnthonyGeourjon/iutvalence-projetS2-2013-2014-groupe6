@@ -34,7 +34,7 @@ public class Frigo
 	public void insererAliment(Aliment alimentAAjouter)
 	{
 		this.alimentsDuFrigo.add(alimentAAjouter);
-		mAJRecettePossible();
+		//TODO mAJRecettePossible();
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Frigo
 	{
 		if (!this.alimentsDuFrigo.remove(alimentASupprimer))
 			throw new AlimentsInexistantException();
-		mAJRecettePossible();
+		//TODO mAJRecettePossible();
 	}
 
 	/**
