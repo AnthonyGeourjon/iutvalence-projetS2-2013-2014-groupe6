@@ -33,6 +33,8 @@ public class Frigo
 	 */
 	public void insererAliment(Aliment alimentAAjouter)
 	{
+		//TODO Verifier sil'aliment n'y est pas 
+		
 		this.alimentsDuFrigo.add(alimentAAjouter);
 		//TODO mAJRecettePossible();
 	}

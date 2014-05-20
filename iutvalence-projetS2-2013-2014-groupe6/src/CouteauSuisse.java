@@ -14,6 +14,12 @@ public class CouteauSuisse
 	 */
 	private Frigo leFrigo;
 
+	
+	/**
+	 * Scolarité de l'étudiant
+	 */
+	private ModuleScolaire moduleScolaire;
+
 	// ****** Constructeur(s) ******
 
 	public CouteauSuisse(Interaction interaction, Affichage affichage, Frigo frigo)
@@ -21,6 +27,7 @@ public class CouteauSuisse
 		this.affichage = affichage;
 		this.interaction = interaction;
 		this.leFrigo = frigo;
+		this.moduleScolaire = new ModuleScolaire();
 	}
 
 	// ****** MÃ©thode(s) ******
@@ -98,7 +105,7 @@ public class CouteauSuisse
 				this.insererAliment(this.interaction.saisirUnAliment());;
 				break;
 			case 2:
-				// Demander Ã  l'utilisateur un aliment
+				//this.interaction.demanderUnNom();
 				// this.supprimerAliment(alimentASupprimer);
 				break;
 			case 3:
