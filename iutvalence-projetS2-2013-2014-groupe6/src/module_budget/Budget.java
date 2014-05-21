@@ -1,3 +1,5 @@
+package module_budget;
+
 
 public class Budget {
 	

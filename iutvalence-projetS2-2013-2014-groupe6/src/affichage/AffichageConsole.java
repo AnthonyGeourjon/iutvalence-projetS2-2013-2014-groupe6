@@ -1,3 +1,4 @@
+package affichage;
 /**
  * @author geourjoa
  *

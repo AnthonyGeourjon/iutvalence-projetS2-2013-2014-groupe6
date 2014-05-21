@@ -1,5 +1,14 @@
+import interaction.Interaction;
+
 import java.util.HashSet;
 import java.util.Scanner;
+
+import affichage.Affichage;
+import module_alimentation.Aliment;
+import module_alimentation.AlimentsInexistantException;
+import module_alimentation.Frigo;
+import module_alimentation.Recette;
+import module_scolaire.ModuleScolaire;
 
 public class CouteauSuisse
 {

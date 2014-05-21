@@ -1,3 +1,4 @@
+package module_budget;
 
 public enum Etat {
 	

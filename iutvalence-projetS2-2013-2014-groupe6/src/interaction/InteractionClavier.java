@@ -1,9 +1,13 @@
+package interaction;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Scanner;
+
+import module_alimentation.Aliment;
+import module_alimentation.Recette;
 
 public class InteractionClavier extends InteractionAbstraite
 {

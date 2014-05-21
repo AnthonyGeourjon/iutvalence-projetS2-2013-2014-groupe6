@@ -1,3 +1,4 @@
+package module_scolaire;
 import java.util.Date;
 
 /**
@@ -50,7 +51,7 @@ public class Matiere
 		if( coeff>0)
 			this.coeff = coeff;
 		else
-			this.coeff=1.0;
+			this.coeff=1;
 		this.nombreDeNote = 0;
 		this.moyenne=0;
 	}

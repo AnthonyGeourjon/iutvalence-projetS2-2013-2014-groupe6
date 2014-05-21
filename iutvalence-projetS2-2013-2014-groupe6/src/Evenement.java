@@ -2,7 +2,7 @@ import java.util.Date;
 
 import javax.xml.soap.Text;
 
-public class evenement {
+public class Evenement {
 	
 	protected Date dateEvenement ;
 	
