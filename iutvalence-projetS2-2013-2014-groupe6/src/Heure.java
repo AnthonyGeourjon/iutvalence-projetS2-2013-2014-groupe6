@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Valentin
+ *
+ */
 
 public class Heure {
 	

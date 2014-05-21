@@ -1,5 +1,9 @@
 import java.util.HashSet;
-
+/**
+ * 
+ * @author Valentin
+ *
+ */
 
 public class Agenda {
 

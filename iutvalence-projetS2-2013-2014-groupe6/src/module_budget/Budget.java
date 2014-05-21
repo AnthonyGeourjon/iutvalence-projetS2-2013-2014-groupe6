@@ -1,4 +1,9 @@
 package module_budget;
+/**
+ * @author Valentin
+ */
+
+import java.util.Scanner;
 
 
 public class Budget {
@@ -6,6 +11,10 @@ public class Budget {
 	private float solde ;
 	private Etat etat ;
 	
+	
+	public Budget(float solde){
+		this.solde = solde ;
+	}
 	
 	public float getSolde() {
 		return solde;
@@ -27,8 +36,12 @@ public class Budget {
 	}
 	
 	
-	public void creerBudget(float Solde){
-		//pourquoi on a voulu faire cette méthode??
-		
+	// Est ce vraiment utile en sachant que il y a deja le Setter ??
+	public void initialiserBudget(float soldeDepart){
+		this.solde = soldeDepart ;
+	}
+	
+	public void ajouterOuSoustraireArgentAuSolde(float sommeArgent){
+		this.solde += sommeArgent ;
 	}
 }
