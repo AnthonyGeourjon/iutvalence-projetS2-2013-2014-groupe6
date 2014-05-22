@@ -129,7 +129,7 @@ public class CouteauSuisse
 				break;
 			case 6:
 				this.affichage.demanderUneRecette();
-				Recette.ajouterUneRecette(this.interaction.demanderUneRecette());
+				this.interaction.demanderUneRecette();
 				break;
 			default:
 				try

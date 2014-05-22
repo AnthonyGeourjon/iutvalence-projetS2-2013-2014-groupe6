@@ -23,19 +23,20 @@ public class Recette
 	 */
 	public static final Integer NOMBRE_MAX_DE_RECETTES=500;
 	
-	// *********************
-	//     ATTRIBUT :
-	// *********************
 	
 	/**
 	 * Ensemble des recettes enregistrés.
 	 */
-	private static Recette[] toutesLesRecettesConnues;
+	private static Recette[] TOUTES_LES_RECETTES_CONNUES;
 
 	/**
 	 * Nombre de recette connues
 	 */
-	private static Integer nombresDeRecetteConnues;
+	private static Integer NOMBRE_RECETTE_CONNUES;
+	
+	// *********************
+	//     ATTRIBUT :
+	// *********************
 	
 	/**
 	 * Nom de la recette 
@@ -74,6 +75,7 @@ public class Recette
 		
 		this.nom = nom;
 		this.alimentsNecessaires = aliments;
+		this.nombresDAlimentsDeLaRecette=nombresDAliments;
 
 		
 
@@ -89,9 +91,9 @@ public class Recette
 	/**
 	 * @return l'ensemble des recettes disponibles
 	 */
-	public static Recette[] obtenirToutesLesRecettesDisponibles()
+	public static Recette[] OBTENIR_TOUTES_LES_RECETETS_DISPONIBLES()
 	{
-		return Recette.toutesLesRecettesConnues;
+		return Recette.TOUTES_LES_RECETTES_CONNUES;
 	}
 	
 	/**
@@ -110,14 +112,4 @@ public class Recette
 		return this.nom;
 	}
 	
-	/**
-	 * Méthode utilisée pour ajouter la recette
-	 */
-	public static void ajouterUneRecette(Recette recetteAAjouter)
-	{
-		Recette.toutesLesRecettesConnues.add(recetteAAjouter);
-	}
-
-	
-
 }

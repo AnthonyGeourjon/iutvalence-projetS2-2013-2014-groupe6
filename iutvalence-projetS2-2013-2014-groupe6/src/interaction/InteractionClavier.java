@@ -6,11 +6,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Scanner;
 
+import Exception.NombreMaxDAlimentAtteintException;
+import Exception.NombreMaxDAlimentException;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
 
 public class InteractionClavier extends InteractionAbstraite
 {
+	
+
 	@Override
 	public int choixNumerique()
 	{
@@ -44,9 +48,16 @@ public class InteractionClavier extends InteractionAbstraite
 		} 
 		
 		int quantite = sc.nextInt();
-		int prix = sc.nextInt();
 		
-		return new Aliment(nom, date, quantite, prix);
+		try
+		{
+			return new Aliment(nom, date, quantite);
+		}
+		catch (NombreMaxDAlimentAtteintException e)
+		{
+			System.out.println(ERREUR_1);
+		}
+		return null;
 	}
 	
 	@Override
@@ -56,13 +67,24 @@ public class InteractionClavier extends InteractionAbstraite
 		
 		String nom = sc.next();
 		
-		HashSet<Aliment> alimentsNecessaires = new HashSet<>();
+		int nombreDAlimentDeLARecette=sc.nextInt();
 		
-		for(int alimentNumero=0; alimentNumero<sc.nextInt(); alimentNumero++)
+		Aliment[] alimentsNecessaires = new Aliment[nombreDAlimentDeLARecette];
+		
+		for(int alimentNumero=0; alimentNumero<nombreDAlimentDeLARecette; alimentNumero++)
 		{
-			alimentsNecessaires.add(this.saisirUnAliment());
+			alimentsNecessaires[alimentNumero]=this.saisirUnAliment();
 		}
 		
-		return new Recette(alimentsNecessaires, nom);
+		try
+		{
+			return new Recette(alimentsNecessaires, nombreDAlimentDeLARecette, nom);
+		}
+		catch (NombreMaxDAlimentException e)
+		{
+			System.out.println(ERREUR_2);
+		}
+		
+		return null;
 	}
 }
