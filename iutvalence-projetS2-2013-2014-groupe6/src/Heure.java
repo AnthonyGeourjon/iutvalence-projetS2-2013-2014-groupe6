@@ -1,33 +1,34 @@
 /**
  * 
  * @author Valentin
- *
+ * 
  */
 
-public class Heure {
-	
-	private int minute ;
-	
-	private int heure ;
+public class Heure 
+{
 
-	public int getMinute() {
+	private int minute;
+
+	private int heure;
+
+	public int getMinute()
+	{
 		return minute;
 	}
 
-	public void setMinute(int minute) {
+	public void setMinute(int minute)
+	{
 		this.minute = minute;
 	}
 
-	public int getHeure() {
+	public int getHeure()
+	{
 		return heure;
 	}
 
-	public void setHeure(int heure) {
+	public void setHeure(int heure)
+	{
 		this.heure = heure;
 	}
-	
-	
-	
-	
 
 }

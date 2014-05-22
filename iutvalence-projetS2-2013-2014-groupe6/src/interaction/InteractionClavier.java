@@ -3,7 +3,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Scanner;
 
 import Exception.NombreMaxDAlimentAtteintException;
@@ -11,6 +10,10 @@ import Exception.NombreMaxDAlimentException;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
 
+/**
+ * @author geourjoa
+ *
+ */
 public class InteractionClavier extends InteractionAbstraite
 {
 	
