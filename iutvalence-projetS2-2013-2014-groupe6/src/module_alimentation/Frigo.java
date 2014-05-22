@@ -14,19 +14,24 @@ public class Frigo
 	/**
 	 * Ensemble des aliments du frigo
 	 */
-	private HashSet<Aliment> alimentsDuFrigo;
+	private Aliment[] alimentsDuFrigo;
 
 	/**
 	 * Ensemble des recettes pouvant etre r�alis� avec le frigo en l'�tat
 	 */
-	private HashSet<Recette> recettesDisponibles;
+	private Recette[] recettesDisponibles;
+	
+	/**
+	 * nombre max d'aliments pouvant etre contenu
+	 */
+	private static final Integer NOMBRE_MAX_D_ALIMENT_DANS_LE_FRIGO = 100;
 
 	/**
 	 * Constructeur
 	 */
 	public Frigo()
 	{
-		this.alimentsDuFrigo = new HashSet<>();
+		this.alimentsDuFrigo = new Aliment[]
 		this.recettesDisponibles = new HashSet<>();
 	}
 

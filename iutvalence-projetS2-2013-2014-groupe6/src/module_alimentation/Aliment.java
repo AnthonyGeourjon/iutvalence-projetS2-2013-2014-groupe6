@@ -1,8 +1,6 @@
 package module_alimentation;
 
 import java.util.Date;
-import java.util.HashSet;
-
 import Exception.NombreMaxDAlimentAtteintException;
 
 /**
@@ -14,17 +12,17 @@ public class Aliment
 	/**
 	 * Ensembles des aliments connus
 	 */
-	private static Aliment[] ensembleDesAlimentsConnus;
+	private static Aliment[] ENSEMBLE_DES_ALIMENTS_CONNUS;
 
 	/**
 	 * Nombre d'aliments connus
 	 */
-	private static Integer nombresDALimentsConnus;
+	private static Integer NOMBRE_D_ALIMENT_CONNUS;
 
 	/**
 	 * Nombre par défaut d'emplacement dans le tableau d'aliments connus
 	 */
-	private static Integer NOMBRE_MAX_DALIMENTS;
+	private static final Integer NOMBRE_MAX_DALIMENTS=100;
 
 	/**
 	 * Nom de l'aliment.
@@ -54,13 +52,13 @@ public class Aliment
 	public Aliment(String nomAliment, Date datePeremption, Integer quantiteInitiale)
 			throws NombreMaxDAlimentAtteintException
 	{
-		if (Aliment.nombresDALimentsConnus != Aliment.NOMBRE_MAX_DALIMENTS)
+		if (Aliment.NOMBRE_D_ALIMENT_CONNUS != Aliment.NOMBRE_MAX_DALIMENTS)
 		{
 			this.datePeremption = datePeremption;
 			this.nom = nomAliment;
 			this.quantite = quantiteInitiale;
 
-			Aliment.ensembleDesAlimentsConnus[Aliment.nombresDALimentsConnus++] = this;
+			Aliment.ENSEMBLE_DES_ALIMENTS_CONNUS[Aliment.NOMBRE_D_ALIMENT_CONNUS++] = this;
 
 			// TODO Verifier que l'aliment n'est pas deja connu
 
@@ -69,16 +67,25 @@ public class Aliment
 			throw new NombreMaxDAlimentAtteintException();
 	}
 
+	/**
+	 * @return nom
+	 */
 	public String obtenirNom()
 	{
 		return this.nom;
 	}
 
+	/**
+	 * @return date de peremption
+	 */
 	public Date obtenirDateDePeremption()
 	{
 		return this.datePeremption;
 	}
 
+	/**
+	 * @param variation change la quantité de l'aliment
+	 */
 	public void changerQuantite(Integer variation)
 	{
 		this.quantite += variation;
@@ -89,9 +96,12 @@ public class Aliment
 		return (this.nom + "(" + this.quantite + " unit�(s)");
 	}
 
+	/**
+	 * Initialise le tableau qui contient tout les aliments connus
+	 */
 	public static void initialiserTableauEnsembleDesAlimentsConnus()
 	{
-		Aliment.ensembleDesAlimentsConnus = new Aliment[Aliment.NOMBRE_MAX_DALIMENTS];
+		Aliment.ENSEMBLE_DES_ALIMENTS_CONNUS = new Aliment[Aliment.NOMBRE_MAX_DALIMENTS];
 
 	}
 

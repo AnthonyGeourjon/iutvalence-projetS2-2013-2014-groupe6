@@ -1,26 +1,30 @@
 package general;
 
 import interaction.Interaction;
-
-import java.util.HashSet;
-import java.util.Scanner;
-
-import Exception.AlimentsInexistantException;
 import Exception.ChoixIncorrectException;
 import affichage.Affichage;
-import module_alimentation.Aliment;
 import module_alimentation.Frigo;
 import module_alimentation.ModuleAlimentation;
-import module_alimentation.Recette;
 import module_scolaire.ModuleScolaire;
 
+/**
+ * @author geourjoa
+ *
+ */
 public class CouteauSuisse
 {
 	// ****** Attribut(s) ******
+	
+	/**
+	 * Interaction utilisée
+	 */
+	private Interaction interaction;
 
-	protected Interaction interaction;
-
-	protected Affichage affichage;
+	
+	/**
+	 * Affichage utilisé
+	 */
+	private Affichage affichage;
 
 	
 
@@ -36,11 +40,17 @@ public class CouteauSuisse
 
 	// ****** Constructeur(s) ******
 
-	public CouteauSuisse(Interaction interaction, Affichage affichage, Frigo frigo)
+	/**
+	 * @param interaction Interaction utilisée
+	 * @param affichage Affichage utilisé
+	 * @param frigo frigo du module
+	 */
+	public CouteauSuisse(Interaction interaction, Affichage affichage)
 	{
 		this.affichage = affichage;
 		this.interaction = interaction;
 		this.moduleScolaire = new ModuleScolaire();
+		this.moduleAlimentation = new ModuleAlimentation();
 	}
 
 	// ****** Méthode(s) ******

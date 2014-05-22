@@ -6,10 +6,9 @@ import general.CouteauSuisse;
 import general.Module;
 import Exception.ChoixIncorrectException;
 
-
 /**
  * @author geourjoa
- *
+ * 
  */
 public class ModuleAlimentation implements Module
 {
@@ -17,10 +16,12 @@ public class ModuleAlimentation implements Module
 	 * Frigo associé au module
 	 */
 	private Frigo leFrigo;
-	
+
 	/**
-	 * @param affichageUtilise affichage que l'on utilise
-	 * @param interactionUtilise interaction que l'on utilise
+	 * @param affichageUtilise
+	 *            affichage que l'on utilise
+	 * @param interactionUtilise
+	 *            interaction que l'on utilise
 	 */
 	public void utiliserModule(Affichage affichageUtilise, Interaction interactionUtilise)
 	{
@@ -37,7 +38,7 @@ public class ModuleAlimentation implements Module
 				break;
 			case 1:
 				affichageUtilise.demanderUnAliment();
-				interactionUtilise.saisirUnAliment();
+				this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
 				;
 				break;
 			case 2:
@@ -45,15 +46,15 @@ public class ModuleAlimentation implements Module
 				// this.supprimerAliment(alimentASupprimer);
 				break;
 			case 3:
-				//TODO Pas encore passé en tablau
-				
+				// TODO Pas encore passé en tableau
+
 				for (Aliment alimentCourant : ((Aliment[]) this.leFrigo.alimentsPerimes().toArray()))
 					System.out.println(alimentCourant);
 				break;
 			case 4:
-				//TODO Pas encore passé en tablau
-				
-				//this.supprimerAlimentsPerimes();
+				// TODO Pas encore passé en tableau
+
+				// this.supprimerAlimentsPerimes();
 				break;
 			case 5:
 				System.out.println(this.leFrigo);
