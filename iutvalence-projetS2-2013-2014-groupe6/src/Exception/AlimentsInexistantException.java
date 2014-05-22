@@ -1,4 +1,4 @@
-package module_alimentation;
+package Exception;
 
 public class AlimentsInexistantException extends Exception
 {

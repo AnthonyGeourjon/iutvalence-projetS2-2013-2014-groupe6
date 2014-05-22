@@ -2,6 +2,8 @@ package module_alimentation;
 import java.util.Date;
 import java.util.HashSet;
 
+import Exception.NombreMaxDAlimentAtteintException;
+
 /**
  * @author geourjoa
  *
@@ -9,9 +11,19 @@ import java.util.HashSet;
 public class Aliment
 {
 	/**
-	 * 
+	 * Ensembles des aliments connus
 	 */
-	private static HashSet<Aliment> ensembleDesAlimentsConnus;
+	private static Aliment[] ensembleDesAlimentsConnus;
+	
+	/**
+	 * Nombre d'aliments connus
+	 */
+	private static Integer nombresDALimentsConnus;
+	
+	/**
+	 * Nombre par défaut d'emplacement dans le tableau d'aliments connus
+	 */
+	private static Integer NOMBRE_MAX_DALIMENTS;
 
 	/**
 	 * Nom de l'aliment.
@@ -29,20 +41,26 @@ public class Aliment
 	private Date datePeremption;
 
 	/**
-	 * Prix unitaire de l'aliment
+	 * @param nomAliment nom de l'aliment
+	 * @param datePeremption date de peremption de l'aliment* 
+	 * @param quantiteInitiale quantite du produit 
+	 * @throws NombreMaxDAlimentAtteintException levé si il n'y pas plus de place
 	 */
-	private Integer prix;
-
-	public Aliment(String nomAliment, Date datePeremption, Integer quantiteInitiale, Integer prix)
+	public Aliment(String nomAliment, Date datePeremption, Integer quantiteInitiale) throws NombreMaxDAlimentAtteintException
 	{
-		this.datePeremption = datePeremption;
+		if(Aliment.nombresDALimentsConnus!=Aliment.NOMBRE_MAX_DALIMENTS)
+		{
+			this.datePeremption = datePeremption;
 		this.nom = nomAliment;
 		this.quantite = quantiteInitiale;
-		this.prix= prix;
-
-	
-		//TODO Ajouter l'aliment à la bibliothèque des aliments connus
-
+		
+		Aliment.ensembleDesAlimentsConnus[Aliment.nombresDALimentsConnus++]=this;
+		
+		//TODO Verifier que l'aliment n'est pas deja connu
+		
+		}
+		else
+			throw new NombreMaxDAlimentAtteintException();
 	}
 
 	public String obtenirNom()
@@ -60,14 +78,15 @@ public class Aliment
 		this.quantite += variation;
 	}
 
-	public Integer obtenirPrix()
-	{
-		return this.prix;
-	}
-
 	public String toString()
 	{
 		return (this.nom + "(" + this.quantite + " unit�(s)");
+	}
+
+	public static void initialiserTableauEnsembleDesAlimentsConnus()
+	{
+		Aliment.ensembleDesAlimentsConnus=new Aliment[Aliment.NOMBRE_MAX_DALIMENTS];
+		
 	}
 
 }

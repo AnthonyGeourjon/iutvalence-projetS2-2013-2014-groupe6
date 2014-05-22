@@ -3,9 +3,10 @@ import interaction.Interaction;
 import java.util.HashSet;
 import java.util.Scanner;
 
+import Exception.AlimentsInexistantException;
+import Exception.ChoixIncorrectException;
 import affichage.Affichage;
 import module_alimentation.Aliment;
-import module_alimentation.AlimentsInexistantException;
 import module_alimentation.Frigo;
 import module_alimentation.Recette;
 import module_scolaire.ModuleScolaire;
@@ -23,9 +24,8 @@ public class CouteauSuisse
 	 */
 	private Frigo leFrigo;
 
-	
 	/**
-	 * Scolarit� de l'�tudiant
+	 * Scolarit� de l'�tudiant
 	 */
 	private ModuleScolaire moduleScolaire;
 
@@ -41,7 +41,6 @@ public class CouteauSuisse
 
 	// ****** Méthode(s) ******
 
-	
 	/**
 	 * Méthode qui ajoute un aliment dans le frigo.
 	 */
@@ -51,8 +50,8 @@ public class CouteauSuisse
 	}
 
 	/**
-	 * Méthode qui supprime un aliment du frigo.
-	 * On lève une exception si ca ne fonctionnne pas.
+	 * Méthode qui supprime un aliment du frigo. On lève une exception si ca ne
+	 * fonctionnne pas.
 	 */
 	private void supprimerAliment(Aliment alimentASupprimer)
 	{
@@ -111,28 +110,27 @@ public class CouteauSuisse
 				break;
 			case 1:
 				this.affichage.demanderUnAliment();
-				this.insererAliment(this.interaction.saisirUnAliment());;
+				this.insererAliment(this.interaction.saisirUnAliment());
+				;
 				break;
 			case 2:
-				//this.interaction.demanderUnNom();
+				// this.interaction.demanderUnNom();
 				// this.supprimerAliment(alimentASupprimer);
 				break;
 			case 3:
 				for (Aliment alimentCourant : ((Aliment[]) this.obtenirAlimentsPerimes().toArray()))
-				{
 					System.out.println(alimentCourant);
-				}
+				break;
 			case 4:
 				this.supprimerAlimentsPerimes();
 				break;
 			case 5:
 				System.out.println(this.leFrigo);
 				break;
-			case 6 :
+			case 6:
 				this.affichage.demanderUneRecette();
 				Recette.ajouterUneRecette(this.interaction.demanderUneRecette());
-			
-
+				break;
 			default:
 				try
 				{
@@ -147,10 +145,6 @@ public class CouteauSuisse
 
 			}
 		}
-
-	
-
-	
 
 	}
 

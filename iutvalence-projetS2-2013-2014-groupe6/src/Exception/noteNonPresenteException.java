@@ -1,4 +1,4 @@
-package module_scolaire;
+package Exception;
 
 public class noteNonPresenteException extends Exception
 {

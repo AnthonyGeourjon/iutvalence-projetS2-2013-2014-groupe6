@@ -2,6 +2,8 @@ package module_alimentation;
 import java.util.HashSet;
 import java.util.Date;
 
+import Exception.AlimentsInexistantException;
+
 /**
  * @author geourjoa
  *
