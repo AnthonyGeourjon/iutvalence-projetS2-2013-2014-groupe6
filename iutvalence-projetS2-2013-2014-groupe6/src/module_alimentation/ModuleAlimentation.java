@@ -42,7 +42,7 @@ public class ModuleAlimentation implements Module
 				;
 				break;
 			case 2:
-				// this.interaction.demanderUnNom();
+				affichageUtilise.demanderUnNom();
 				// this.supprimerAliment(alimentASupprimer);
 				break;
 			case 3:

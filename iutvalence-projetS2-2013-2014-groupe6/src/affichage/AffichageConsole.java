@@ -41,4 +41,11 @@ public class AffichageConsole implements Affichage
 		System.out.println("Saisissez une recette sous la forme d'un nom puis un nombre d'aliment. Ensuite saisissez les aliments sous cette forme : (un nom, une date (format: jj-mm-aaaa), une quantite, et un prix.");
 		
 	}
+	
+	@Override
+	public void demanderUnNom()
+	{
+		System.out.println("Saisissez un nom :");
+		
+	}
 }

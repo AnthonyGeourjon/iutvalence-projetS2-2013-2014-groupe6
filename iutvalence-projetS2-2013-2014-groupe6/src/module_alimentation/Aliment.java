@@ -12,7 +12,7 @@ public class Aliment
 	/**
 	 * Ensembles des aliments connus
 	 */
-	private static Aliment[] ENSEMBLE_DES_ALIMENTS_CONNUS;
+	private static  Aliment[] ENSEMBLE_DES_ALIMENTS_CONNUS;
 
 	/**
 	 * Nombre d'aliments connus
@@ -22,7 +22,7 @@ public class Aliment
 	/**
 	 * Nombre par défaut d'emplacement dans le tableau d'aliments connus
 	 */
-	private static final Integer NOMBRE_MAX_DALIMENTS=100;
+	public static final Integer NOMBRE_MAX_DALIMENTS=100;
 
 	/**
 	 * Nom de l'aliment.

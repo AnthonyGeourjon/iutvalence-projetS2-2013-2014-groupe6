@@ -30,4 +30,9 @@ public interface Affichage
 	 * Demander une recette
 	 */
 	public abstract void demanderUneRecette();
+
+	/**
+	 * Demander un nom
+	 */
+	public abstract void demanderUnNom();
 }

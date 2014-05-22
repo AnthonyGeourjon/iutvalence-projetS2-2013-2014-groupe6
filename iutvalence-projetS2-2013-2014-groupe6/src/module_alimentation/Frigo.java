@@ -1,4 +1,5 @@
 package module_alimentation;
+
 import java.util.HashSet;
 import java.util.Date;
 
@@ -6,7 +7,7 @@ import Exception.AlimentsInexistantException;
 
 /**
  * @author geourjoa
- *
+ * 
  */
 public class Frigo
 {
@@ -20,19 +21,21 @@ public class Frigo
 	 * Ensemble des recettes pouvant etre r�alis� avec le frigo en l'�tat
 	 */
 	private Recette[] recettesDisponibles;
-	
+
 	/**
 	 * nombre max d'aliments pouvant etre contenu
 	 */
 	private static final Integer NOMBRE_MAX_D_ALIMENT_DANS_LE_FRIGO = 100;
+
+	private int nombreDAlimentDansLeFrigo;
 
 	/**
 	 * Constructeur
 	 */
 	public Frigo()
 	{
-		this.alimentsDuFrigo = new Aliment[]
-		this.recettesDisponibles = new HashSet<>();
+		this.alimentsDuFrigo = new Aliment[Aliment.NOMBRE_MAX_DALIMENTS];
+		this.recettesDisponibles = new Recette[Recette.NOMBRE_MAX_DE_RECETTES];
 	}
 
 	/**
@@ -41,10 +44,12 @@ public class Frigo
 	 */
 	public void insererAliment(Aliment alimentAAjouter)
 	{
-		//TODO Verifier sil'aliment n'y est pas 
-		
-		this.alimentsDuFrigo.add(alimentAAjouter);
-		//TODO mAJRecettePossible();
+		// TODO Verifier sil'aliment n'y est pas
+
+		this.alimentsDuFrigo[this.nombreDAlimentDansLeFrigo] = alimentAAjouter;
+		this.nombreDAlimentDansLeFrigo++;
+
+		// TODO mAJRecettePossible();
 	}
 
 	/**
@@ -53,11 +58,28 @@ public class Frigo
 	 * @throws AlimentsInexistantException
 	 *             lev� si l'aliment n'est pas dans le frigo
 	 */
-	public void supprimerAliment(Aliment alimentASupprimer) throws AlimentsInexistantException
+	public void supprimerAliment(String nomAlimentASupprimer) throws AlimentsInexistantException
 	{
-		if (!this.alimentsDuFrigo.remove(alimentASupprimer))
+		boolean trouve = false;
+		int placeAlimentATrouver = 0;
+
+		for (Aliment alimentCourant : this.alimentsDuFrigo)
+		{
+			if (nomAlimentASupprimer == alimentCourant.obtenirNom())
+				trouve = true;
+			else
+				placeAlimentATrouver++;
+		}
+
+		if (trouve)
 			throw new AlimentsInexistantException();
-		//TODO mAJRecettePossible();
+		else
+		{
+			for (int place = placeAlimentATrouver; place < this.nombreDAlimentDansLeFrigo; place++)
+				this.alimentsDuFrigo[place] = this.alimentsDuFrigo[place + 1];
+			this.nombreDAlimentDansLeFrigo--;
+		}
+
 	}
 
 	/**
@@ -67,16 +89,7 @@ public class Frigo
 	{
 		for (Aliment alimentASupprimer : this.alimentsPerimes())
 		{
-			try
-			{
-				this.supprimerAliment(alimentASupprimer);
-			}
-
-			catch (AlimentsInexistantException e)
-			{
-				// Inutile ici car l'aliment est forc�ment dans le frigo si il
-				// est périmé
-			}
+			
 
 		}
 	}
@@ -84,19 +97,23 @@ public class Frigo
 	/**
 	 * @return la liste des aliments périmés
 	 */
-	public HashSet<Aliment> alimentsPerimes()
+	public Aliment[] alimentsPerimes()
 	{
-		HashSet<Aliment> alimentsPerimes = new HashSet<>();
+		Aliment[] alimentsPerimes=new Aliment[Frigo.NOMBRE_MAX_D_ALIMENT_DANS_LE_FRIGO];
+		
+		int placeAlimentPerimes=0;
 
-		Object[] lesAliments = this.alimentsDuFrigo.toArray();
-
-		for (Object alimentCourant : lesAliments)
+		for (Aliment alimentCourant : this.alimentsDuFrigo)
 		{
 
-			if (((Aliment) alimentCourant).obtenirDateDePeremption().before(new Date()))
+			if (alimentCourant.obtenirDateDePeremption().before(new Date()))
 			{
-				alimentsPerimes.add((Aliment) alimentCourant);
+				for (int place = placeAlimentPerimes; place < this.nombreDAlimentDansLeFrigo; place++)
+					this.alimentsDuFrigo[place] = this.alimentsDuFrigo[place + 1];
+				this.nombreDAlimentDansLeFrigo--;
 			}
+			else
+				placeAlimentPerimes++;
 		}
 
 		return alimentsPerimes;
