@@ -1,8 +1,11 @@
 package module_scolaire;
-import java.util.Date;
 
-import exception.noteDejaPresenteException;
-import exception.noteNonPresenteException;
+import java.util.Date;
+import java.util.Hashtable;
+import exception.MatiereSaisieIncorrecteException;
+import exception.NoteDejaPresenteException;
+import exception.NoteNonPresenteException;
+import exception.NoteSaisieIncorrecteException;
 
 /**
  * @author Anthony
@@ -11,19 +14,14 @@ import exception.noteNonPresenteException;
 public class Matiere
 {
 	/**
-	 * Nombre de max de notes 
-	 */
-	private static final int NOMBRE_MAX_DE_NOTES = 20;
-
-	/**
 	 * moyenne dans cette matiere
 	 */
 	private float moyenne;
 
 	/**
-	 * ensemble des notes 
+	 * ensemble des notes
 	 */
-	private Note[] lesNotes;
+	private Hashtable<Date, Note> lesNotes;
 
 	/**
 	 * nom de la matiere
@@ -33,83 +31,76 @@ public class Matiere
 	/**
 	 * coeff de la matiere
 	 */
-	private float coeff;
+	private float coeffient;
 
 	/**
-	 * nombre de note 
+	 * @param nomMatiere
+	 *            nom de la matiere
+	 * @param coeff
+	 *            coeff de la matiere
+	 * @throws MatiereSaisieIncorrecteException
+	 *             lev� si le coefficient est incorrecte
 	 */
-	private int nombreDeNote;
-
-
-	/**
-	 * @param nomMatiere nom de la matiere
-	 * @param coeff coeff de la matiere
-	 */
-	public Matiere(String nomMatiere, float coeff)
+	public Matiere(String nomMatiere, float coeff) throws MatiereSaisieIncorrecteException
 	{
-		super();
-		this.lesNotes = new Note[NOMBRE_MAX_DE_NOTES];
+		if (coeff < 0)
+			throw new MatiereSaisieIncorrecteException();
+		this.lesNotes = new Hashtable<>();
 		this.nomMatiere = nomMatiere;
-		
-		if( coeff>0)
-			this.coeff = coeff;
+
+		if (coeff > 0)
+			this.coeffient = coeff;
 		else
-			this.coeff=1;
-		this.nombreDeNote = 0;
-		this.moyenne=0;
+			this.coeffient = 1;
+		this.moyenne = 0;
 	}
 
 	/**
-	 * @param date date de la note à inserer
-	 * @param valeur valeur de la note à inserer
-	 * @param coeff coeff de la note à inserer
-	 * @param commentaire de la note à inserer
-	 * @throws noteDejaPresenteException levé si une note est deja rentré à la meme date
+	 * @param date
+	 *            date de la note à inserer
+	 * @param valeur
+	 *            valeur de la note à inserer
+	 * @param coeff
+	 *            coeff de la note à inserer
+	 * @param commentaire
+	 *            de la note à inserer
+	 * @throws NoteDejaPresenteException
+	 *             levé si une note est deja rentré à la meme date
 	 */
 	public void insererUneNote(Date date, float valeur, float coeff, String commentaire)
-			throws noteDejaPresenteException
+			throws NoteDejaPresenteException
 	{
-		for (int elementCourant = 0; elementCourant < this.nombreDeNote; elementCourant++)
+		if (this.lesNotes.containsKey(date))
+			throw new NoteDejaPresenteException();
+		else
 		{
-			if (date == this.lesNotes[elementCourant].obtenirDate())
+			try
 			{
-				this.nombreDeNote++;
-				this.lesNotes[this.nombreDeNote] = new Note(date, valeur, coeff, commentaire);
+				this.lesNotes.put(date, new Note(date, valeur, coeff, commentaire));
 			}
-			else
+			catch (NoteSaisieIncorrecteException e)
 			{
-				throw new noteDejaPresenteException();
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+
+			this.mettreAJourLaMoyenne();
 		}
 
-		this.mettreAJourLaMoyenne();
 	}
 
 	/**
-	 * @param date date de la note a trouver
-	 * @throws noteNonPresenteException levé si la note n'est pas trouvé
+	 * @param date
+	 *            date de la note a trouver
+	 * @throws NoteNonPresenteException
+	 *             levé si la note n'est pas trouvé
 	 */
-	public void supprimerUneNote(Date date) throws noteNonPresenteException
+	public void supprimerUneNote(Date date) throws NoteNonPresenteException
 	{
-		boolean trouve = false;
-
-		for (int indiceElementCourant = 0; indiceElementCourant < this.nombreDeNote; indiceElementCourant++)
-		{
-			if (date == this.lesNotes[indiceElementCourant].obtenirDate())
-			{
-				for (int emplacementNoteASupprimer = indiceElementCourant; emplacementNoteASupprimer < this.nombreDeNote; emplacementNoteASupprimer++)
-				{
-					this.lesNotes[emplacementNoteASupprimer] = this.lesNotes[emplacementNoteASupprimer + 1];
-					trouve = true;
-				}
-			}
-
-		}
-
-		if (!trouve)
-			throw new noteNonPresenteException();
-		
-		this.mettreAJourLaMoyenne();
+		if (this.lesNotes.remove(date) == null)
+			throw new NoteNonPresenteException();
+		else
+			this.mettreAJourLaMoyenne();
 	}
 
 	/**
@@ -117,15 +108,40 @@ public class Matiere
 	 */
 	private void mettreAJourLaMoyenne()
 	{
-		float somme = 0 , totalDesCoeff = 0;
-		
-		for (int indiceElementCourant = 0; indiceElementCourant < this.nombreDeNote; indiceElementCourant++)
-		{
-			somme+=this.lesNotes[indiceElementCourant].obtenirValeur()*this.lesNotes[indiceElementCourant].obtenirCoeff();
-			totalDesCoeff+=this.lesNotes[indiceElementCourant].obtenirCoeff();
-		}
-		
-		this.moyenne=(somme/totalDesCoeff)/this.nombreDeNote;
+		float moyenne = 0;
+		float sommeDesCoefficients = 0;
 
+		for (Note noteCourante : this.lesNotes.values())
+		{
+			moyenne += noteCourante.obtenirValeur() * noteCourante.obtenirCoefficient();
+			sommeDesCoefficients += noteCourante.obtenirCoefficient();
+		}
+
+		this.moyenne = (moyenne / sommeDesCoefficients) / this.lesNotes.size();
+
+	}
+
+	/**
+	 * @return la moyenne dans la matiere
+	 */
+	public float obtenirMoyenne()
+	{
+		return moyenne;
+	}
+
+	/**
+	 * @return le nom de la matiere
+	 */
+	public String obtenirNomMatiere()
+	{
+		return nomMatiere;
+	}
+
+	/**
+	 * @return le coefficient
+	 */
+	public float obtenirCoefficient()
+	{
+		return coeffient;
 	}
 }

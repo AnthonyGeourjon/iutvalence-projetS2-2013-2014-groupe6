@@ -1,31 +1,42 @@
 package module_scolaire;
+
+import java.util.Hashtable;
+
 /**
  * @author Anthony
- *
+ * 
  */
 public class UE
 {
-	private static final int NOMBRE_MAX_DUE = 4;
 
+	/**
+	 * Moyenne de l'ue
+	 */
 	private float moyenneDeLUE;
-	
+
+	/**
+	 * Nom de l'ue
+	 */
 	private String nom;
-	
-	private float coeff;
-	
-	private Matiere[] lesMatieresDeLUE;
-	
-	private int nombreDeMatiere;
+
+	/**
+	 * Coefficient de l'ue
+	 */
+	private float coeffient;
+
+	/**
+	 * Ensemble des matieres
+	 */
+	private Hashtable<String , Matiere> lesMatieresDeLUE;
 
 	public UE(float moyenneDeLUE, String nom, float coeff)
 	{
 		super();
 		this.moyenneDeLUE = moyenneDeLUE;
 		this.nom = nom;
-		this.coeff = coeff;
+		this.coeffient = coeff;
 		this.lesMatieresDeLUE = new Matiere[NOMBRE_MAX_DUE];
-		this.nombreDeMatiere=0;
+		this.nombreDeMatiere = 0;
 	}
-	
-	
+
 }

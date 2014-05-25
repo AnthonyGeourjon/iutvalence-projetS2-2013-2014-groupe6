@@ -16,6 +16,9 @@ public class ModuleAlimentation implements Module
 	 */
 	private Frigo leFrigo;
 	
+	/**
+	 * Constructeur par défaut
+	 */
 	public ModuleAlimentation()
 	{
 		this.leFrigo=new Frigo();
