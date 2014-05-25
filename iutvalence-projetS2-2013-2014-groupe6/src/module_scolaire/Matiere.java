@@ -5,7 +5,6 @@ import java.util.Hashtable;
 import exception.MatiereSaisieIncorrecteException;
 import exception.NoteDejaPresenteException;
 import exception.NoteNonPresenteException;
-import exception.NoteSaisieIncorrecteException;
 
 /**
  * @author Anthony
@@ -55,35 +54,18 @@ public class Matiere
 		this.moyenne = 0;
 	}
 
+	
 	/**
-	 * @param date
-	 *            date de la note Ã  inserer
-	 * @param valeur
-	 *            valeur de la note Ã  inserer
-	 * @param coeff
-	 *            coeff de la note Ã  inserer
-	 * @param commentaire
-	 *            de la note Ã  inserer
-	 * @throws NoteDejaPresenteException
-	 *             levÃ© si une note est deja rentrÃ© Ã  la meme date
+	 * @param noteAAjouter note à ajouter à la matiere
+	 * @throws NoteDejaPresenteException levé si une note à deja été rentré à ce jour là
 	 */
-	public void insererUneNote(Date date, float valeur, float coeff, String commentaire)
-			throws NoteDejaPresenteException
+	public void insererUneNote(Note noteAAjouter) throws NoteDejaPresenteException
 	{
-		if (this.lesNotes.containsKey(date))
+		if (this.lesNotes.containsKey(noteAAjouter.obtenirDate()))
 			throw new NoteDejaPresenteException();
 		else
 		{
-			try
-			{
-				this.lesNotes.put(date, new Note(date, valeur, coeff, commentaire));
-			}
-			catch (NoteSaisieIncorrecteException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
+			this.lesNotes.put(noteAAjouter.obtenirDate(), noteAAjouter);
 			this.mettreAJourLaMoyenne();
 		}
 
