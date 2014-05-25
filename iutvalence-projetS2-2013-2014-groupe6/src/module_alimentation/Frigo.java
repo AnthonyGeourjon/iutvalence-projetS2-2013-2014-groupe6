@@ -89,7 +89,7 @@ public class Frigo
 	{
 		String affichage = "Les aliments du frigo : \n\n";
 
-		if (!this.recettesDisponibles.isEmpty())
+		if (this.alimentsDuFrigo.isEmpty())
 			affichage += "Il n'y a pas d'aliment dans le frigo";
 		else
 			for (Aliment alimentCourant : this.alimentsDuFrigo.values())			
@@ -97,10 +97,10 @@ public class Frigo
 
 		affichage += ".\n \nLes recettes disponibles : \n\n";
 
-		if (!this.recettesDisponibles.isEmpty())
+		if (this.recettesDisponibles.isEmpty())
 			affichage += "Il n'y a pas de recette disponible";
 		else
-			for (Object recetteCourante : this.recettesDisponibles.values())
+			for (Recette recetteCourante : this.recettesDisponibles.values())
 				affichage += recetteCourante.toString() + ", ";
 
 		affichage += ".";
