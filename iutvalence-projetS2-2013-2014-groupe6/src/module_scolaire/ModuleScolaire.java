@@ -1,27 +1,29 @@
 package module_scolaire;
 
+import java.util.Hashtable;
+
 /**
  * @author Anthony
  *	Regroupe tout le module de gestion note
  */
 public class ModuleScolaire
 {
-	private static final int NOMBRE_MAX_DE_MODULE = 4;
-
 	/**
 	 * Les UEs de l'étudiant
 	 */
-	private UE[] lesUEs;
+	private Hashtable<String, UE> lesUEs;
 	
 	/**
-	 * Le nombre d'UE de l'etudiant
+	 * Moyenne de l'etudiant
 	 */
-	private int nombreDUEs;
+	private int moyenneDeLEtudiant;
 	
+	/**
+	 * Constructeur
+	 */
 	public ModuleScolaire()
 	{
-		this.lesUEs= new UE[NOMBRE_MAX_DE_MODULE];
-		this.nombreDUEs=0;
+		this.lesUEs= new Hashtable<>();	
 	}
 	
 	

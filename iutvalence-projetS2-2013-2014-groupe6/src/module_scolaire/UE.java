@@ -29,20 +29,22 @@ public class UE
 	/**
 	 * Ensemble des matieres
 	 */
-	private Hashtable<String , Matiere> lesMatieresDeLUE;
+	private Hashtable<String, Matiere> lesMatieresDeLUE;
 
 	/**
-	 * @param nom nom de l'Ue
-	 * @param coefficient coefficient de l'ue
+	 * @param nom
+	 *            nom de l'Ue
+	 * @param coefficient
+	 *            coefficient de l'ue
 	 */
 	public UE(String nom, float coefficient)
 	{
 		super();
-		this.moyenneDeLUE =0;
+		this.moyenneDeLUE = 0;
 		this.nom = nom;
 		this.coeffient = coefficient;
 		this.lesMatieresDeLUE = new Hashtable<>();
-		
+
 	}
 
 	/**
@@ -54,7 +56,7 @@ public class UE
 	}
 
 	/**
-	 * @return le nom  de l'ue
+	 * @return le nom de l'ue
 	 */
 	public String obtenirNom()
 	{
@@ -68,10 +70,11 @@ public class UE
 	{
 		return coeffient;
 	}
-	
+
 	/**
-	 * @param matiereAAjouter matiere qui sera ajouté
-	 * @throws MatiereDejaPresenteException 
+	 * @param matiereAAjouter
+	 *            matiere qui sera ajouté
+	 * @throws MatiereDejaPresenteException
 	 */
 	public void insererUneMatiere(Matiere matiereAAjouter) throws MatiereDejaPresenteException
 	{
@@ -83,10 +86,12 @@ public class UE
 			this.mettreAJourLaMoyenne();
 		}
 	}
-	
+
 	/**
-	 * @param nomDeLaMatiereAAjouter nom de la matiere à ajouter
-	 * @throws MatiereNonPresenteException Levée si la matiere n'est pas enregistré
+	 * @param nomDeLaMatiereAAjouter
+	 *            nom de la matiere à ajouter
+	 * @throws MatiereNonPresenteException
+	 *             Levée si la matiere n'est pas enregistré
 	 */
 	public void supprimerUneMatiere(String nomDeLaMatiereAAjouter) throws MatiereNonPresenteException
 	{
@@ -100,7 +105,7 @@ public class UE
 	 * Met à jour la moyenne de l'ue
 	 */
 	private void mettreAJourLaMoyenne()
-	{	
+	{
 		float moyenne = 0;
 		float sommeDesCoefficients = 0;
 
@@ -111,8 +116,7 @@ public class UE
 		}
 
 		this.moyenneDeLUE = (moyenne / sommeDesCoefficients) / this.lesMatieresDeLUE.size();
-
-		
 	}
-
+	
+	//TODO Ajouter, supprimer une note
 }
