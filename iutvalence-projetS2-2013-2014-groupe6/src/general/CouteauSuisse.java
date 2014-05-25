@@ -1,7 +1,7 @@
 package general;
 
+import exception.ChoixIncorrectException;
 import interaction.Interaction;
-import Exception.ChoixIncorrectException;
 import affichage.Affichage;
 import module_alimentation.Frigo;
 import module_alimentation.ModuleAlimentation;
@@ -67,7 +67,7 @@ public class CouteauSuisse
 
 		while (application)
 		{
-			this.affichage.afficherLeMenu();
+			this.affichage.afficherMenuPrincipal();
 
 			switch (this.interaction.choixNumerique())
 			{

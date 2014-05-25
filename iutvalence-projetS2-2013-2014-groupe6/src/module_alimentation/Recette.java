@@ -1,7 +1,8 @@
 package module_alimentation;
-import java.util.HashSet;
+import java.util.Hashtable;
 
-import Exception.NombreMaxDAlimentException;
+import exception.NombreMaxDAlimentException;
+import exception.RecetteDejaEnMemoireException;
 
 /**
  * @author geourjoa
@@ -12,27 +13,11 @@ public class Recette
 	// *********************
 	// VARIABLE DE CLASSES :
 	// *********************
-
-	/**
-	 * Nombre max d'aliments par recette
-	 */
-	public static final Integer NOMBRE_MAX_DALIMENT_PAR_RECETTE=10;
-	
-	/**
-	 * Nombre max de recettes stockable
-	 */
-	public static final Integer NOMBRE_MAX_DE_RECETTES=500;
-	
-	
+		
 	/**
 	 * Ensemble des recettes enregistrés.
 	 */
-	private static Recette[] TOUTES_LES_RECETTES_CONNUES;
-
-	/**
-	 * Nombre de recette connues
-	 */
-	private static Integer NOMBRE_RECETTE_CONNUES;
+	private static Hashtable <String, Recette> TOUTES_LES_RECETTES_CONNUES;
 	
 	// *********************
 	//     ATTRIBUT :
@@ -46,12 +31,8 @@ public class Recette
 	/**
 	 * Ensemble des aliments nécessaires à sa confection 
 	 */
-	private Aliment[] alimentsNecessaires;
+	private Hashtable<String, Aliment> alimentsNecessaires;
 	
-	/**
-	 * Nombre d'aliment necessaire à la recette
-	 */
-	private Integer nombresDAlimentsDeLaRecette;
 	
 
 	// *********************
@@ -63,23 +44,20 @@ public class Recette
 	 * @param aliments aliments necessaires
 	 * @param nombresDAliments nombre d'aliment necessaire à la recette
 	 * @param nom de la recette 
+	 * @throws RecetteDejaEnMemoireException 
 	 * @throws NombreMaxDAlimentException levé si le tableau d'aliment est plein
 	 */
-	public Recette(Aliment[] aliments, Integer nombresDAliments, String nom) throws NombreMaxDAlimentException
+	public Recette(Hashtable<String, Aliment> aliments, String nom) throws RecetteDejaEnMemoireException 
 
 	{
-		if(Recette.NOMBRE_MAX_DE_RECETTES<nombresDAliments)
-			throw new NombreMaxDAlimentException();
 		
-		//TODO Verrifier si la recette n'est pas presente
-		
-		this.nom = nom;
-		this.alimentsNecessaires = aliments;
-		this.nombresDAlimentsDeLaRecette=nombresDAliments;
-
-		
-
-		// TODO Verifier si la recette n'est pas deja presente
+		if(Recette.TOUTES_LES_RECETTES_CONNUES.containsKey(nom))
+			throw new RecetteDejaEnMemoireException();
+		else
+		{
+			this.nom=nom;
+			this.alimentsNecessaires=aliments;
+		}
 
 	}
 	
@@ -91,7 +69,7 @@ public class Recette
 	/**
 	 * @return l'ensemble des recettes disponibles
 	 */
-	public static Recette[] OBTENIR_TOUTES_LES_RECETETS_DISPONIBLES()
+	public static Hashtable<String, Recette> OBTENIR_TOUTES_LES_RECETETS_CONNUES()
 	{
 		return Recette.TOUTES_LES_RECETTES_CONNUES;
 	}
@@ -99,7 +77,7 @@ public class Recette
 	/**
 	 * @return l'ensemble des aliment nécessaires.
 	 */
-	public Aliment[] obtenirAlimentNecessaire()
+	public Hashtable<String,Aliment> obtenirAlimentNecessaire()
 	{
 		return this.alimentsNecessaires;
 	}

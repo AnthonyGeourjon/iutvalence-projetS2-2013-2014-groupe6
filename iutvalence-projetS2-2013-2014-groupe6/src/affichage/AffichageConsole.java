@@ -12,10 +12,10 @@ public class AffichageConsole implements Affichage
 	}
 
 	@Override
-	public void afficherLeMenu()
+	public void afficherMenuAlimentation()
 	{
 
-		System.out.println("Menu principal : \n\nModule Gestion de frigo : \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, \n3-Afficher les aliments périmés\n4-Supprimer les aliments perimés, \n5-Afficher le frigo\n0-Quitter.\n");
+		System.out.println("Module Gestion de frigo : \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, \n3-Afficher les aliments périmés\n4-Supprimer les aliments perimés, \n5-Afficher le frigo\n0-Quitter.\n");
 
 	}
 
@@ -30,7 +30,7 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void demanderUnAliment()
 	{
-		System.out.println("Saisissez un aliment sous la forme d'un nom, puis d'une date (format: jj-mm-aaaa), une quantite et un prix unitaire.");
+		System.out.println("Saisissez un aliment sous la forme d'un nom, puis d'une quantite.");
 		
 	}
 	
@@ -38,7 +38,7 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void demanderUneRecette()
 	{
-		System.out.println("Saisissez une recette sous la forme d'un nom puis un nombre d'aliment. Ensuite saisissez les aliments sous cette forme : (un nom, une date (format: jj-mm-aaaa), une quantite, et un prix.");
+		System.out.println("Saisissez une recette sous la forme d'un nom, ensuite saisissez les aliments sous cette forme (un nom puis une quantite :");
 		
 	}
 	
@@ -53,5 +53,12 @@ public class AffichageConsole implements Affichage
 	public void messageDErreur()
 	{
 		System.out.println("Cette fonction n'est pas disponible pour l'instant.");
+	}
+	
+	@Override
+	public void afficherMenuPrincipal()
+	{
+		System.out.println("Menu principal : \n\n1-Module alimentation");
+		
 	}
 }

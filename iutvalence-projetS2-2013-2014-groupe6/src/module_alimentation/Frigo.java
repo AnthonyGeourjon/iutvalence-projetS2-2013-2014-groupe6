@@ -1,10 +1,8 @@
 package module_alimentation;
 
-import java.util.HashSet;
-import java.util.Date;
 import java.util.Hashtable;
 
-import Exception.AlimentsInexistantException;
+import exception.AlimentsInexistantException;
 
 /**
  * @author geourjoa
@@ -53,8 +51,7 @@ public class Frigo
 	}
 
 	/**
-	 * @param alimentASupprimer
-	 *            aliment qui sera retir� du frigo
+	 * @param nomAlimentASupprimer nom de l'aliment qui sera supprime
 	 * @throws AlimentsInexistantException
 	 *             lev� si l'aliment n'est pas dans le frigo
 	 */
@@ -92,16 +89,16 @@ public class Frigo
 	{
 		String affichage = "Les aliments du frigo : \n\n";
 
-		if (this.recettesDisponibles.isEmpty())
-			affichage += "Il n'y a pas d'aliment dans le frigo.";
+		if (!this.recettesDisponibles.isEmpty())
+			affichage += "Il n'y a pas d'aliment dans le frigo";
 		else
-			for (Object alimentCourant : this.alimentsDuFrigo.values())			
+			for (Aliment alimentCourant : this.alimentsDuFrigo.values())			
 				affichage += alimentCourant.toString() + ", ";
 
 		affichage += ".\n \nLes recettes disponibles : \n\n";
 
-		if (this.recettesDisponibles.isEmpty())
-			affichage += "Il n'y a pas de recette disponible.";
+		if (!this.recettesDisponibles.isEmpty())
+			affichage += "Il n'y a pas de recette disponible";
 		else
 			for (Object recetteCourante : this.recettesDisponibles.values())
 				affichage += recetteCourante.toString() + ", ";

@@ -1,8 +1,8 @@
 package module_scolaire;
 import java.util.Date;
 
-import Exception.noteDejaPresenteException;
-import Exception.noteNonPresenteException;
+import exception.noteDejaPresenteException;
+import exception.noteNonPresenteException;
 
 /**
  * @author Anthony

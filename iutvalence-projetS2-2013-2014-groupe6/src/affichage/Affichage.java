@@ -9,7 +9,7 @@ public interface Affichage
 	/**
 	 * Afficher le menu
 	 */
-	public abstract void afficherLeMenu();
+	public abstract void afficherMenuAlimentation();
 	
 	/**
 	 * Demander un choix num√©rique
@@ -36,5 +36,13 @@ public interface Affichage
 	 */
 	public abstract void demanderUnNom();
 
+	/**
+	 * Dire ‡ l'utilisateur qu'une fonction n'est pas disponible
+	 */
 	public abstract void messageDErreur();
+	
+	/**
+	 * Afficher le menu principal
+	 */
+	public abstract void afficherMenuPrincipal();
 }

@@ -4,10 +4,12 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.Scanner;
 
-import Exception.NombreMaxDAlimentAtteintException;
-import Exception.NombreMaxDAlimentException;
+import exception.NombreMaxDAlimentAtteintException;
+import exception.NombreMaxDAlimentException;
+import exception.RecetteDejaEnMemoireException;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
 
@@ -68,20 +70,22 @@ public class InteractionClavier extends InteractionAbstraite
 
 		int nombreDAlimentDeLARecette = sc.nextInt();
 
-		Aliment[] alimentsNecessaires = new Aliment[nombreDAlimentDeLARecette];
+		Hashtable<String, Aliment> alimentsNecessaires = new Hashtable<>();
 
 		for (int alimentNumero = 0; alimentNumero < nombreDAlimentDeLARecette; alimentNumero++)
 		{
-			alimentsNecessaires[alimentNumero] = this.saisirUnAliment();
+			Aliment alimentCourant = this.saisirUnAliment();
+			alimentsNecessaires.put(alimentCourant.obtenirNom(), alimentCourant);
 		}
 
 		try
 		{
-			return new Recette(alimentsNecessaires, nombreDAlimentDeLARecette, nom);
+			return new Recette(alimentsNecessaires, nom);
 		}
-		catch (NombreMaxDAlimentException e)
+		catch (RecetteDejaEnMemoireException e)
 		{
-			System.out.println(ERREUR_2);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return null;

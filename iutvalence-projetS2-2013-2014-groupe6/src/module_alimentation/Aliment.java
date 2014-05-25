@@ -1,9 +1,5 @@
 package module_alimentation;
 
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.Enumeration;
-
 /**
  * @author geourjoa
  * 
@@ -72,6 +68,9 @@ public class Aliment
 		return (this.nom + "(" + this.quantite + " unit�(s)");
 	}
 
+	/**
+	 * @return la quantite de l'aliment
+	 */
 	public Integer obtenirQuantite()
 	{
 		return quantite;

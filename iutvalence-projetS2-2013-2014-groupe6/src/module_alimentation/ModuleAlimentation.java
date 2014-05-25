@@ -1,10 +1,9 @@
 package module_alimentation;
 
+import exception.ChoixIncorrectException;
 import interaction.Interaction;
 import affichage.Affichage;
-import general.CouteauSuisse;
 import general.Module;
-import Exception.ChoixIncorrectException;
 
 /**
  * @author geourjoa
@@ -16,6 +15,11 @@ public class ModuleAlimentation implements Module
 	 * Frigo associé au module
 	 */
 	private Frigo leFrigo;
+	
+	public ModuleAlimentation()
+	{
+		this.leFrigo=new Frigo();
+	}
 
 	/**
 	 * @param affichageUtilise
@@ -29,7 +33,7 @@ public class ModuleAlimentation implements Module
 
 		while (application)
 		{
-			affichageUtilise.afficherLeMenu();
+			affichageUtilise.afficherMenuAlimentation();
 
 			switch (interactionUtilise.choixNumerique())
 			{
