@@ -48,4 +48,10 @@ public class AffichageConsole implements Affichage
 		System.out.println("Saisissez un nom :");
 		
 	}
+	
+	@Override
+	public void messageDErreur()
+	{
+		System.out.println("Cette fonction n'est pas disponible pour l'instant.");
+	}
 }

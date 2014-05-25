@@ -35,4 +35,6 @@ public interface Affichage
 	 * Demander un nom
 	 */
 	public abstract void demanderUnNom();
+
+	public abstract void messageDErreur();
 }

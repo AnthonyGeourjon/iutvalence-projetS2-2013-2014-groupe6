@@ -46,22 +46,24 @@ public class ModuleAlimentation implements Module
 				// this.supprimerAliment(alimentASupprimer);
 				break;
 			case 3:
-				// TODO Pas encore passé en tableau
+				// TODO Completer
 
-				for (Aliment alimentCourant : ((Aliment[]) this.leFrigo.alimentsPerimes().toArray()))
-					System.out.println(alimentCourant);
+				affichageUtilise.messageDErreur();
+				
+				// for (Aliment alimentCourant : ((Aliment[])
+				// this.leFrigo.alimentsPerimes().toArray()))
+				// System.out.println(alimentCourant);
+				
 				break;
 			case 4:
-				// TODO Pas encore passé en tableau
-
+				// TODO Completer
+				
+				affichageUtilise.messageDErreur();
+				
 				// this.supprimerAlimentsPerimes();
 				break;
 			case 5:
 				System.out.println(this.leFrigo);
-				break;
-			case 6:
-				affichageUtilise.demanderUneRecette();
-				interactionUtilise.demanderUneRecette();
 				break;
 			default:
 				try
