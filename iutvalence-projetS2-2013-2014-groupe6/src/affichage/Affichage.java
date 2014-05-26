@@ -6,6 +6,7 @@ package affichage;
  */
 public interface Affichage
 {
+	
 	/**
 	 * Afficher le menu
 	 */
@@ -37,7 +38,7 @@ public interface Affichage
 	public abstract void demanderUnNom();
 
 	/**
-	 * Dire à l'utilisateur qu'une fonction n'est pas disponible
+	 * Dire ï¿½ l'utilisateur qu'une fonction n'est pas disponible
 	 */
 	public abstract void messageDErreur();
 	

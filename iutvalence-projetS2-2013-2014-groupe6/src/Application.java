@@ -1,7 +1,6 @@
 import general.CouteauSuisse;
 import interaction.InteractionClavier;
 import affichage.AffichageConsole;
-import module_alimentation.Aliment;
 
 /**
  * @author geourjoa

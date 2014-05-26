@@ -1,5 +1,6 @@
 package module_alimentation;
 
+import exception.AlimentsInexistantException;
 import exception.ChoixIncorrectException;
 import interaction.Interaction;
 import affichage.Affichage;
@@ -17,7 +18,7 @@ public class ModuleAlimentation implements Module
 	private Frigo leFrigo;
 	
 	/**
-	 * Constructeur par défaut
+	 * Constructeur par dï¿½faut
 	 */
 	public ModuleAlimentation()
 	{
@@ -50,7 +51,15 @@ public class ModuleAlimentation implements Module
 				break;
 			case 2:
 				affichageUtilise.demanderUnNom();
-				// this.supprimerAliment(alimentASupprimer);
+				try
+				{
+					this.leFrigo.supprimerAliment(interactionUtilise.demanderUnNom());
+				}
+				catch (AlimentsInexistantException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;
 			case 3:
 				// TODO Completer

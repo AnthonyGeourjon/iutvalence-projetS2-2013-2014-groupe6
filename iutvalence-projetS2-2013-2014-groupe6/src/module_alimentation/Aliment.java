@@ -17,9 +17,9 @@ public class Aliment
 	 */
 	private Integer quantite;
 
-	// TODO Suppression des dates de peremption car trop compliqué. Pour pouvoir
+	// TODO Suppression des dates de peremption car trop compliquï¿½. Pour pouvoir
 	// le mettre en oeuvre, il faudrait faire des colections de collections ou
-	// la clé de la premiere, la seconde la clé est la date
+	// la clï¿½ de la premiere, la seconde la clï¿½ est la date
 
 	// /**
 	// * Date de pÃ©remption de l'aliment.
@@ -73,6 +73,6 @@ public class Aliment
 	 */
 	public Integer obtenirQuantite()
 	{
-		return quantite;
+		return this.quantite;
 	}
 }

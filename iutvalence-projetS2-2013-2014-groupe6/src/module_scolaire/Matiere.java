@@ -38,7 +38,7 @@ public class Matiere
 	 * @param coeff
 	 *            coeff de la matiere
 	 * @throws MatiereSaisieIncorrecteException
-	 *             levé si le coefficient est incorrecte
+	 *             levï¿½ si le coefficient est incorrecte
 	 */
 	public Matiere(String nomMatiere, float coeff) throws MatiereSaisieIncorrecteException
 	{
@@ -56,8 +56,8 @@ public class Matiere
 
 	
 	/**
-	 * @param noteAAjouter note à ajouter à la matiere
-	 * @throws NoteDejaPresenteException levé si une note à deja été rentré à ce jour là
+	 * @param noteAAjouter note ï¿½ ajouter ï¿½ la matiere
+	 * @throws NoteDejaPresenteException levï¿½ si une note ï¿½ deja ï¿½tï¿½ rentrï¿½ ï¿½ ce jour lï¿½
 	 */
 	public void insererUneNote(Note noteAAjouter) throws NoteDejaPresenteException
 	{
@@ -108,7 +108,7 @@ public class Matiere
 	 */
 	public float obtenirMoyenne()
 	{
-		return moyenne;
+		return this.moyenne;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class Matiere
 	 */
 	public String obtenirNomMatiere()
 	{
-		return nomMatiere;
+		return this.nomMatiere;
 	}
 
 	/**
@@ -124,6 +124,6 @@ public class Matiere
 	 */
 	public float obtenirCoefficient()
 	{
-		return coeffient;
+		return this.coeffient;
 	}
 }

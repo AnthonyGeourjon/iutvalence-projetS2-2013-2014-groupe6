@@ -1,70 +1,66 @@
 package module_alimentation;
-import java.util.Hashtable;
 
-import exception.NombreMaxDAlimentException;
+import java.util.Hashtable;
 import exception.RecetteDejaEnMemoireException;
 
 /**
  * @author geourjoa
- *
+ * 
  */
 public class Recette
 {
 	// *********************
 	// VARIABLE DE CLASSES :
 	// *********************
-		
+
 	/**
 	 * Ensemble des recettes enregistrés.
 	 */
-	private static Hashtable <String, Recette> TOUTES_LES_RECETTES_CONNUES;
-	
+	private static Hashtable<String, Recette> TOUTES_LES_RECETTES_CONNUES;
+
 	// *********************
-	//     ATTRIBUT :
+	// ATTRIBUT :
 	// *********************
-	
+
 	/**
-	 * Nom de la recette 
+	 * Nom de la recette
 	 */
 	private String nom;
 
 	/**
-	 * Ensemble des aliments nécessaires à sa confection 
+	 * Ensemble des aliments nécessaires à sa confection
 	 */
 	private Hashtable<String, Aliment> alimentsNecessaires;
-	
-	
 
 	// *********************
-	//    CONSTRUCTEURS :
+	// CONSTRUCTEURS :
 	// *********************
-		
-	
+
 	/**
-	 * @param aliments aliments necessaires
-	 * @param nombresDAliments nombre d'aliment necessaire à la recette
-	 * @param nom de la recette 
-	 * @throws RecetteDejaEnMemoireException 
-	 * @throws NombreMaxDAlimentException levé si le tableau d'aliment est plein
+	 * @param aliments
+	 *            aliments necessaires
+	 * @param nom
+	 *            de la recette
+	 * @throws RecetteDejaEnMemoireException
+	 *             levé si la recette est deja en mémoire
 	 */
-	public Recette(Hashtable<String, Aliment> aliments, String nom) throws RecetteDejaEnMemoireException 
+	public Recette(Hashtable<String, Aliment> aliments, String nom) throws RecetteDejaEnMemoireException
 
 	{
-		
-		if(Recette.TOUTES_LES_RECETTES_CONNUES.containsKey(nom))
+
+		if (Recette.TOUTES_LES_RECETTES_CONNUES.containsKey(nom))
 			throw new RecetteDejaEnMemoireException();
 		else
 		{
-			this.nom=nom;
-			this.alimentsNecessaires=aliments;
+			this.nom = nom;
+			this.alimentsNecessaires = aliments;
 		}
 
 	}
-	
+
 	// *********************
-	//     METHODES :
+	// METHODES :
 	// *********************
-		
 
 	/**
 	 * @return l'ensemble des recettes disponibles
@@ -73,15 +69,15 @@ public class Recette
 	{
 		return Recette.TOUTES_LES_RECETTES_CONNUES;
 	}
-	
+
 	/**
 	 * @return l'ensemble des aliment nécessaires.
 	 */
-	public Hashtable<String,Aliment> obtenirAlimentNecessaire()
+	public Hashtable<String, Aliment> obtenirAlimentNecessaire()
 	{
 		return this.alimentsNecessaires;
 	}
-	
+
 	/**
 	 * @return le nom de la recette
 	 */
@@ -89,5 +85,5 @@ public class Recette
 	{
 		return this.nom;
 	}
-	
+
 }

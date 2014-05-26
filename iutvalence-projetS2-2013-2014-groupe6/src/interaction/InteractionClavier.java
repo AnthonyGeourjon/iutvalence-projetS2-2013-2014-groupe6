@@ -1,14 +1,7 @@
 package interaction;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Hashtable;
 import java.util.Scanner;
-
-import exception.NombreMaxDAlimentAtteintException;
-import exception.NombreMaxDAlimentException;
 import exception.RecetteDejaEnMemoireException;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
@@ -17,15 +10,26 @@ import module_alimentation.Recette;
  * @author geourjoa
  * 
  */
-public class InteractionClavier extends InteractionAbstraite
+public class InteractionClavier  implements Interaction
 {
+	/**
+	 * Moyen d'interargir avec l'utilisateur
+	 */
+	private Scanner sc;
 
+	/**
+	 * Constructeur
+	 */
+	public InteractionClavier()
+	{
+		this.sc=new Scanner(System.in);
+	}
+	
 	@Override
 	public int choixNumerique()
 	{
-		Scanner sc = new Scanner(System.in);
 
-		int choix = sc.nextInt();
+		int choix = this.sc.nextInt();
 
 		// sc.close(); Leve l'exception "java.util.NoSuchElementException". Car
 		// fermer un scanner ferme Systeme.in.
@@ -36,11 +40,9 @@ public class InteractionClavier extends InteractionAbstraite
 	}
 
 	@Override
-	public Aliment saisirUnAliment() 
+	public Aliment saisirUnAliment()
 	{
-		Scanner sc = new Scanner(System.in);
-
-		String nom = sc.next();
+		String nom = this.sc.next();
 
 		// Utiliser pour l'attribut date d'un aliment.
 
@@ -55,7 +57,7 @@ public class InteractionClavier extends InteractionAbstraite
 		// e.printStackTrace();
 		// }
 
-		int quantite = sc.nextInt();
+		int quantite = this.sc.nextInt();
 
 		return new Aliment(nom, quantite);
 
@@ -64,11 +66,9 @@ public class InteractionClavier extends InteractionAbstraite
 	@Override
 	public Recette demanderUneRecette()
 	{
-		Scanner sc = new Scanner(System.in);
+		String nom = this.sc.next();
 
-		String nom = sc.next();
-
-		int nombreDAlimentDeLARecette = sc.nextInt();
+		int nombreDAlimentDeLARecette = this.sc.nextInt();
 
 		Hashtable<String, Aliment> alimentsNecessaires = new Hashtable<>();
 
@@ -90,4 +90,11 @@ public class InteractionClavier extends InteractionAbstraite
 
 		return null;
 	}
+
+	@Override
+	public String demanderUnNom()
+	{
+		return this.sc.next();
+	}
+
 }

@@ -9,14 +9,26 @@ import module_alimentation.Recette;
  */
 public interface Interaction
 {
-	public static final String ERREUR_1 = "Nous n'avons pas pu ajouter cet aliment car le nombre max d'aliment à été atteint";
+	//TODO Vériier que toutes les infos renvoyé soient cohérente
 	
-	public static final String ERREUR_2 = "Nous n'avons pas pu ajouter cette recette car le nombre max de recette à été eteint à été atteint";
-	
+	/**
+	 * @return Demande un nombre à l'utilisateur (De 0 à X) 
+	 */
 	public abstract int choixNumerique();
 	
+	/**
+	 * @return Un aliment saisie par l'utilisateur
+	 */
 	public abstract Aliment saisirUnAliment();
 
+	/**
+	 * @return Une recette saisie par l'utilisateur
+	 */
 	public abstract Recette demanderUneRecette();
+
+	/**
+	 * @return Un nom demande par la saisie
+	 */
+	public abstract String demanderUnNom();
 	
 }

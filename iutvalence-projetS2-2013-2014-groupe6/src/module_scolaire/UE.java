@@ -52,7 +52,7 @@ public class UE
 	 */
 	public float obtenirMoyenneDeLUE()
 	{
-		return moyenneDeLUE;
+		return this.moyenneDeLUE;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class UE
 	 */
 	public String obtenirNom()
 	{
-		return nom;
+		return this.nom;
 	}
 
 	/**
@@ -68,13 +68,13 @@ public class UE
 	 */
 	public float obtenirCoeffient()
 	{
-		return coeffient;
+		return this.coeffient;
 	}
 
 	/**
 	 * @param matiereAAjouter
-	 *            matiere qui sera ajouté
-	 * @throws MatiereDejaPresenteException
+	 *            matiere qui sera ajoutï¿½
+	 * @throws MatiereDejaPresenteException levÃ© si la matiere est deja en memoire
 	 */
 	public void insererUneMatiere(Matiere matiereAAjouter) throws MatiereDejaPresenteException
 	{
@@ -89,9 +89,9 @@ public class UE
 
 	/**
 	 * @param nomDeLaMatiereAAjouter
-	 *            nom de la matiere à ajouter
+	 *            nom de la matiere ï¿½ ajouter
 	 * @throws MatiereNonPresenteException
-	 *             Levée si la matiere n'est pas enregistré
+	 *             Levï¿½e si la matiere n'est pas enregistrï¿½
 	 */
 	public void supprimerUneMatiere(String nomDeLaMatiereAAjouter) throws MatiereNonPresenteException
 	{
@@ -102,7 +102,7 @@ public class UE
 	}
 
 	/**
-	 * Met à jour la moyenne de l'ue
+	 * Met ï¿½ jour la moyenne de l'ue
 	 */
 	private void mettreAJourLaMoyenne()
 	{
@@ -118,5 +118,6 @@ public class UE
 		this.moyenneDeLUE = (moyenne / sommeDesCoefficients) / this.lesMatieresDeLUE.size();
 	}
 	
-	//TODO Ajouter, supprimer une note
+	
+	
 }
