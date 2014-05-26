@@ -1,6 +1,8 @@
 package module_budget;
 /**
+ * 
  * @author Valentin
+ *
  */
 
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class GestionBudget {
 		float sommeBudget;
 		float sommeAModifier;
 		Scanner scMenuGestionBudget = new Scanner(System.in);
+		Budget budget = new Budget(0);
 		
 		do{
 			
@@ -32,7 +35,6 @@ public class GestionBudget {
 			
 			if(choixMenu == '1'){
 				
-				Budget budget = new Budget(0);
 				System.out.println("Entrez votre budget");
 				Scanner scIntialiserBudget = new Scanner(System.in);
 				sommeBudget = scIntialiserBudget.nextFloat();
@@ -45,9 +47,9 @@ public class GestionBudget {
 				System.out.println("Entrez votre modification (precédé d'un \"-\" pour soustraire ou d'un \"+\" pour ajouter une somme");
 				Scanner scModifierBudget = new Scanner(System.in);
 				sommeAModifier = scModifierBudget.nextFloat();
+				budget.ajouterOuSoustraireArgentAuSolde(sommeAModifier);
 				
-				//insérer la méthode afin de modifier le budget
-				//problème: récupérer le budget
+				
 				
 				
 				
