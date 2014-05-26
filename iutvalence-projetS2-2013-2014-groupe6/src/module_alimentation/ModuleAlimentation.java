@@ -23,6 +23,7 @@ public class ModuleAlimentation implements Module
 	public ModuleAlimentation()
 	{
 		this.leFrigo=new Frigo();
+		Recette.initialiserCollection();
 	}
 
 	/**
@@ -79,7 +80,17 @@ public class ModuleAlimentation implements Module
 				// this.supprimerAlimentsPerimes();
 				break;
 			case 5:
-				System.out.println(this.leFrigo);
+				affichageUtilise.afficherUnFrigo(this.leFrigo);
+				break;
+			case 6 :
+				affichageUtilise.afficherDesRecettes(this.leFrigo.obtenirRecetteDisponible());
+				break;
+			case 7 :
+				affichageUtilise.afficherDesRecettes(Recette.obtenirToutesLesRecettesConnues());
+				break;
+			case 8 : 
+				affichageUtilise.demanderUneRecette();
+				interactionUtilise.saisirUneRecette();
 				break;
 			default:
 				try

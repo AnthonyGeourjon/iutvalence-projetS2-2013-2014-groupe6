@@ -47,11 +47,33 @@ public class Frigo
 		else
 			this.alimentsDuFrigo.put(alimentAAjouter.obtenirNom(), alimentAAjouter);
 
-		// TODO mAJRecettePossible();
+		this.mAJRecettePossible();
+	}
+
+	private void mAJRecettePossible()
+	{
+		if (!Recette.obtenirToutesLesRecettesConnues().isEmpty())
+			for (Recette recetteCourante : Recette.obtenirToutesLesRecettesConnues().values())
+			{
+				boolean recettePossible = true;
+
+				for (Aliment alimentCourant : recetteCourante.obtenirAlimentNecessaire().values())
+				{
+					if (!this.alimentsDuFrigo.containsKey(alimentCourant.obtenirNom())
+							|| this.alimentsDuFrigo.get(alimentCourant.obtenirNom()).obtenirQuantite() < alimentCourant
+									.obtenirQuantite())
+						recettePossible = false;
+				}
+
+				if (recettePossible)
+					this.recettesDisponibles.put(recetteCourante.obtenirNom(), recetteCourante);
+			}
+
 	}
 
 	/**
-	 * @param nomAlimentASupprimer nom de l'aliment qui sera supprime
+	 * @param nomAlimentASupprimer
+	 *            nom de l'aliment qui sera supprime
 	 * @throws AlimentsInexistantException
 	 *             lev� si l'aliment n'est pas dans le frigo
 	 */
@@ -92,7 +114,7 @@ public class Frigo
 		if (this.alimentsDuFrigo.isEmpty())
 			affichage += "Il n'y a pas d'aliment dans le frigo";
 		else
-			for (Aliment alimentCourant : this.alimentsDuFrigo.values())			
+			for (Aliment alimentCourant : this.alimentsDuFrigo.values())
 				affichage += alimentCourant.toString() + ", ";
 
 		affichage += ".\n \nLes recettes disponibles : \n\n";
@@ -102,9 +124,12 @@ public class Frigo
 		else
 			for (Recette recetteCourante : this.recettesDisponibles.values())
 				affichage += recetteCourante.toString() + ", ";
+		
+		return affichage + ".\n";
+	}
 
-		affichage += ".";
-
-		return affichage;
+	public Hashtable<String, Recette> obtenirRecetteDisponible()
+	{
+		return this.recettesDisponibles;
 	}
 }

@@ -16,7 +16,7 @@ public class Recette
 	/**
 	 * Ensemble des recettes enregistrés.
 	 */
-	private static Hashtable<String, Recette> TOUTES_LES_RECETTES_CONNUES;
+	private static Hashtable<String, Recette> toutesLesRecettesConnues;
 
 	// *********************
 	// ATTRIBUT :
@@ -31,6 +31,8 @@ public class Recette
 	 * Ensemble des aliments nécessaires à sa confection
 	 */
 	private Hashtable<String, Aliment> alimentsNecessaires;
+	
+	
 
 	// *********************
 	// CONSTRUCTEURS :
@@ -47,13 +49,14 @@ public class Recette
 	public Recette(Hashtable<String, Aliment> aliments, String nom) throws RecetteDejaEnMemoireException
 
 	{
-
-		if (Recette.TOUTES_LES_RECETTES_CONNUES.containsKey(nom))
+		
+		if (Recette.toutesLesRecettesConnues.containsKey(nom))
 			throw new RecetteDejaEnMemoireException();
 		else
 		{
 			this.nom = nom;
 			this.alimentsNecessaires = aliments;
+			Recette.toutesLesRecettesConnues.put(nom, this);
 		}
 
 	}
@@ -65,9 +68,14 @@ public class Recette
 	/**
 	 * @return l'ensemble des recettes disponibles
 	 */
-	public static Hashtable<String, Recette> OBTENIR_TOUTES_LES_RECETETS_CONNUES()
+	public static Hashtable<String, Recette> obtenirToutesLesRecettesConnues()
 	{
-		return Recette.TOUTES_LES_RECETTES_CONNUES;
+		return Recette.toutesLesRecettesConnues;
+	}
+
+	public String obtenirNom()
+	{
+		return this.nom;
 	}
 
 	/**
@@ -84,6 +92,12 @@ public class Recette
 	public String toString()
 	{
 		return this.nom;
+	}
+
+	public static void initialiserCollection()
+	{
+		Recette.toutesLesRecettesConnues=new Hashtable<>();
+		
 	}
 
 }

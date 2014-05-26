@@ -1,5 +1,10 @@
 package affichage;
 
+import java.util.Hashtable;
+
+import module_alimentation.Frigo;
+import module_alimentation.Recette;
+
 /**
  * @author geourjoa
  *
@@ -46,4 +51,21 @@ public interface Affichage
 	 * Afficher le menu principal
 	 */
 	public abstract void afficherMenuPrincipal();
+
+	/**
+	 * @param leFrigo Le frigo qui sera affiché
+	 */
+	public abstract void afficherUnFrigo(Frigo leFrigo);
+	
+	/**
+	 * Montrer à l'utilisateur que l'action s'est bien déroulée
+	 */
+	public abstract void notifierActionReussie();
+
+	/**
+	 * @param recette affiche les recettes fournies en paramètres
+	 */
+	public abstract void afficherDesRecettes(Hashtable<String, Recette> recette);
+
+	
 }

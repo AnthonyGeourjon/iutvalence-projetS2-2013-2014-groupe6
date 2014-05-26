@@ -64,7 +64,7 @@ public class InteractionClavier  implements Interaction
 	}
 
 	@Override
-	public Recette demanderUneRecette()
+	public Recette saisirUneRecette()
 	{
 		String nom = this.sc.next();
 

@@ -24,7 +24,7 @@ public interface Interaction
 	/**
 	 * @return Une recette saisie par l'utilisateur
 	 */
-	public abstract Recette demanderUneRecette();
+	public abstract Recette saisirUneRecette();
 
 	/**
 	 * @return Un nom demande par la saisie

@@ -3,7 +3,6 @@ package general;
 import exception.ChoixIncorrectException;
 import interaction.Interaction;
 import affichage.Affichage;
-import module_alimentation.Frigo;
 import module_alimentation.ModuleAlimentation;
 import module_scolaire.ModuleScolaire;
 
