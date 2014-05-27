@@ -8,22 +8,15 @@ package module_agenda;
 
 import java.util.Date;
 
-public class SeanceSport extends Evenement {
-	
-	private double duree;
+import exception.HeureIncorrecteException;
 
-	public double getDuree() {
-		return duree;
+public abstract class SeanceSport extends Evenement
+{
+
+	public SeanceSport(Date date, String commentaire, Heure heureDebut, Heure heureFin) throws HeureIncorrecteException
+	{
+		super(date, commentaire, heureDebut, heureFin);
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setDuree(double duree) {
-		this.duree = duree;
-	}
-
-	public SeanceSport (Date date, Heure heure, double duree, String Commentaire){
-		super(date, Commentaire, heure);
-		this.duree = duree ;
-		
-	}
-	
 }

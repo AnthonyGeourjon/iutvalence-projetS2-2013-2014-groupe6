@@ -16,13 +16,13 @@ public class ModuleAlimentation implements Module
 	 * Frigo associé au module
 	 */
 	private Frigo leFrigo;
-	
+
 	/**
 	 * Constructeur par d�faut
 	 */
 	public ModuleAlimentation()
 	{
-		this.leFrigo=new Frigo();
+		this.leFrigo = new Frigo();
 		Recette.initialiserCollection();
 	}
 
@@ -48,7 +48,6 @@ public class ModuleAlimentation implements Module
 			case 1:
 				affichageUtilise.demanderUnAliment();
 				this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
-				;
 				break;
 			case 2:
 				affichageUtilise.demanderUnNom();
@@ -66,29 +65,29 @@ public class ModuleAlimentation implements Module
 				// TODO Completer
 
 				affichageUtilise.messageDErreur();
-				
+
 				// for (Aliment alimentCourant : ((Aliment[])
 				// this.leFrigo.alimentsPerimes().toArray()))
 				// System.out.println(alimentCourant);
-				
+
 				break;
 			case 4:
 				// TODO Completer
-				
+
 				affichageUtilise.messageDErreur();
-				
+
 				// this.supprimerAlimentsPerimes();
 				break;
 			case 5:
 				affichageUtilise.afficherUnFrigo(this.leFrigo);
 				break;
-			case 6 :
+			case 6:
 				affichageUtilise.afficherDesRecettes(this.leFrigo.obtenirRecetteDisponible());
 				break;
-			case 7 :
+			case 7:
 				affichageUtilise.afficherDesRecettes(Recette.obtenirToutesLesRecettesConnues());
 				break;
-			case 8 : 
+			case 8:
 				affichageUtilise.demanderUneRecette();
 				interactionUtilise.saisirUneRecette();
 				break;

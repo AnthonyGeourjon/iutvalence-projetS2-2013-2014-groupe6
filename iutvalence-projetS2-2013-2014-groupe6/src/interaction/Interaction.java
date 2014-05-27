@@ -1,4 +1,8 @@
 package interaction;
+import java.util.Date;
+
+import module_agenda.Evenement;
+import module_agenda.Heure;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
 
@@ -30,5 +34,17 @@ public interface Interaction
 	 * @return Un nom demande par la saisie
 	 */
 	public abstract String demanderUnNom();
+
+	/**
+	 * @return un evenement saisie par l'utilisateur
+	 */
+	public abstract Evenement demanderUnEvenement();
+	
+	public abstract Date demanderUneDate();
+	
+	public abstract Heure demanderUneHeure();
+	
+	
+	
 	
 }

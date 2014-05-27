@@ -1,34 +1,56 @@
 package module_agenda;
+
 import java.util.Date;
 
-import javax.xml.soap.Text;
+import exception.HeureIncorrecteException;
+
 /**
  * 
  * @author Valentin
- *
+ * 
  */
 
-public abstract class Evenement {
-	
-	protected Date dateEvenement ;
-	
-	protected String commentaireEvenement ;
-	
-	protected Heure heureEvenement ;
-	
-	public Evenement(Date date, String commentaire, Heure heure) {
-		this.dateEvenement = date ;
-		this.commentaireEvenement = commentaire ;
-		this.heureEvenement = heure ;
-		
+public abstract class Evenement
+{
+
+	protected Date dateEvenement;
+
+	protected String commentaireEvenement;
+
+	protected Heure heureDebut;
+
+	protected Heure heureFin;
+
+	protected String nom;
+
+	public Evenement(Date date, String nom, String commentaire, Heure heureDebut, Heure heureFin) throws HeureIncorrecteException
+	{
+
+		if (heureDebut.avant(heureFin))
+		{
+			this.dateEvenement = date;
+			this.commentaireEvenement = commentaire;
+			this.heureDebut = heureDebut;
+			this.heureFin = heureFin;
+		}
+		else
+			throw new HeureIncorrecteException();
+
 	}
-	
-	public String getCommentaireEvenement(){
+
+	public String getCommentaireEvenement()
+	{
 		return commentaireEvenement;
 	}
-	
-	public void setCommentaireEvenement(String commentaire){
-		this.commentaireEvenement = commentaire ;
+
+	public void setCommentaireEvenement(String commentaire)
+	{
+		this.commentaireEvenement = commentaire;
+	}
+
+	public String obtenirNom()
+	{
+		return this.nom;
 	}
 
 }

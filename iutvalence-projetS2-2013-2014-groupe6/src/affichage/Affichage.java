@@ -67,5 +67,12 @@ public interface Affichage
 	 */
 	public abstract void afficherDesRecettes(Hashtable<String, Recette> recette);
 
+	/**
+	 * Demander à l'utilisateur un evenement
+	 */
+	public abstract void demanderUnEvenement();
+	
+	
+
 	
 }
