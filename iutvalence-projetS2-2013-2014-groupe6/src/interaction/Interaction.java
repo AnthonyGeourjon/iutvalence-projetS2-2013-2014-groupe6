@@ -1,6 +1,7 @@
 package interaction;
 import java.util.Date;
 
+import exception.HeureIncorrecteException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
 import module_alimentation.Aliment;
@@ -33,12 +34,13 @@ public interface Interaction
 	/**
 	 * @return Un nom demande par la saisie
 	 */
-	public abstract String demanderUnNom();
+	public abstract String demanderUneChaineDeCaractere();
 
 	/**
 	 * @return un evenement saisie par l'utilisateur
+	 * @throws HeureIncorrecteException 
 	 */
-	public abstract Evenement demanderUnEvenement();
+	public abstract Evenement demanderUnEvenement() throws HeureIncorrecteException;
 	
 	public abstract Date demanderUneDate();
 	

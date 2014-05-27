@@ -15,7 +15,7 @@ public abstract class SeanceSport extends Evenement
 
 	public SeanceSport(Date date, String commentaire, Heure heureDebut, Heure heureFin) throws HeureIncorrecteException
 	{
-		super(date, commentaire, heureDebut, heureFin);
+		super(date, commentaire, commentaire, heureDebut, heureFin);
 		// TODO Auto-generated constructor stub
 	}
 

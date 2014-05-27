@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
+import exception.HeureIncorrecteException;
 import exception.RecetteDejaEnMemoireException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
@@ -103,15 +104,15 @@ public class InteractionClavier implements Interaction
 	}
 
 	@Override
-	public String demanderUnNom()
+	public String demanderUneChaineDeCaractere()
 	{
 		return this.sc.next();
 	}
 
 	@Override
-	public Evenement demanderUnEvenement()
+	public Evenement demanderUnEvenement() throws HeureIncorrecteException
 	{
-		return new Evenement(this.demanderUneDate(), this.demanderUnNom(), this.demanderUnNom(),
+		return new Evenement(this.demanderUneDate(), this.demanderUneChaineDeCaractere(), this.demanderUneChaineDeCaractere(),
 				this.demanderUneHeure(), this.demanderUneHeure());
 
 	}

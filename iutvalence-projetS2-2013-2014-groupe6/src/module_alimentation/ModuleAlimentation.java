@@ -53,7 +53,7 @@ public class ModuleAlimentation implements Module
 				affichageUtilise.demanderUnNom();
 				try
 				{
-					this.leFrigo.supprimerAliment(interactionUtilise.demanderUnNom());
+					this.leFrigo.supprimerAliment(interactionUtilise.demanderUneChaineDeCaractere());
 				}
 				catch (AlimentsInexistantException e1)
 				{

@@ -10,7 +10,7 @@ import exception.HeureIncorrecteException;
  * 
  */
 
-public abstract class Evenement
+public class Evenement
 {
 
 	protected Date dateEvenement;
@@ -32,6 +32,7 @@ public abstract class Evenement
 			this.commentaireEvenement = commentaire;
 			this.heureDebut = heureDebut;
 			this.heureFin = heureFin;
+			this.nom=nom;
 		}
 		else
 			throw new HeureIncorrecteException();
