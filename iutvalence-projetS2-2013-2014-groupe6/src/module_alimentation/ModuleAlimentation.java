@@ -50,7 +50,7 @@ public class ModuleAlimentation implements Module
 				this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
 				break;
 			case 2:
-				affichageUtilise.demanderUnNom();
+				affichageUtilise.demanderUneChaineDeCaractere();
 				try
 				{
 					this.leFrigo.supprimerAliment(interactionUtilise.demanderUneChaineDeCaractere());

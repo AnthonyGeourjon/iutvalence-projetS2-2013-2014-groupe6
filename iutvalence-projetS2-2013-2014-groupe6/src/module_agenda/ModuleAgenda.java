@@ -1,6 +1,8 @@
 package module_agenda;
 
 import exception.ChoixIncorrectException;
+import exception.EvenementNonTrouveException;
+import exception.HeureIncorrecteException;
 import general.Module;
 import interaction.Interaction;
 import affichage.Affichage;
@@ -22,7 +24,7 @@ public class ModuleAgenda implements Module
 
 		while (application)
 		{
-			affichageUtilise.afficherMenuAlimentation();
+			affichageUtilise.afficherMenuAgenda();
 
 			switch (interactionUtilise.choixNumerique())
 			{
@@ -31,7 +33,34 @@ public class ModuleAgenda implements Module
 				break;
 			case 1:
 				affichageUtilise.demanderUnEvenement();
-				this.lAgenda.insererEvenementDansLAgenda(interactionUtilise.demanderUnEvenement());
+				try
+				{
+					this.lAgenda.insererEvenement(interactionUtilise.demanderUnEvenement());
+				}
+				catch (HeureIncorrecteException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				break;
+			case 2 :
+				affichageUtilise.demanderUneChaineDeCaractere();
+				affichageUtilise.demanderUnEvenement();
+				try
+				{
+					this.lAgenda.supprimerUnEvenement(interactionUtilise.demanderUneChaineDeCaractere());
+				}
+				catch (EvenementNonTrouveException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				break;
+			case 3:
+				affichageUtilise.demanderUneChaineDeCaractere();
+				affichageUtilise.demanderUneDate();
+				this.lAgenda.modifierDateDUnEvenement(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneDate());
+				break;
 			default:
 				try
 				{

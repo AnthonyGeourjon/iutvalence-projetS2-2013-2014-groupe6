@@ -40,7 +40,7 @@ public interface Affichage
 	/**
 	 * Demander un nom
 	 */
-	public abstract void demanderUnNom();
+	public abstract void demanderUneChaineDeCaractere();
 
 	/**
 	 * Dire ï¿½ l'utilisateur qu'une fonction n'est pas disponible
@@ -71,6 +71,16 @@ public interface Affichage
 	 * Demander à l'utilisateur un evenement
 	 */
 	public abstract void demanderUnEvenement();
+
+	/**
+	 * Affiche le menu du module agenda
+	 */
+	public abstract void afficherMenuAgenda();
+
+	/**
+	 * Demander une date à l'utilisateur
+	 */
+	public abstract void demanderUneDate();
 	
 	
 

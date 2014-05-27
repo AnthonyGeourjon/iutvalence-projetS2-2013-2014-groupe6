@@ -14,9 +14,8 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void afficherLeNomDeLApplication()
 	{
-		System.out.println("*****************************************\n"
-				        + "   Le couteau suisse de l'etudiant :\n"
-				        + "*****************************************\n");
+		System.out.println("*****************************************\n" + "   Le couteau suisse de l'etudiant :\n"
+				+ "*****************************************\n");
 	}
 
 	@Override
@@ -56,24 +55,22 @@ public class AffichageConsole implements Affichage
 	}
 
 	@Override
-	public void demanderUnNom()
+	public void demanderUneChaineDeCaractere()
 	{
-		System.out.println("Saisissez un nom :");
+		System.out.println("Saisissez un nom :\n");
 
 	}
 
 	@Override
 	public void messageDErreur()
 	{
-		System.out.println("Cette fonction n'est pas disponible pour l'instant.");
+		System.out.println("Cette fonction n'est pas disponible pour l'instant.\n");
 	}
 
 	@Override
 	public void afficherMenuPrincipal()
 	{
-		System.out.println("==========================\n"
-				+ "     Menu principal : \n"
-				+ "==========================\n"
+		System.out.println("==========================\n" + "     Menu principal : \n" + "==========================\n"
 				+ "\n1-Module alimentation");
 
 	}
@@ -93,23 +90,47 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void afficherDesRecettes(Hashtable<String, Recette> recetteDisponible)
 	{
-		if(recetteDisponible.isEmpty())
+		if (recetteDisponible.isEmpty())
 			System.out.println("Il n'y a pas de recette à afficher.\n");
 		else
 		{
 			String affichage = "";
 
-		for (Recette recetteCourante : recetteDisponible.values())
-		{
-			affichage += recetteCourante.toString() + ", ";
-		}
+			for (Recette recetteCourante : recetteDisponible.values())
+			{
+				affichage += recetteCourante.toString() + ", ";
+			}
 
-		System.out.println(affichage + ".");
+			System.out.println(affichage + ".");
 		}
-		
-		
 
 	}
 	
+	@Override
+	public void afficherMenuAgenda()
+	{
+		System.out
+		.println("===========================\n"
+				+ " Module Gestion de frigo :\n"
+				+ "===========================\n"
+				+ " \n1-Ajouter un évenement, \n2-Supprimer un evenement, "
+				+ "\n0-Quitter.\n");
+
+		
+	}
+	
+	@Override
+	public void demanderUnEvenement()
+	{
+		System.out.println("Saisissez un évenement (date, nom, commentaire, heure debut, heure fin):");
+		
+	}
+	
+	@Override
+	public void demanderUneDate()
+	{
+		System.out.println("Saisissez une date sous la forme jj-mm-aaaa : \n");
+		
+	}
 
 }
