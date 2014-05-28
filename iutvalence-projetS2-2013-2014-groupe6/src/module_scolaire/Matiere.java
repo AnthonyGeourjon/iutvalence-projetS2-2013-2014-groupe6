@@ -51,7 +51,7 @@ public class Matiere
 			this.coeffient = coeff;
 		else
 			this.coeffient = 1;
-		this.moyenne = 0;
+		this.moyenne = -1;
 	}
 
 	
@@ -64,10 +64,8 @@ public class Matiere
 		if (this.lesNotes.containsKey(noteAAjouter.obtenirDate()))
 			throw new NoteDejaPresenteException();
 		else
-		{
 			this.lesNotes.put(noteAAjouter.obtenirDate(), noteAAjouter);
-			this.mettreAJourLaMoyenne();
-		}
+	
 
 	}
 
@@ -81,8 +79,8 @@ public class Matiere
 	{
 		if (this.lesNotes.remove(date) == null)
 			throw new NoteNonPresenteException();
-		else
-			this.mettreAJourLaMoyenne();
+		if(this.lesNotes.size()==0)
+			this.moyenne=-1;
 	}
 
 	/**
@@ -108,6 +106,7 @@ public class Matiere
 	 */
 	public float obtenirMoyenne()
 	{
+		this.mettreAJourLaMoyenne();
 		return this.moyenne;
 	}
 

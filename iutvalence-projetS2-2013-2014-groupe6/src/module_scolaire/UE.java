@@ -1,8 +1,12 @@
 package module_scolaire;
 
+import java.util.Date;
 import java.util.Hashtable;
+
 import exception.MatiereDejaPresenteException;
 import exception.MatiereNonPresenteException;
+import exception.NoteDejaPresenteException;
+import exception.NoteNonPresenteException;
 
 /**
  * @author Anthony
@@ -66,7 +70,7 @@ public class UE
 	/**
 	 * @return le coefficient de l'ue
 	 */
-	public float obtenirCoeffient()
+	public float obtenirCoefficient()
 	{
 		return this.coeffient;
 	}
@@ -108,16 +112,48 @@ public class UE
 	{
 		float moyenne = 0;
 		float sommeDesCoefficients = 0;
+		int nombreMatiereInvalide=0;
 
 		for (Matiere matiere : this.lesMatieresDeLUE.values())
 		{
-			moyenne += matiere.obtenirMoyenne() * matiere.obtenirCoefficient();
+			
+			if(matiere.obtenirMoyenne()!=-1)
+			{
+				moyenne += matiere.obtenirMoyenne() * matiere.obtenirCoefficient();
 			sommeDesCoefficients += matiere.obtenirCoefficient();
+			}
+			else
+				nombreMatiereInvalide++;
+			
+			
 		}
 
-		this.moyenneDeLUE = (moyenne / sommeDesCoefficients) / this.lesMatieresDeLUE.size();
+		if(moyenne==0)
+			this.moyenneDeLUE=-1;
+		else
+			this.moyenneDeLUE = (moyenne / sommeDesCoefficients) / (this.lesMatieresDeLUE.size()-nombreMatiereInvalide);
 	}
 	
+	/**
+	 * @param nomDeLaMatiere nom de la matiere auquel sera ajouté la note
+	 * @param noteAAjouter note a ajouté
+	 * @throws NoteDejaPresenteException lévé si la note est deja presente
+	 */
+	public void insererUneNote(String nomDeLaMatiere, Note  noteAAjouter) throws NoteDejaPresenteException
+	{
+		this.lesMatieresDeLUE.get(nomDeLaMatiere).insererUneNote(noteAAjouter);
+		this.mettreAJourLaMoyenne();
+	}
+	
+	/**
+	 * @param nomDeLaMatiere nom de la matiere auquelle la note sera retiré
+	 * @param dateDeLaNote date de la note a supprimer
+	 * @throws NoteNonPresenteException levé si la note n'est pas trouvé
+	 */
+	public void supprimerUneNote(String nomDeLaMatiere, Date dateDeLaNote) throws NoteNonPresenteException
+	{
+		this.lesMatieresDeLUE.get(nomDeLaMatiere).supprimerUneNote(dateDeLaNote);
+	}
 	
 	
 }
