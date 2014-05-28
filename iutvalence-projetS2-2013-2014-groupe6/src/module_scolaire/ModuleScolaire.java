@@ -2,8 +2,10 @@ package module_scolaire;
 
 import java.util.Hashtable;
 
+import exception.MatiereDejaPresenteException;
 import exception.MatiereNonPresenteException;
 import exception.UEDejaPresenteException;
+import exception.UEInconnuException;
 
 /**
  * @author Anthony Regroupe tout le module de gestion note
@@ -77,10 +79,35 @@ public class ModuleScolaire
 			this.moyenneDeLEtudiant = -1;
 		else
 			this.moyenneDeLEtudiant = (moyenne / sommeDesCoefficients) / (this.lesUEs.size() - nombreUEInvalide);
-
-
-
 	}
 
+	/**
+	 * @param nomUE
+	 * @param matiereAAjouter
+	 * @throws MatiereDejaPresenteException
+	 * @throws UEInconnuException
+	 */
+	public void insererUneMatiere(String nomUE, Matiere matiereAAjouter) throws MatiereDejaPresenteException,
+			UEInconnuException
+	{
+		if (this.lesUEs.get(nomUE) == null)
+			throw new UEInconnuException();
+		else
+			this.lesUEs.get(nomUE).insererUneMatiere(matiereAAjouter);
+	}
+
+	/**
+	 * @param nomMatiereASupprimer nom de la matiere a supprimer
+	 * @param nomUE nom de l'UE qui contient la matiere
+	 * @throws MatiereNonPresenteException Lévé si matiere non trouvé
+	 * @throws UEInconnuException Levé si l'UE est inconnu
+	 */
+	public void supprimerUneMatiere(String nomMatiereASupprimer, String nomUE) throws MatiereNonPresenteException, UEInconnuException
+	{
+		if (this.lesUEs.containsKey(nomUE))
+			this.lesUEs.get(nomUE).supprimerUneMatiere(nomMatiereASupprimer);
+		else
+			throw new UEInconnuException();
+	}
 	// TODO INSERER UNE NOTE, SUP UNE NOTE
 }
