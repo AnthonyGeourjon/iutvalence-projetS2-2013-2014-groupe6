@@ -81,6 +81,18 @@ public interface Affichage
 	 * Demander une date à l'utilisateur
 	 */
 	public abstract void demanderUneDate();
+
+	/**
+	 * Demander une UE à l'utilisateur
+	 */
+	public abstract void demanderUneUE();
+
+	/**
+	 * Demander une matiere à l'utilisateur
+	 */
+	public abstract void demanderUneMatiere();
+
+	public abstract void demanderUneNote();
 	
 	
 

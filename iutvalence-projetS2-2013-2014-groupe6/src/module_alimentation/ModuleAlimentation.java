@@ -40,7 +40,7 @@ public class ModuleAlimentation implements Module
 		{
 			affichageUtilise.afficherMenuAlimentation();
 
-			switch (interactionUtilise.choixNumerique())
+			switch (interactionUtilise.demanderUnInt())
 			{
 			case 0:
 				application = false;

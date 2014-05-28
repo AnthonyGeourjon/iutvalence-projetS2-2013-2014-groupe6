@@ -157,6 +157,9 @@ public class UE
 		this.lesMatieresDeLUE.get(nomDeLaMatiere).supprimerUneNote(dateDeLaNote);
 	}
 
+	/**
+	 * @return toutes les matieres de l'UE
+	 */
 	public Hashtable<String, Matiere> obtenirLesMatieresDeLUE()
 	{
 		return this.lesMatieresDeLUE;

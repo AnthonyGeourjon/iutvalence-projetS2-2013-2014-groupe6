@@ -68,7 +68,7 @@ public class CouteauSuisse
 		{
 			this.affichage.afficherMenuPrincipal();
 
-			switch (this.interaction.choixNumerique())
+			switch (this.interaction.demanderUnInt())
 			{
 			case 0:
 				application = false;
@@ -76,8 +76,11 @@ public class CouteauSuisse
 			case 1:
 				this.moduleAlimentation.utiliserModule(this.affichage, this.interaction);
 				break;
-			
-				/* Rajouter l'utilisation des autres modules */
+			case 2: 
+				this.moduleScolaire.utiliserModule(this.affichage, this.interaction);
+				break;
+				
+				/* TODO Rajouter l'utilisation des autres modules + affichage*/
 				
 			default:
 				try

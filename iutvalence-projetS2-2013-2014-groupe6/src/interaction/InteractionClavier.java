@@ -8,15 +8,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Scanner;
-
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import exception.HeureIncorrecteException;
 import exception.RecetteDejaEnMemoireException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
+import module_scolaire.UE;
 
 /**
  * @author geourjoa
@@ -38,7 +36,7 @@ public class InteractionClavier implements Interaction
 	}
 
 	@Override
-	public int choixNumerique()
+	public int demanderUnInt()
 	{
 
 		int choix = this.sc.nextInt();
@@ -55,19 +53,6 @@ public class InteractionClavier implements Interaction
 	public Aliment saisirUnAliment()
 	{
 		String nom = this.sc.next();
-
-		// Utiliser pour l'attribut date d'un aliment.
-
-		// DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		// Date date=null;
-		// try
-		// {
-		// date= df.parse(sc.next());
-		// }
-		// catch (ParseException e)
-		// {
-		// e.printStackTrace();
-		// }
 
 		int quantite = this.sc.nextInt();
 
@@ -118,9 +103,9 @@ public class InteractionClavier implements Interaction
 	}
 
 	@Override
-	public Heure demanderUneHeure()
+	public Heure demanderUneHeure() throws HeureIncorrecteException
 	{
-		return new Heure(this.choixNumerique(), this.choixNumerique());
+		return new Heure(this.demanderUnInt(), this.demanderUnInt());
 	}
 
 	@Override
@@ -139,5 +124,16 @@ public class InteractionClavier implements Interaction
 
 		return date;
 
+	}
+	
+	@Override
+	public UE demanderUneUE()
+	{
+		return new UE(this.demanderUneChaineDeCaractere(), this.demanderUnFloat());
+	}
+
+	public float demanderUnFloat()
+	{
+		return this.sc.nextFloat();
 	}
 }

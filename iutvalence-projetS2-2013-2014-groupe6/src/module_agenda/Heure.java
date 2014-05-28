@@ -1,5 +1,7 @@
 package module_agenda;
 
+import exception.HeureIncorrecteException;
+
 /**
  * 
  * @author Valentin
@@ -33,10 +35,16 @@ public class Heure
 		this.heure = heure;
 	}
 
-	public Heure(int heure, int minute)
+	public Heure(int heure, int minute) throws HeureIncorrecteException
 	{
-		this.heure = heure;
-		this.minute = minute;
+		if(heure>=0&&heure<24&&minute>=0&&minute<60)
+			{
+			this.heure = heure;
+			this.minute = minute;
+			}
+		else
+			throw new HeureIncorrecteException();
+			
 	}
 
 	public boolean avant(Heure heureFin)
