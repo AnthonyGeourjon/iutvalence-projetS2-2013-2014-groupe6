@@ -26,7 +26,7 @@ public class ModuleAgenda implements Module
 		{
 			affichageUtilise.afficherMenuAgenda();
 
-			switch (interactionUtilise.choixNumerique())
+			switch (interactionUtilise.demanderUnInt())
 			{
 			case 0:
 				application = false;

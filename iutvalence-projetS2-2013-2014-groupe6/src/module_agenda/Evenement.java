@@ -54,4 +54,8 @@ public class Evenement
 		return this.nom;
 	}
 
+	public void setDateEvenement(Date uneDate) {
+			this.dateEvenement = uneDate;
+	}
+
 }

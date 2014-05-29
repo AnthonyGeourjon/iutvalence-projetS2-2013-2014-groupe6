@@ -37,7 +37,7 @@ public class Agenda
 
 	public void modifierDateDUnEvenement(String nomEvenementASupprimer, Date uneDate)
 	{
-		this.lesEvenements.get(nomEvenementASupprimer).
+		this.lesEvenements.get(nomEvenementASupprimer).setDateEvenement(uneDate);
 		
 	}
 
