@@ -78,7 +78,6 @@ public class CouteauSuisse
 			{
 			case 0:
 				application = false;
-				this.sauvegarderDonnees();
 				this.affichage.notifierArretApplication();
 				break;
 			case 1:
@@ -107,52 +106,5 @@ public class CouteauSuisse
 
 	}
 
-	private void sauvegarderDonnees()
-	{
-		try
-		{
-			ObjectOutputStream flotEcriture = new ObjectOutputStream(new FileOutputStream("FichierDeDonnees"));
-			flotEcriture.writeObject(this);
-			flotEcriture.close();
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	private void chargerDonnees()
-	{
-		ObjectInputStream flotLecture = null;
-		try
-		{
-			flotLecture = new ObjectInputStream(new FileInputStream("FichierDeDonnees"));
-		}
-		catch (IOException e1)
-		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try
-		{
-			Object lu = flotLecture.readObject();
-			this.moduleAlimentation=lu.;
-		}
-		catch (ClassNotFoundException | IOException e1)
-		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		try
-		{
-			flotLecture.close();
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 }
