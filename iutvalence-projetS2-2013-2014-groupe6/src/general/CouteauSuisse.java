@@ -137,6 +137,7 @@ public class CouteauSuisse
 		try
 		{
 			Object lu = flotLecture.readObject();
+			this.moduleAlimentation=lu.;
 		}
 		catch (ClassNotFoundException | IOException e1)
 		{
