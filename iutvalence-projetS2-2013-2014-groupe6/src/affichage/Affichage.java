@@ -92,7 +92,32 @@ public interface Affichage
 	 */
 	public abstract void demanderUneMatiere();
 
+	/**
+	 * Demander une note à l'utilisateur
+	 */
 	public abstract void demanderUneNote();
+
+	/**
+	 * Affiche le menu du module scolaire
+	 */
+	public abstract void afficherMenuScolaire();
+
+	/**
+	 * Montrez à l'utilisateur que l'action à echoué
+	 */
+	public abstract void notifierEchec();
+
+	/**
+	 * @param moyenneDeLEtudiant moyenne à afficher
+	 */
+	public abstract void afficherLaMoyenne(float moyenneDeLEtudiant);
+
+	/**
+	 * Montrer à l'utilisateur que l'application se termine
+	 */
+	public abstract void notifierArretApplication();
+
+	
 	
 	
 

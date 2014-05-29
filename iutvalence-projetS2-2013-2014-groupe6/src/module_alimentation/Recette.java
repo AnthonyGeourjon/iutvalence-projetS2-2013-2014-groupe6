@@ -73,6 +73,9 @@ public class Recette
 		return Recette.toutesLesRecettesConnues;
 	}
 
+	/**
+	 * @return le nom de la recette
+	 */
 	public String obtenirNom()
 	{
 		return this.nom;
@@ -94,6 +97,9 @@ public class Recette
 		return this.nom;
 	}
 
+	/**
+	 * Initialise la collection qui contient toutes les recettes connues
+	 */
 	public static void initialiserCollection()
 	{
 		Recette.toutesLesRecettesConnues=new Hashtable<>();

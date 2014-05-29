@@ -1,14 +1,18 @@
 package module_scolaire;
 
 import interaction.Interaction;
+
 import java.util.Date;
 import java.util.Hashtable;
+
 import affichage.Affichage;
 import exception.ChoixIncorrectException;
 import exception.MatiereDejaPresenteException;
 import exception.MatiereNonPresenteException;
+import exception.MatiereSaisieIncorrecteException;
 import exception.NoteDejaPresenteException;
 import exception.NoteNonPresenteException;
+import exception.NoteSaisieIncorrecteException;
 import exception.UEDejaPresenteException;
 import exception.UEInconnuException;
 import general.Module;
@@ -35,6 +39,7 @@ public class ModuleScolaire implements Module
 	public ModuleScolaire()
 	{
 		this.lesUEs = new Hashtable<>();
+		this.moyenneDeLEtudiant=-1;
 	}
 
 	/**
@@ -82,7 +87,7 @@ public class ModuleScolaire implements Module
 				nombreUEInvalide++;
 		}
 
-		if (moyenne == 0)
+		if (moyenne == 0.0)
 			this.moyenneDeLEtudiant=-1;
 		else
 			this.moyenneDeLEtudiant=((moyenne / sommeDesCoefficients) / (this.lesUEs.size() - nombreUEInvalide));
@@ -164,11 +169,13 @@ public class ModuleScolaire implements Module
 	@Override
 	public void utiliserModule(Affichage affichageUtilise, Interaction interactionUtilise)
 	{
+		//TODO personalier le message d'erreur en fonction de l'erreur
+		
 		Boolean application = true;
 
 		while (application)
 		{
-			affichageUtilise.afficherMenuAlimentation();
+			affichageUtilise.afficherMenuScolaire();
 
 			switch (interactionUtilise.demanderUnInt())
 			{
@@ -180,11 +187,12 @@ public class ModuleScolaire implements Module
 				try
 				{
 					this.ajouterUneUE(interactionUtilise.demanderUneUE());
+					affichageUtilise.notifierActionReussie();
 				}
 				catch (UEDejaPresenteException e1)
 				{
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
 				}
 				break;
 			case 2:
@@ -192,42 +200,71 @@ public class ModuleScolaire implements Module
 				try
 				{
 					this.supprimerUneUE(interactionUtilise.demanderUneChaineDeCaractere());
+					affichageUtilise.notifierActionReussie();
 				}
 				catch (MatiereNonPresenteException e1)
 				{
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}				
+					affichageUtilise.notifierEchec();
+				}
+				break;
 			case 3:
 				affichageUtilise.demanderUneChaineDeCaractere();
 				affichageUtilise.demanderUneMatiere();
 				try
 				{
 					this.insererUneMatiere(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneMatiere());
+					affichageUtilise.notifierActionReussie();
 				}
-				catch (MatiereDejaPresenteException | UEInconnuException e1)
+				catch (MatiereDejaPresenteException | UEInconnuException | MatiereSaisieIncorrecteException e1)
 				{
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
 				}
+				break;
 			case 4 :
 				affichageUtilise.demanderUneChaineDeCaractere();
 				try
 				{
 					this.supprimerUneMatiere(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneChaineDeCaractere());
+					affichageUtilise.notifierActionReussie();
 				}
 				catch (MatiereNonPresenteException | UEInconnuException e1)
 				{
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
 				}
-			case 4 :
+				break;
+			case 5 :
 				affichageUtilise.demanderUneChaineDeCaractere();
 				affichageUtilise.demanderUneChaineDeCaractere();
 				affichageUtilise.demanderUneNote();
-				this.insererUneNote(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneNote());
-				
-			
+				try
+				{
+					this.insererUneNote(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneNote());
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (UEInconnuException | NoteDejaPresenteException | NoteSaisieIncorrecteException e1)
+				{
+					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
+				break;
+			case 6:
+				try
+				{
+					this.supprimerUneNote(interactionUtilise.demanderUneChaineDeCaractere(),interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUneDate());
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (NoteNonPresenteException | UEInconnuException e1)
+				{
+					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
+				break;
+			case 7 :
+				affichageUtilise.afficherLaMoyenne(this.obtenirMoyenneDeLEtudiant());
+				break;
 			default:
 				try
 				{

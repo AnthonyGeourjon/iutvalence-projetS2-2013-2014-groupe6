@@ -72,6 +72,7 @@ public class CouteauSuisse
 			{
 			case 0:
 				application = false;
+				this.affichage.notifierArretApplication();
 				break;
 			case 1:
 				this.moduleAlimentation.utiliserModule(this.affichage, this.interaction);

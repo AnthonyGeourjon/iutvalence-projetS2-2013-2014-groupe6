@@ -71,7 +71,7 @@ public class AffichageConsole implements Affichage
 	public void afficherMenuPrincipal()
 	{
 		System.out.println("==========================\n" + "     Menu principal : \n" + "==========================\n"
-				+ "\n1-Module alimentation");
+				+ "\n1-Module alimentation, \n2-Module scolaire\n0-Quitter.\n");
 
 	}
 
@@ -105,32 +105,80 @@ public class AffichageConsole implements Affichage
 		}
 
 	}
-	
+
 	@Override
 	public void afficherMenuAgenda()
 	{
-		System.out
-		.println("===========================\n"
-				+ " Module Gestion de frigo :\n"
-				+ "===========================\n"
-				+ " \n1-Ajouter un évenement, \n2-Supprimer un evenement, "
+		System.out.println("===========================\n" + " Module Gestion agenda :\n"
+				+ "===========================\n" + " \n1-Ajouter un évenement, \n2-Supprimer un evenement, "
 				+ "\n0-Quitter.\n");
 
-		
 	}
-	
+
 	@Override
 	public void demanderUnEvenement()
 	{
-		System.out.println("Saisissez un évenement (date, nom, commentaire, heure debut, heure fin):");
-		
+		System.out.println("Saisissez un évenement (date, nom, commentaire, heure debut, heure fin):\n");
+
 	}
-	
+
 	@Override
 	public void demanderUneDate()
 	{
 		System.out.println("Saisissez une date sous la forme jj-mm-aaaa : \n");
-		
+
+	}
+
+	@Override
+	public void demanderUneMatiere()
+	{
+		System.out.println("Saisissez une matière, saisissez le nom puis le coefficient : \n");
+	}
+
+	@Override
+	public void demanderUneNote()
+	{
+		System.out
+				.println("Saisissez une note, entrez la date de la note, puis votre resultat, son coefficient et enfin un commentaire sur la note : \n");
+
+	}
+
+	@Override
+	public void demanderUneUE()
+	{
+		System.out.println("Saisissez une UE, saisissez le nom puis le coefficient : \n");
+	}
+	
+	@Override
+	public void afficherMenuScolaire()
+	{
+		System.out.println("===========================\n"
+				+ " Module Gestion scolaire :\n"
+				+ "===========================\n"
+				+ " \n1-Inserer une UE, \n2-Supprimer une UE, "
+				+ "\n3-Inserer une matière\n4-Supprimer une matière, \n5-Inserer une note,"
+				+ "\n6-Supprimer une note,\n7-Calcul de la moyenne,,\n0-Quitter.\n");	
+	}
+	
+	@Override
+	public void notifierEchec()
+	{
+		System.out.println("Echec de l'opération.");
+	}
+	
+	@Override
+	public void afficherLaMoyenne(float moyenneDeLEtudiant)
+	{
+		if (moyenneDeLEtudiant==-1)
+			System.out.println("Vous n'avez pas de note enregistrée.");
+		else
+			System.out.println("Votre moyenne est de " + moyenneDeLEtudiant + ".");		
+	}
+	
+	@Override
+	public void notifierArretApplication()
+	{
+		System.out.println("Application terminée.");
 	}
 
 }

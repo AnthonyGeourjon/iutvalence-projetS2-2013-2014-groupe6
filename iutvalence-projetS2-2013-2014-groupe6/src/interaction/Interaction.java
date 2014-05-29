@@ -2,11 +2,14 @@ package interaction;
 import java.util.Date;
 
 import exception.HeureIncorrecteException;
+import exception.MatiereSaisieIncorrecteException;
+import exception.NoteSaisieIncorrecteException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
 import module_scolaire.Matiere;
+import module_scolaire.Note;
 import module_scolaire.UE;
 
 
@@ -67,8 +70,15 @@ public interface Interaction
 
 	/**
 	 * @return une matiere saisie par l'utilisateur
+	 * @throws MatiereSaisieIncorrecteException levé si les données saisies sont incorrectes
 	 */
-	public abstract Matiere demanderUneMatiere();
+	public abstract Matiere demanderUneMatiere() throws MatiereSaisieIncorrecteException;
+
+	/**
+	 * @return une note saisie par l'utilisateur
+	 * @throws NoteSaisieIncorrecteException levée si les données saisies sont incorrectes
+	 */
+	public abstract Note demanderUneNote() throws NoteSaisieIncorrecteException;
 
 	
 	

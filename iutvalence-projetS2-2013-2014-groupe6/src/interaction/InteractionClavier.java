@@ -8,12 +8,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Scanner;
+
 import exception.HeureIncorrecteException;
+import exception.MatiereSaisieIncorrecteException;
+import exception.NoteSaisieIncorrecteException;
 import exception.RecetteDejaEnMemoireException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
 import module_alimentation.Aliment;
 import module_alimentation.Recette;
+import module_scolaire.Matiere;
+import module_scolaire.Note;
 import module_scolaire.UE;
 
 /**
@@ -135,5 +140,17 @@ public class InteractionClavier implements Interaction
 	public float demanderUnFloat()
 	{
 		return this.sc.nextFloat();
+	}
+	
+	@Override
+	public Matiere demanderUneMatiere() throws MatiereSaisieIncorrecteException
+	{
+		return new Matiere(this.demanderUneChaineDeCaractere(), this.demanderUnFloat());
+	}
+	
+	@Override
+	public Note demanderUneNote() throws NoteSaisieIncorrecteException
+	{
+		return new Note(this.demanderUneDate(), this.demanderUnFloat(), this.demanderUnFloat(), this.demanderUneChaineDeCaractere());
 	}
 }

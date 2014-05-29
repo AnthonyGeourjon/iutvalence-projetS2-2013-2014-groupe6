@@ -128,6 +128,9 @@ public class Frigo
 		return affichage + ".\n";
 	}
 
+	/**
+	 * @return toutes les recettes disponibles
+	 */
 	public Hashtable<String, Recette> obtenirRecetteDisponible()
 	{
 		return this.recettesDisponibles;
