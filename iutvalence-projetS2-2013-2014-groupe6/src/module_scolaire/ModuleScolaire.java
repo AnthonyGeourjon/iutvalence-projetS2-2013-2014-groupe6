@@ -2,6 +2,7 @@ package module_scolaire;
 
 import interaction.Interaction;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Hashtable;
 
@@ -21,7 +22,7 @@ import general.Module;
 /**
  * @author Anthony Regroupe tout le module de gestion note
  */
-public class ModuleScolaire implements Module
+public class ModuleScolaire implements Module, Serializable
 {
 	/**
 	 * Les UEs de l'étudiant

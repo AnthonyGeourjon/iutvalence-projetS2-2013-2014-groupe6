@@ -1,5 +1,12 @@
 package general;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import exception.ChoixIncorrectException;
 import interaction.Interaction;
 import affichage.Affichage;
@@ -8,30 +15,27 @@ import module_scolaire.ModuleScolaire;
 
 /**
  * @author geourjoa
- *
+ * 
  */
 public class CouteauSuisse
 {
 	// ****** Attribut(s) ******
-	
+
 	/**
 	 * Interaction utilisée
 	 */
 	private Interaction interaction;
 
-	
 	/**
 	 * Affichage utilisé
 	 */
 	private Affichage affichage;
 
-	
-
 	/**
 	 * Scolarit� de l'�tudiant
 	 */
 	private ModuleScolaire moduleScolaire;
-	
+
 	/**
 	 * Alimentation de l'�tudiant
 	 */
@@ -40,9 +44,12 @@ public class CouteauSuisse
 	// ****** Constructeur(s) ******
 
 	/**
-	 * @param interaction Interaction utilisée
-	 * @param affichage Affichage utilisé
-	 * @param frigo frigo du module
+	 * @param interaction
+	 *            Interaction utilisée
+	 * @param affichage
+	 *            Affichage utilisé
+	 * @param frigo
+	 *            frigo du module
 	 */
 	public CouteauSuisse(Interaction interaction, Affichage affichage)
 	{
@@ -53,7 +60,6 @@ public class CouteauSuisse
 	}
 
 	// ****** Méthode(s) ******
-
 
 	/**
 	 * Acceder à l'application
@@ -72,17 +78,18 @@ public class CouteauSuisse
 			{
 			case 0:
 				application = false;
+				this.sauvegarderDonnees();
 				this.affichage.notifierArretApplication();
 				break;
 			case 1:
 				this.moduleAlimentation.utiliserModule(this.affichage, this.interaction);
 				break;
-			case 2: 
+			case 2:
 				this.moduleScolaire.utiliserModule(this.affichage, this.interaction);
 				break;
-				
-				/* TODO Rajouter l'utilisation des autres modules + affichage*/
-				
+
+			/* TODO Rajouter l'utilisation des autres modules + affichage */
+
 			default:
 				try
 				{
@@ -100,4 +107,51 @@ public class CouteauSuisse
 
 	}
 
+	private void sauvegarderDonnees()
+	{
+		try
+		{
+			ObjectOutputStream flotEcriture = new ObjectOutputStream(new FileOutputStream("FichierDeDonnees"));
+			flotEcriture.writeObject(this);
+			flotEcriture.close();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void chargerDonnees()
+	{
+		ObjectInputStream flotLecture = null;
+		try
+		{
+			flotLecture = new ObjectInputStream(new FileInputStream("FichierDeDonnees"));
+		}
+		catch (IOException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try
+		{
+			Object lu = flotLecture.readObject();
+		}
+		catch (ClassNotFoundException | IOException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		try
+		{
+			flotLecture.close();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
