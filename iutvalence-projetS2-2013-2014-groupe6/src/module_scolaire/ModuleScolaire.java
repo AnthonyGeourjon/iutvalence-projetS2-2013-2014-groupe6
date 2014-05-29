@@ -2,10 +2,8 @@ package module_scolaire;
 
 import interaction.Interaction;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Hashtable;
-
 import affichage.Affichage;
 import exception.ChoixIncorrectException;
 import exception.MatiereDejaPresenteException;
@@ -22,7 +20,7 @@ import general.Module;
 /**
  * @author Anthony Regroupe tout le module de gestion note
  */
-public class ModuleScolaire implements Module, Serializable
+public class ModuleScolaire implements Module
 {
 	/**
 	 * Les UEs de l'étudiant
@@ -266,6 +264,7 @@ public class ModuleScolaire implements Module, Serializable
 			case 7 :
 				affichageUtilise.afficherLaMoyenne(this.obtenirMoyenneDeLEtudiant());
 				break;
+				// TODO Ajoutez une méthode pour afficher l'ensemble des notes, les moyennes par matières, les moyennes par UE.
 			default:
 				try
 				{

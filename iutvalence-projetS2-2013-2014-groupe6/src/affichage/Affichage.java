@@ -20,7 +20,7 @@ public interface Affichage
 	/**
 	 * Demander un choix num√©rique
 	 */
-	public abstract void demanderUnChoix();
+	public abstract void demanderUnInt();
 	
 	/**
 	 * Afficher le nom de l'application
@@ -116,6 +116,11 @@ public interface Affichage
 	 * Montrer ‡ l'utilisateur que l'application se termine
 	 */
 	public abstract void notifierArretApplication();
+
+	/**
+	 * Demander quelle un nom d'aliment et une quantite ‡ supprimer 
+	 */
+	public abstract void demanderUneQuantiteDAlimentAEnlever();
 
 	
 	

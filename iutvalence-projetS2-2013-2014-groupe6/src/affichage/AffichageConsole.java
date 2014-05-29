@@ -6,7 +6,7 @@ import module_alimentation.Frigo;
 import module_alimentation.Recette;
 
 /**
- * @author geourjoa
+ * @author geourjoa 
  * 
  */
 public class AffichageConsole implements Affichage
@@ -33,7 +33,7 @@ public class AffichageConsole implements Affichage
 	}
 
 	@Override
-	public void demanderUnChoix()
+	public void demanderUnInt()
 	{
 		System.out.println("Veuillez saisir votre choix :");
 
@@ -179,6 +179,13 @@ public class AffichageConsole implements Affichage
 	public void notifierArretApplication()
 	{
 		System.out.println("Application terminée.");
+	}
+	
+	@Override
+	public void demanderUneQuantiteDAlimentAEnlever()
+	{
+		System.out.println("Saisissez le nom puis la quantite d'aliment à changer (-1 enleve un aliment, 2 en ajoute 2):");
+		
 	}
 
 }

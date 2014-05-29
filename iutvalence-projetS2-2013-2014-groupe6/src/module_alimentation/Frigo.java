@@ -2,6 +2,7 @@ package module_alimentation;
 
 import java.util.Hashtable;
 
+import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
 
 /**
@@ -33,16 +34,14 @@ public class Frigo
 	/**
 	 * @param alimentAAjouter
 	 *            aliment qui sera ajoutï¿½ au frigo
+	 * @throws AlimentDejaPresentException levé si l'aliment est deja présent
 	 */
-	public void insererAliment(Aliment alimentAAjouter)
+	public void insererAliment(Aliment alimentAAjouter) throws AlimentDejaPresentException
 	{
 
 		if (this.alimentsDuFrigo.containsKey(alimentAAjouter.obtenirNom()))
 		{
-			Aliment alimentDejaPresent = this.alimentsDuFrigo.get(alimentAAjouter.obtenirNom());
-			this.alimentsDuFrigo.remove(alimentAAjouter.obtenirNom());
-			this.alimentsDuFrigo.put(alimentAAjouter.obtenirNom(), new Aliment(alimentAAjouter.obtenirNom(),
-					alimentAAjouter.obtenirQuantite() + alimentDejaPresent.obtenirQuantite()));
+			throw new AlimentDejaPresentException();
 		}
 		else
 			this.alimentsDuFrigo.put(alimentAAjouter.obtenirNom(), alimentAAjouter);
@@ -134,5 +133,32 @@ public class Frigo
 	public Hashtable<String, Recette> obtenirRecetteDisponible()
 	{
 		return this.recettesDisponibles;
+	}
+
+	/**
+	 * @param nomAliment le nom de l'aliment auquel sera retiré la quantite
+	 * @param quantiteARetirer la quantite a enlever
+	 * @throws AlimentsInexistantException levé si l'aliment n'existe pas
+	 */
+	public void changerUneQuantiteDAliment(String nomAliment, int quantiteARetirer) throws AlimentsInexistantException
+	{
+		if(this.alimentsDuFrigo.containsKey(nomAliment))
+		{
+			this.alimentsDuFrigo.get(nomAliment).changerQuantite(quantiteARetirer);
+			if(this.alimentsDuFrigo.get(nomAliment).obtenirQuantite()<=0)
+				try
+				{
+					this.supprimerAliment(nomAliment);
+				}
+				catch (AlimentsInexistantException e)
+				{
+					// impossible la vérification est déja faite
+					e.printStackTrace();
+				}
+		}
+		else
+			throw new AlimentsInexistantException();
+		
+		
 	}
 }

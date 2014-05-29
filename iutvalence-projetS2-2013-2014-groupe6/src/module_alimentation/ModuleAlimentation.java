@@ -1,5 +1,6 @@
 package module_alimentation;
 
+import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
 import exception.ChoixIncorrectException;
 import interaction.Interaction;
@@ -47,18 +48,31 @@ public class ModuleAlimentation implements Module
 				break;
 			case 1:
 				affichageUtilise.demanderUnAliment();
-				this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
+				try
+				{
+					this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (AlimentDejaPresentException e2)
+				{
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
 				break;
 			case 2:
+				//TODO 
 				affichageUtilise.demanderUneChaineDeCaractere();
 				try
 				{
 					this.leFrigo.supprimerAliment(interactionUtilise.demanderUneChaineDeCaractere());
+					affichageUtilise.notifierActionReussie();
 				}
 				catch (AlimentsInexistantException e1)
 				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
 				}
 				break;
 			case 3:
@@ -91,6 +105,19 @@ public class ModuleAlimentation implements Module
 				affichageUtilise.demanderUneRecette();
 				interactionUtilise.saisirUneRecette();
 				break;
+			case 9 :
+				affichageUtilise.demanderUneQuantiteDAlimentAEnlever();
+				try
+				{
+					this.leFrigo.changerUneQuantiteDAliment(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUnInt());
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (AlimentsInexistantException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
 			default:
 				try
 				{
