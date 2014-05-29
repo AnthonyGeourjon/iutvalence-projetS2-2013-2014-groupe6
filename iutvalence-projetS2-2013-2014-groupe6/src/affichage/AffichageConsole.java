@@ -28,7 +28,7 @@ public class AffichageConsole implements Affichage
 						+ "===========================\n"
 						+ " \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, "
 						+ "\n3-Afficher les aliments pÃ©rimÃ©s\n4-Supprimer les aliments perimÃ©s, \n5-Afficher le frigo,"
-						+ "\n6-Afficher les recettes disponibles,\n7-Afficher les recettes en mémoires,\n8-Saisissez une recette,\n0-Quitter.\n");
+						+ "\n6-Afficher les recettes disponibles,\n7-Afficher les recettes en mémoires,\n8-Saisissez une recette,\n9-Changez la quantité de nourriture,\n10-Afficher la valeur du contenu du frigo\n0-Quitter.\n");
 
 	}
 
@@ -42,7 +42,7 @@ public class AffichageConsole implements Affichage
 	@Override
 	public void demanderUnAliment()
 	{
-		System.out.println("Saisissez un aliment sous la forme d'un nom, puis d'une quantite.");
+		System.out.println("Saisissez un aliment sous la forme d'un nom, une quantite puis le prix.");
 
 	}
 
@@ -185,6 +185,13 @@ public class AffichageConsole implements Affichage
 	public void demanderUneQuantiteDAlimentAEnlever()
 	{
 		System.out.println("Saisissez le nom puis la quantite d'aliment à changer (-1 enleve un aliment, 2 en ajoute 2):");
+		
+	}
+	
+	@Override
+	public void afficherPrixDuFrigo(Integer prixDuFrigo)
+	{
+		System.out.println("L'ensemble des aliments du frigo vaut " + prixDuFrigo + " euro(s).\n");
 		
 	}
 

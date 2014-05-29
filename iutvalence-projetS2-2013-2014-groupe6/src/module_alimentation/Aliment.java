@@ -25,17 +25,24 @@ public class Aliment
 	// * Date de pÃ©remption de l'aliment.
 	// */
 	// private Date datePeremption;
+	
+	/**
+	 * Prix à l'unité de l'aliment
+	 */
+	private Integer prix;
 
 	/**
 	 * @param nomAliment
 	 *            nom de l'aliment
 	 * @param quantiteInitiale
 	 *            quantite du produit
+	 * @param prix 
 	 */
-	public Aliment(String nomAliment, Integer quantiteInitiale)
+	public Aliment(String nomAliment, Integer quantiteInitiale, Integer prix)
 	{
 		this.nom = nomAliment;
 		this.quantite = quantiteInitiale;
+		this.prix=prix;
 	}
 
 	/**
@@ -74,5 +81,13 @@ public class Aliment
 	public Integer obtenirQuantite()
 	{
 		return this.quantite;
+	}
+	
+	/**
+	 * @return la valeur des aliments 
+	 */
+	public Integer obtenirValeurTotalDeLAliment()
+	{
+		return this.prix*this.quantite;
 	}
 }

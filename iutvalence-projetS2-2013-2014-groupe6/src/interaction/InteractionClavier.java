@@ -60,8 +60,10 @@ public class InteractionClavier implements Interaction
 		String nom = this.sc.next();
 
 		int quantite = this.sc.nextInt();
+		
+		int prix = this.sc.nextInt();
 
-		return new Aliment(nom, quantite);
+		return new Aliment(nom, quantite, prix);
 
 	}
 

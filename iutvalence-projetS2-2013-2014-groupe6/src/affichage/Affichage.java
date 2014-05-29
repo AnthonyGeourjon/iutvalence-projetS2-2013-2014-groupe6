@@ -122,6 +122,11 @@ public interface Affichage
 	 */
 	public abstract void demanderUneQuantiteDAlimentAEnlever();
 
+	/**
+	 * @param prixDuFrigo prix a afficher
+	 */
+	public abstract void afficherPrixDuFrigo(Integer prixDuFrigo);
+
 	
 	
 	

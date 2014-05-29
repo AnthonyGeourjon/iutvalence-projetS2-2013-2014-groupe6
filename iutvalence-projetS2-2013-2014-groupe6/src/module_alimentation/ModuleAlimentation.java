@@ -118,6 +118,10 @@ public class ModuleAlimentation implements Module
 					e1.printStackTrace();
 					affichageUtilise.notifierEchec();
 				}
+				break;
+			case 10:
+				affichageUtilise.afficherPrixDuFrigo(this.leFrigo.prixDuFrigo());
+				break;
 			default:
 				try
 				{
@@ -134,5 +138,7 @@ public class ModuleAlimentation implements Module
 		}
 
 	}
+
+	
 
 }

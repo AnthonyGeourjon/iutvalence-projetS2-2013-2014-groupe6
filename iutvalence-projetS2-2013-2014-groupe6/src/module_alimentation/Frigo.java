@@ -161,4 +161,16 @@ public class Frigo
 		
 		
 	}
+
+	public Integer prixDuFrigo()
+	{
+		Integer prixFrigo=0;
+		
+		for(Aliment alimentCourant : this.alimentsDuFrigo.values())
+		{
+			prixFrigo+=alimentCourant.obtenirValeurTotalDeLAliment();
+		}
+		
+		return prixFrigo;
+	}
 }
