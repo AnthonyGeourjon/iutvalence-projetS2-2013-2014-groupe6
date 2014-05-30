@@ -16,12 +16,12 @@ import general.Module;
 public class ModuleAlimentation implements Module
 {
 	/**
-	 * Frigo associÃ© au module
+	 * Frigo associé au module
 	 */
 	private Frigo leFrigo;
 
 	/**
-	 * Constructeur par dï¿½faut
+	 * Constructeur par defaut
 	 */
 	public ModuleAlimentation()
 	{
