@@ -19,7 +19,7 @@ public class Frigo
 	private Hashtable<String, Aliment> alimentsDuFrigo;
 
 	/**
-	 * Ensemble des recettes pouvant etre rï¿½alisï¿½ avec le frigo en l'ï¿½tat
+	 * Ensemble des recettes pouvant etre réalisées avec le frigo actuel
 	 */
 	private Hashtable<String, Recette> recettesDisponibles;
 
@@ -34,8 +34,8 @@ public class Frigo
 
 	/**
 	 * @param alimentAAjouter
-	 *            aliment qui sera ajoutï¿½ au frigo
-	 * @throws AlimentDejaPresentException levé si l'aliment est deja présent
+	 *            aliment qui sera ajouté au frigo
+	 * @throws AlimentDejaPresentException levée si l'aliment est deja présent
 	 */
 	public void insererAliment(Aliment alimentAAjouter) throws AlimentDejaPresentException
 	{
@@ -50,6 +50,9 @@ public class Frigo
 		this.mAJRecettePossible();
 	}
 
+	/**
+	 * Met à jour la liste des recettes des aliments possibles
+	 */
 	private void mAJRecettePossible()
 	{
 		if (!Recette.obtenirToutesLesRecettesConnues().isEmpty())
@@ -73,18 +76,19 @@ public class Frigo
 
 	/**
 	 * @param nomAlimentASupprimer
-	 *            nom de l'aliment qui sera supprime
+	 *            nom de l'aliment qui sera supprimé
 	 * @throws AlimentsInexistantException
-	 *             levï¿½ si l'aliment n'est pas dans le frigo
+	 *             levée si l'aliment n'est pas dans le frigo
 	 */
 	public void supprimerAliment(String nomAlimentASupprimer) throws AlimentsInexistantException
 	{
 		if (this.alimentsDuFrigo.remove(nomAlimentASupprimer) == null)
 			throw new AlimentsInexistantException();
-	}
+	}	
 
-	
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		String affichage = "Les aliments du frigo : \n\n";

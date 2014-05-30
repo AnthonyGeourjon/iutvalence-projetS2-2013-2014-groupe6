@@ -15,42 +15,42 @@ import module_scolaire.Note;
 import module_scolaire.UE;
 
 /**
- * @author Anthony Dans cette classe, je compte mettre tout nos moyens
- *         d'interaction par la console avec l'utilisateur
+ * @author Anthony 
+ *  Méthode d'interaction par la console avec l'utilisateur
  */
 public interface Interaction
 {
 	/**
-	 * @return Demande un nombre Ã  l'utilisateur
+	 * @return Demande un nombre à l'utilisateur
 	 */
 	public abstract int demanderUnInt();
 
 	/**
-	 * @return un flottant saisie par l'utilisateur
+	 * @return un flotant saisie par l'utilisateur
 	 */
 	public float demanderUnFloat();
 
 	/**
-	 * @return Un nom demande par la saisie
+	 * @return une chaine de caractere
 	 */
 	public abstract String demanderUneChaineDeCaractere();
 
 	/**
-	 * @return Un aliment saisie par l'utilisateur
+	 * @return Un aliment saisit par l'utilisateur
 	 */
 	public abstract Aliment demanderUnAliment();
 
 	/**
-	 * @return Une recette saisie par l'utilisateur
+	 * @return Une recette saisit par l'utilisateur
 	 * @throws RecetteDejaEnMemoireException
-	 *             levé si la recette à déja été saisie
+	 *             levée si la recette à déja été saisie
 	 */
 	public abstract Recette demanderUneRecette() throws RecetteDejaEnMemoireException;
 
 	/**
 	 * @return un evenement saisie par l'utilisateur
 	 * @throws HeureIncorrecteException
-	 *             Levé si l'heure est impossible
+	 *             Levée si l'heure est impossible
 	 */
 	public abstract Evenement demanderUnEvenement() throws HeureIncorrecteException;
 
@@ -62,7 +62,7 @@ public interface Interaction
 	/**
 	 * @return une date saisie par l'utilisateur
 	 * @throws HeureIncorrecteException
-	 *             levé si l'heure est incorrecte
+	 *             levée si l'heure est incorrecte
 	 */
 	public abstract Heure demanderUneHeure() throws HeureIncorrecteException;
 
@@ -74,7 +74,7 @@ public interface Interaction
 	/**
 	 * @return une matiere saisie par l'utilisateur
 	 * @throws MatiereSaisieIncorrecteException
-	 *             levé si les données saisies sont incorrectes
+	 *             levée si les données saisies sont incorrectes
 	 */
 	public abstract Matiere demanderUneMatiere() throws MatiereSaisieIncorrecteException;
 

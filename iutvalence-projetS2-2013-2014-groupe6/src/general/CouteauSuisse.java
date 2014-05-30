@@ -15,22 +15,22 @@ public class CouteauSuisse
 	// ****** Attribut(s) ******
 
 	/**
-	 * Interaction utilisÃ©e
+	 * Interaction utilisée
 	 */
 	private Interaction interaction;
 
 	/**
-	 * Affichage utilisÃ©
+	 * Affichage utilisé
 	 */
 	private Affichage affichage;
 
 	/**
-	 * Scolaritï¿½ de l'ï¿½tudiant
+	 * Scolarité de l'étudiant
 	 */
 	private ModuleScolaire moduleScolaire;
 
 	/**
-	 * Alimentation de l'ï¿½tudiant
+	 * Alimentation de l'étudiant
 	 */
 	private ModuleAlimentation moduleAlimentation;
 
@@ -38,9 +38,9 @@ public class CouteauSuisse
 
 	/**
 	 * @param interaction
-	 *            Interaction utilisÃ©e
+	 *            Interaction utilisé
 	 * @param affichage
-	 *            Affichage utilisÃ©
+	 *            Affichage utilisé
 	 * @param frigo
 	 *            frigo du module
 	 */
@@ -55,7 +55,7 @@ public class CouteauSuisse
 	// ****** MÃ©thode(s) ******
 
 	/**
-	 * Acceder Ã  l'application
+	 * Acceder à l'application
 	 */
 	public void utiliserLeCouteauSuisse()
 	{
