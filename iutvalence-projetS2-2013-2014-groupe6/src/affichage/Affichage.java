@@ -19,9 +19,9 @@ public interface Affichage
 	public abstract void afficherMenuAlimentation();
 	
 	/**
-	 * Demander un choix numÃ©rique
+	 * Demander un choix numérique
 	 */
-	public abstract void demanderUnInt();
+	public abstract void demanderUnChoix();
 	
 	/**
 	 * Afficher le nom de l'application
@@ -44,7 +44,7 @@ public interface Affichage
 	public abstract void demanderUneChaineDeCaractere();
 
 	/**
-	 * Dire ï¿½ l'utilisateur qu'une fonction n'est pas disponible
+	 * Dire à l'utilisateur qu'une fonction n'est pas disponible
 	 */
 	public abstract void messageDErreur();
 	
@@ -69,7 +69,7 @@ public interface Affichage
 	public abstract void afficherDesRecettes(Hashtable<String, Recette> recette);
 
 	/**
-	 * Demander à l'utilisateur un evenement
+	 * Demander à l'utilisateur un évenement
 	 */
 	public abstract void demanderUnEvenement();
 
@@ -89,7 +89,7 @@ public interface Affichage
 	public abstract void demanderUneUE();
 
 	/**
-	 * Demander une matiere à l'utilisateur
+	 * Demander une matière à l'utilisateur
 	 */
 	public abstract void demanderUneMatiere();
 
@@ -119,7 +119,7 @@ public interface Affichage
 	public abstract void notifierArretApplication();
 
 	/**
-	 * Demander quelle un nom d'aliment et une quantite à supprimer 
+	 * Demander un nom d'aliment et une quantite à supprimer 
 	 */
 	public abstract void demanderUneQuantiteDAlimentAEnlever();
 
@@ -127,6 +127,7 @@ public interface Affichage
 	 * @param prixDuFrigo prix a afficher
 	 */
 	public abstract void afficherPrixDuFrigo(Integer prixDuFrigo);
+
 
 	public abstract void afficherMenuBudget();
 
@@ -142,7 +143,17 @@ public interface Affichage
 
 	
 	
-	
 
-	
+	public abstract void demanderUnInt();
+
+
+	/**
+	 * Demander un nom de recette à l'utilisateur 
+	 */
+	public abstract void demanderUnNomDeRecette();
+
+	/**
+	 * @param recetteAAfficher recette qui sera affichée
+	 */
+	public abstract void afficherUneRecette(Recette recetteAAfficher);	
 }

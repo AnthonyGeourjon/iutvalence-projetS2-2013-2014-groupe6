@@ -37,7 +37,7 @@ public class Note
 	 * @param valeur valeur de la note [0 - 20]
 	 * @param coeff coefficient de la note
 	 * @param commentaire commentaire de la note
-	 * @throws NoteSaisieIncorrecteException levé si les valeurs en parametres sont incorrectes
+	 * @throws NoteSaisieIncorrecteException levée si les valeurs en parametres sont incorrectes
 	 */
 	public Note(Date date, float valeur, float coeff, String commentaire) throws NoteSaisieIncorrecteException
 	{

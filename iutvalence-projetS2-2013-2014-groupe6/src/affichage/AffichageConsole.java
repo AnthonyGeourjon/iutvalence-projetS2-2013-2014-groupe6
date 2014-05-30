@@ -201,7 +201,7 @@ public class AffichageConsole implements Affichage
 	public void afficherMenuBudget()
 	{
 		System.out.println("===========================\n"
-				+ " Module Gestion Budget :\n"
+				+ " Module Gestion BUDGET :\n"
 				+ "===========================\n"
 				+ " \n1-Initialiser le budget, \n2-Afficher le solde du budget, "
 				+ "\n3-ajouter de l'argent, \n4-Retirer de l'argent, "
@@ -230,6 +230,24 @@ public class AffichageConsole implements Affichage
 
 	@Override
 	public void afficherLEtatDuBudget(Etat etat) {
+	}
+
+	@Override
+	public void demanderUnChoix() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void demanderUnNomDeRecette() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afficherUneRecette(Recette recetteAAfficher) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

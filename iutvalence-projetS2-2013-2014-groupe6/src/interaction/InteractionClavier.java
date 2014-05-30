@@ -1,5 +1,3 @@
-//TODO Faire en sorte que les méthodes renvois toujours un truc potable
-
 package interaction;
 
 import java.text.DateFormat;
@@ -27,85 +25,83 @@ import module_scolaire.UE;
  */
 public class InteractionClavier implements Interaction
 {
-	/**
-	 * Moyen d'interargir avec l'utilisateur
-	 */
-	private Scanner sc;
-
-	/**
-	 * Constructeur
-	 */
-	public InteractionClavier()
-	{
-		this.sc = new Scanner(System.in);
-	}
+	// ************************
+	// ** Fonctions de base **
+	// ************************
 
 	@Override
 	public int demanderUnInt()
 	{
-
-		int choix = this.sc.nextInt();
-
 		// sc.close(); Leve l'exception "java.util.NoSuchElementException". Car
 		// fermer un scanner ferme Systeme.in.
 		// http://stackoverflow.com/questions/20739587/scanner-java-util-nosuchelementexception
 
-		return choix;
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
 
-	}
+		return sc.nextInt();
 
-	@Override
-	public Aliment saisirUnAliment()
-	{
-		String nom = this.sc.next();
-
-		int quantite = this.sc.nextInt();
-		
-		int prix = this.sc.nextInt();
-
-		return new Aliment(nom, quantite, prix);
-
-	}
-
-	@Override
-	public Recette saisirUneRecette()
-	{
-		String nom = this.sc.next();
-
-		int nombreDAlimentDeLARecette = this.sc.nextInt();
-
-		Hashtable<String, Aliment> alimentsNecessaires = new Hashtable<>();
-
-		for (int alimentNumero = 0; alimentNumero < nombreDAlimentDeLARecette; alimentNumero++)
-		{
-			Aliment alimentCourant = this.saisirUnAliment();
-			alimentsNecessaires.put(alimentCourant.obtenirNom(), alimentCourant);
-		}
-
-		try
-		{
-			return new Recette(alimentsNecessaires, nom);
-		}
-		catch (RecetteDejaEnMemoireException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return null;
 	}
 
 	@Override
 	public String demanderUneChaineDeCaractere()
 	{
-		return this.sc.next();
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		return sc.nextLine();
+	}
+
+	
+	
+	@Override
+	public float demanderUnFloat()
+	{
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		return sc.nextFloat();
+	}
+	
+	// ************************
+	// ** Fonctions composées **
+	// ************************
+	
+	
+	@Override
+	public Aliment demanderUnAliment()
+	{
+		return new Aliment(this.demanderUneChaineDeCaractere(), this.demanderUnInt(), this.demanderUnInt());
+	}
+	
+	@Override
+	public Aliment demanderUnAlimentPourUneRecette()
+	{
+		return new Aliment(this.demanderUneChaineDeCaractere(), this.demanderUnInt(),0);
+	}
+	
+	@Override
+	public Recette demanderUneRecette() throws RecetteDejaEnMemoireException
+	{
+		String nom = this.demanderUneChaineDeCaractere();
+
+		int nombreDAlimentDeLARecette = this.demanderUnInt();
+
+		Hashtable<String, Aliment> alimentsNecessaires = new Hashtable<>();
+
+		for (int alimentNumero = 0; alimentNumero < nombreDAlimentDeLARecette; alimentNumero++)
+		{
+			Aliment alimentCourant = this.demanderUnAlimentPourUneRecette();
+			alimentsNecessaires.put(alimentCourant.obtenirNom(), alimentCourant);
+		}
+
+		return new Recette(alimentsNecessaires, nom);
+
 	}
 
 	@Override
 	public Evenement demanderUnEvenement() throws HeureIncorrecteException
 	{
-		return new Evenement(this.demanderUneDate(), this.demanderUneChaineDeCaractere(), this.demanderUneChaineDeCaractere(),
-				this.demanderUneHeure(), this.demanderUneHeure());
+		return new Evenement(this.demanderUneDate(), this.demanderUneChaineDeCaractere(),
+				this.demanderUneChaineDeCaractere(), this.demanderUneHeure(), this.demanderUneHeure());
 
 	}
 
@@ -118,6 +114,9 @@ public class InteractionClavier implements Interaction
 	@Override
 	public Date demanderUneDate()
 	{
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		Date date = null;
 		try
@@ -132,27 +131,25 @@ public class InteractionClavier implements Interaction
 		return date;
 
 	}
-	
+
 	@Override
 	public UE demanderUneUE()
 	{
 		return new UE(this.demanderUneChaineDeCaractere(), this.demanderUnFloat());
 	}
 
-	public float demanderUnFloat()
-	{
-		return this.sc.nextFloat();
-	}
 	
+
 	@Override
 	public Matiere demanderUneMatiere() throws MatiereSaisieIncorrecteException
 	{
 		return new Matiere(this.demanderUneChaineDeCaractere(), this.demanderUnFloat());
 	}
-	
+
 	@Override
 	public Note demanderUneNote() throws NoteSaisieIncorrecteException
 	{
-		return new Note(this.demanderUneDate(), this.demanderUnFloat(), this.demanderUnFloat(), this.demanderUneChaineDeCaractere());
+		return new Note(this.demanderUneDate(), this.demanderUnFloat(), this.demanderUnFloat(),
+				this.demanderUneChaineDeCaractere());
 	}
 }

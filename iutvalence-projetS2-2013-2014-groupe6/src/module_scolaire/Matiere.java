@@ -28,7 +28,7 @@ public class Matiere
 	private String nomMatiere;
 
 	/**
-	 * coeff de la matiere
+	 * coefficient de la matiere
 	 */
 	private float coeffient;
 
@@ -38,7 +38,7 @@ public class Matiere
 	 * @param coeff
 	 *            coeff de la matiere
 	 * @throws MatiereSaisieIncorrecteException
-	 *             levï¿½ si le coefficient est incorrecte
+	 *             levée si le coefficient est incorrecte
 	 */
 	public Matiere(String nomMatiere, float coeff) throws MatiereSaisieIncorrecteException
 	{
@@ -71,9 +71,9 @@ public class Matiere
 
 	/**
 	 * @param date
-	 *            date de la note a trouver
+	 *            date de la note à trouver
 	 * @throws NoteNonPresenteException
-	 *             levÃ© si la note n'est pas trouvÃ©
+	 *             levée si la note n'est pas trouvée
 	 */
 	public void supprimerUneNote(Date date) throws NoteNonPresenteException
 	{
@@ -84,7 +84,7 @@ public class Matiere
 	}
 
 	/**
-	 * Mettre Ã  jour la moyenne
+	 * Mettre à jour la moyenne
 	 */
 	private void mettreAJourLaMoyenne()
 	{

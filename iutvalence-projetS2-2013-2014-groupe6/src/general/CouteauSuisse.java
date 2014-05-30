@@ -1,12 +1,5 @@
 package general;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import exception.ChoixIncorrectException;
 import interaction.Interaction;
 import affichage.Affichage;
@@ -24,22 +17,22 @@ public class CouteauSuisse
 	// ****** Attribut(s) ******
 
 	/**
-	 * Interaction utilisÃ©e
+	 * Interaction utilisée
 	 */
 	private Interaction interaction;
 
 	/**
-	 * Affichage utilisÃ©
+	 * Affichage utilisé
 	 */
 	private Affichage affichage;
 
 	/**
-	 * Scolaritï¿½ de l'ï¿½tudiant
+	 * Scolarité de l'étudiant
 	 */
 	private ModuleScolaire moduleScolaire;
 
 	/**
-	 * Alimentation de l'ï¿½tudiant
+	 * Alimentation de l'étudiant
 	 */
 	private ModuleAlimentation moduleAlimentation;
 	
@@ -52,9 +45,9 @@ public class CouteauSuisse
 
 	/**
 	 * @param interaction
-	 *            Interaction utilisÃ©e
+	 *            Interaction utilisé
 	 * @param affichage
-	 *            Affichage utilisÃ©
+	 *            Affichage utilisé
 	 * @param frigo
 	 *            frigo du module
 	 */
@@ -71,7 +64,7 @@ public class CouteauSuisse
 	// ****** MÃ©thode(s) ******
 
 	/**
-	 * Acceder Ã  l'application
+	 * Acceder à l'application
 	 */
 	public void utiliserLeCouteauSuisse()
 	{
@@ -95,6 +88,7 @@ public class CouteauSuisse
 			case 2:
 				this.moduleScolaire.utiliserModule(this.affichage, this.interaction);
 				break;
+
 				
 			case 3:
 				this.moduleAgenda.utiliserModule(this.affichage, this.interaction);
@@ -104,6 +98,7 @@ public class CouteauSuisse
 				this.moduleBudget.utiliserModule(this.affichage, this.interaction);
 
 			/* TODO Rajouter l'utilisation des autres modules + affichage */
+
 
 			default:
 				try

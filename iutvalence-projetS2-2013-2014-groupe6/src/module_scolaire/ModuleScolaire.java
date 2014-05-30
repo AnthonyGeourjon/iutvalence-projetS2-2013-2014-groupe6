@@ -43,9 +43,9 @@ public class ModuleScolaire implements Module
 
 	/**
 	 * @param uEAAjouter
-	 *            ue a ajouter
+	 *            UE a ajouter
 	 * @throws UEDejaPresenteException
-	 *             Levé si l'UE est déja presente
+	 *             Levée si l'UE est déja presente
 	 */
 	public void ajouterUneUE(UE uEAAjouter) throws UEDejaPresenteException
 	{
@@ -57,9 +57,9 @@ public class ModuleScolaire implements Module
 
 	/**
 	 * @param nomUEAsupprimer
-	 *            nom de l'ue a supprimer
+	 *            nom de l'UE a supprimer
 	 * @throws MatiereNonPresenteException
-	 *             levé si la matiere n'est pas trouvée
+	 *             levée si la matiere n'est pas trouvée
 	 */
 	public void supprimerUneUE(String nomUEAsupprimer) throws MatiereNonPresenteException
 	{
@@ -130,8 +130,8 @@ public class ModuleScolaire implements Module
 	 * @param nomUE nom de L'UE auquelle sera ajouté la note
 	 * @param nomMatiere nom de la matiere auquelle sera ajouté la note
 	 * @param noteAAjouter note qui sera ajoutée
-	 * @throws UEInconnuException levé si l'UE est inconnu
-	 * @throws NoteDejaPresenteException  levé si une note est deja presente à ce jour la
+	 * @throws UEInconnuException levée si l'UE est inconnu
+	 * @throws NoteDejaPresenteException  levée si une note est deja presente à ce jour la
 	 */
 	public void insererUneNote(String nomUE, String nomMatiere, Note noteAAjouter) throws UEInconnuException, NoteDejaPresenteException
 	{
@@ -145,8 +145,8 @@ public class ModuleScolaire implements Module
 	 * @param nomUE nom de l'UE auquelle on supprimera une note
 	 * @param nomMatiere nom de la matiere auquelle on supprimera une note
 	 * @param dateNoteASupprimer date de la note a supprimer
-	 * @throws NoteNonPresenteException levé si la note n'existe pas
-	 * @throws UEInconnuException levé si l'UE est inconnu
+	 * @throws NoteNonPresenteException levée si la note n'existe pas
+	 * @throws UEInconnuException levée si l'UE est inconnu
 	 */
 	public void supprimerUneNote(String nomUE, String nomMatiere, Date dateNoteASupprimer) throws NoteNonPresenteException, UEInconnuException
 	{

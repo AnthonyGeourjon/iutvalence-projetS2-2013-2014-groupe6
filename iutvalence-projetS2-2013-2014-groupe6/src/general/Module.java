@@ -11,9 +11,18 @@ import affichage.Affichage;
 public interface Module
 {
 	/**
-	 * @param affichageUtilise affichage utilisÃ© pour le module
-	 * @param interactionUtilise interaction utilisÃ© pour le module
+	 * @param affichageUtilise affichage utilisé pour le module
+	 * @param interactionUtilise interaction utilisé pour le module
 	 */
 	public abstract void utiliserModule(Affichage affichageUtilise, Interaction interactionUtilise);
+	
+	
+	//TODO Sauvegarde de l'application
+	
+	//public abstract void sauvegarderUnModule();
+	
+	//public abstract void chargerUnModule(Utilisateur utilisateurDuModuleSauvegarde );
+	
+	
 		
 }

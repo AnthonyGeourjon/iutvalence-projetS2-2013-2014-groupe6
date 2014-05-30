@@ -1,7 +1,9 @@
 package module_alimentation;
 
 import java.util.Hashtable;
+
 import exception.RecetteDejaEnMemoireException;
+import exception.RecetteInconnueException;
 
 /**
  * @author geourjoa
@@ -9,18 +11,11 @@ import exception.RecetteDejaEnMemoireException;
  */
 public class Recette
 {
-	// *********************
-	// VARIABLE DE CLASSES :
-	// *********************
 
 	/**
-	 * Ensemble des recettes enregistrÃ©s.
+	 * Ensemble des recettes enregistréess.
 	 */
 	private static Hashtable<String, Recette> toutesLesRecettesConnues;
-
-	// *********************
-	// ATTRIBUT :
-	// *********************
 
 	/**
 	 * Nom de la recette
@@ -28,28 +23,22 @@ public class Recette
 	private String nom;
 
 	/**
-	 * Ensemble des aliments nÃ©cessaires Ã  sa confection
+	 * Ensemble des aliments nécessaires à sa confection
 	 */
 	private Hashtable<String, Aliment> alimentsNecessaires;
-	
-	
-
-	// *********************
-	// CONSTRUCTEURS :
-	// *********************
 
 	/**
 	 * @param aliments
 	 *            aliments necessaires
 	 * @param nom
-	 *            de la recette
+	 *            nom de la recette
 	 * @throws RecetteDejaEnMemoireException
-	 *             levÃ© si la recette est deja en mÃ©moire
+	 *             levée si la recette est deja en mémoire
 	 */
 	public Recette(Hashtable<String, Aliment> aliments, String nom) throws RecetteDejaEnMemoireException
 
 	{
-		
+
 		if (Recette.toutesLesRecettesConnues.containsKey(nom))
 			throw new RecetteDejaEnMemoireException();
 		else
@@ -60,10 +49,6 @@ public class Recette
 		}
 
 	}
-
-	// *********************
-	// METHODES :
-	// *********************
 
 	/**
 	 * @return l'ensemble des recettes disponibles
@@ -82,7 +67,7 @@ public class Recette
 	}
 
 	/**
-	 * @return l'ensemble des aliment nÃ©cessaires.
+	 * @return l'ensemble des aliment nécessaires.
 	 */
 	public Hashtable<String, Aliment> obtenirAlimentNecessaire()
 	{
@@ -94,7 +79,17 @@ public class Recette
 	 */
 	public String toString()
 	{
-		return this.nom;
+		String affichage = "";
+
+		affichage += "La recette " + this.nom + " necessite : \n";
+		for (Aliment alimentCourant : this.alimentsNecessaires.values())
+		{
+			affichage += alimentCourant.obtenirQuantite() + " " + alimentCourant.obtenirNom() + "(s),";
+		}
+
+		return affichage += ".";
+
+		// TODO Enlever la derniere virgule
 	}
 
 	/**
@@ -102,8 +97,22 @@ public class Recette
 	 */
 	public static void initialiserCollection()
 	{
-		Recette.toutesLesRecettesConnues=new Hashtable<>();
-		
+		Recette.toutesLesRecettesConnues = new Hashtable<>();
+
+	}
+
+	/**
+	 * @param nomRecette
+	 *            nom de la recette à trouver
+	 * @return la recette si elle est presente, null sinon
+	 * @throws RecetteInconnueException levée si la recette n'est pas trouvé
+	 */
+	public static Recette obtenirLaRecette(String nomRecette) throws RecetteInconnueException
+	{
+		if (Recette.toutesLesRecettesConnues.containsKey(nomRecette))
+			return Recette.toutesLesRecettesConnues.get(nomRecette);
+		else
+			throw new RecetteInconnueException();
 	}
 
 }

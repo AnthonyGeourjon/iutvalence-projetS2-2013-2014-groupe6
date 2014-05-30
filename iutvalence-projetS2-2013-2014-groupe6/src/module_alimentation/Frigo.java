@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
+import exception.RecetteInconnueException;
 
 /**
  * @author geourjoa
@@ -18,7 +19,7 @@ public class Frigo
 	private Hashtable<String, Aliment> alimentsDuFrigo;
 
 	/**
-	 * Ensemble des recettes pouvant etre rï¿½alisï¿½ avec le frigo en l'ï¿½tat
+	 * Ensemble des recettes pouvant etre réalisées avec le frigo actuel
 	 */
 	private Hashtable<String, Recette> recettesDisponibles;
 
@@ -33,8 +34,8 @@ public class Frigo
 
 	/**
 	 * @param alimentAAjouter
-	 *            aliment qui sera ajoutï¿½ au frigo
-	 * @throws AlimentDejaPresentException levé si l'aliment est deja présent
+	 *            aliment qui sera ajouté au frigo
+	 * @throws AlimentDejaPresentException levée si l'aliment est deja présent
 	 */
 	public void insererAliment(Aliment alimentAAjouter) throws AlimentDejaPresentException
 	{
@@ -49,6 +50,9 @@ public class Frigo
 		this.mAJRecettePossible();
 	}
 
+	/**
+	 * Met à jour la liste des recettes des aliments possibles
+	 */
 	private void mAJRecettePossible()
 	{
 		if (!Recette.obtenirToutesLesRecettesConnues().isEmpty())
@@ -72,40 +76,19 @@ public class Frigo
 
 	/**
 	 * @param nomAlimentASupprimer
-	 *            nom de l'aliment qui sera supprime
+	 *            nom de l'aliment qui sera supprimé
 	 * @throws AlimentsInexistantException
-	 *             levï¿½ si l'aliment n'est pas dans le frigo
+	 *             levée si l'aliment n'est pas dans le frigo
 	 */
 	public void supprimerAliment(String nomAlimentASupprimer) throws AlimentsInexistantException
 	{
 		if (this.alimentsDuFrigo.remove(nomAlimentASupprimer) == null)
 			throw new AlimentsInexistantException();
-	}
+	}	
 
-	// /**
-	// * Supprimer les aliments pÃ©rimÃ©es
-	// */
-	// public void supprimerAlimentsPerimes()
-	// {
-	// //TODO Completer.
-	// }
-	//
-	// /**
-	// * @return la liste des aliments pÃ©rimÃ©s
-	// */
-	// public Hashtable<String, Aliment> alimentsPerimes()
-	// {
-	// //TODO Completer.
-	// }
-
-	// /**
-	// * MÃ©thode qui met Ã  jour les recettes possibles
-	// */
-	// private void mAJRecettePossible()
-	// {
-	// //TODO Completer.
-	// }
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		String affichage = "Les aliments du frigo : \n\n";
@@ -162,6 +145,9 @@ public class Frigo
 		
 	}
 
+	/**
+	 * @return le prix de l'ensemble des aliments du frigo
+	 */
 	public Integer prixDuFrigo()
 	{
 		Integer prixFrigo=0;
@@ -172,5 +158,18 @@ public class Frigo
 		}
 		
 		return prixFrigo;
+	}
+
+	/**
+	 * @param nomRecette nom de la recette à trouver
+	 * @return la recette si elle est presente, null sion
+	 * @throws RecetteInconnueException 
+	 */
+	public Recette obtenirLaRecette(String nomRecette) throws RecetteInconnueException
+	{
+		if(this.recettesDisponibles.containsKey(nomRecette))
+			return this.recettesDisponibles.get(nomRecette);
+		else
+			throw new RecetteInconnueException();
 	}
 }

@@ -13,11 +13,12 @@ public class Aliment
 	private String nom;
 
 	/**
-	 * QuantitÃ© que l'on rajoute dans le frigo.
+	 * nombre d'exepmlaire de l'aliment
 	 */
 	private Integer quantite;
 
-	// TODO Suppression des dates de peremption car trop compliquï¿½. Pour pouvoir
+	// TODO Suppression des dates de peremption car trop compliquï¿½. Pour
+	// pouvoir
 	// le mettre en oeuvre, il faudrait faire des colections de collections ou
 	// la clï¿½ de la premiere, la seconde la clï¿½ est la date
 
@@ -25,7 +26,7 @@ public class Aliment
 	// * Date de pÃ©remption de l'aliment.
 	// */
 	// private Date datePeremption;
-	
+
 	/**
 	 * Prix à l'unité de l'aliment
 	 */
@@ -36,17 +37,18 @@ public class Aliment
 	 *            nom de l'aliment
 	 * @param quantiteInitiale
 	 *            quantite du produit
-	 * @param prix 
+	 * @param prix
+	 *            prix de l'aliment
 	 */
 	public Aliment(String nomAliment, Integer quantiteInitiale, Integer prix)
 	{
 		this.nom = nomAliment;
 		this.quantite = quantiteInitiale;
-		this.prix=prix;
+		this.prix = prix;
 	}
 
 	/**
-	 * @return nom
+	 * @return le nom de l'alimentt
 	 */
 	public String obtenirNom()
 	{
@@ -63,13 +65,16 @@ public class Aliment
 
 	/**
 	 * @param variation
-	 *            change la quantitÃ© de l'aliment
+	 *            change la quantité de l'aliment
 	 */
 	public void changerQuantite(Integer variation)
 	{
 		this.quantite += variation;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		return (this.nom + "(" + this.quantite + " unitï¿½(s)");
@@ -82,12 +87,12 @@ public class Aliment
 	{
 		return this.quantite;
 	}
-	
+
 	/**
-	 * @return la valeur des aliments 
+	 * @return la valeur des aliments
 	 */
 	public Integer obtenirValeurTotalDeLAliment()
 	{
-		return this.prix*this.quantite;
+		return this.prix * this.quantite;
 	}
 }

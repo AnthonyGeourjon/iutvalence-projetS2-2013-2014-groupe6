@@ -3,6 +3,8 @@ package module_alimentation;
 import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
 import exception.ChoixIncorrectException;
+import exception.RecetteDejaEnMemoireException;
+import exception.RecetteInconnueException;
 import interaction.Interaction;
 import affichage.Affichage;
 import general.Module;
@@ -14,12 +16,12 @@ import general.Module;
 public class ModuleAlimentation implements Module
 {
 	/**
-	 * Frigo associÃ© au module
+	 * Frigo associé au module
 	 */
 	private Frigo leFrigo;
 
 	/**
-	 * Constructeur par dï¿½faut
+	 * Constructeur par defaut
 	 */
 	public ModuleAlimentation()
 	{
@@ -50,7 +52,7 @@ public class ModuleAlimentation implements Module
 				affichageUtilise.demanderUnAliment();
 				try
 				{
-					this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
+					this.leFrigo.insererAliment(interactionUtilise.demanderUnAliment());
 					affichageUtilise.notifierActionReussie();
 				}
 				catch (AlimentDejaPresentException e2)
@@ -61,7 +63,6 @@ public class ModuleAlimentation implements Module
 				}
 				break;
 			case 2:
-				//TODO 
 				affichageUtilise.demanderUneChaineDeCaractere();
 				try
 				{
@@ -77,20 +78,11 @@ public class ModuleAlimentation implements Module
 				break;
 			case 3:
 				// TODO Completer
-
 				affichageUtilise.messageDErreur();
-
-				// for (Aliment alimentCourant : ((Aliment[])
-				// this.leFrigo.alimentsPerimes().toArray()))
-				// System.out.println(alimentCourant);
-
 				break;
 			case 4:
 				// TODO Completer
-
 				affichageUtilise.messageDErreur();
-
-				// this.supprimerAlimentsPerimes();
 				break;
 			case 5:
 				affichageUtilise.afficherUnFrigo(this.leFrigo);
@@ -103,13 +95,23 @@ public class ModuleAlimentation implements Module
 				break;
 			case 8:
 				affichageUtilise.demanderUneRecette();
-				interactionUtilise.saisirUneRecette();
+				try
+				{
+					interactionUtilise.demanderUneRecette();
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (RecetteDejaEnMemoireException e2)
+				{
+					e2.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
 				break;
-			case 9 :
+			case 9:
 				affichageUtilise.demanderUneQuantiteDAlimentAEnlever();
 				try
 				{
-					this.leFrigo.changerUneQuantiteDAliment(interactionUtilise.demanderUneChaineDeCaractere(), interactionUtilise.demanderUnInt());
+					this.leFrigo.changerUneQuantiteDAliment(interactionUtilise.demanderUneChaineDeCaractere(),
+							interactionUtilise.demanderUnInt());
 					affichageUtilise.notifierActionReussie();
 				}
 				catch (AlimentsInexistantException e1)
@@ -122,6 +124,30 @@ public class ModuleAlimentation implements Module
 			case 10:
 				affichageUtilise.afficherPrixDuFrigo(this.leFrigo.prixDuFrigo());
 				break;
+			case 11:
+				affichageUtilise.demanderUnNomDeRecette();
+				try
+				{
+					affichageUtilise.afficherUneRecette(Recette.obtenirLaRecette(interactionUtilise
+							.demanderUneChaineDeCaractere()));
+				}
+				catch (RecetteInconnueException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			case 12:
+				affichageUtilise.demanderUnNomDeRecette();
+				try
+				{
+					affichageUtilise.afficherUneRecette(this.leFrigo.obtenirLaRecette(interactionUtilise
+							.demanderUneChaineDeCaractere()));
+				}
+				catch (RecetteInconnueException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			default:
 				try
 				{
@@ -138,7 +164,5 @@ public class ModuleAlimentation implements Module
 		}
 
 	}
-
-	
 
 }
