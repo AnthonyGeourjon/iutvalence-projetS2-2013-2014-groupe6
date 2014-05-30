@@ -162,6 +162,9 @@ public class Frigo
 		
 	}
 
+	/**
+	 * @return le prix de l'ensemble des aliments du frigo
+	 */
 	public Integer prixDuFrigo()
 	{
 		Integer prixFrigo=0;

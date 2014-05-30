@@ -4,6 +4,7 @@ import java.util.Date;
 import exception.HeureIncorrecteException;
 import exception.MatiereSaisieIncorrecteException;
 import exception.NoteSaisieIncorrecteException;
+import exception.RecetteDejaEnMemoireException;
 import module_agenda.Evenement;
 import module_agenda.Heure;
 import module_alimentation.Aliment;
@@ -22,28 +23,34 @@ public interface Interaction
 	//TODO VÃ©riier que toutes les infos renvoyÃ© soient cohÃ©rente
 	
 	/**
-	 * @return Demande un nombre Ã  l'utilisateur (De 0 Ã  X) 
+	 * @return Demande un nombre Ã  l'utilisateur 
 	 */
 	public abstract int demanderUnInt();
 	
 	/**
-	 * @return Un aliment saisie par l'utilisateur
+	 * @return un flottant saisie par l'utilisateur
 	 */
-	public abstract Aliment saisirUnAliment();
-
-	/**
-	 * @return Une recette saisie par l'utilisateur
-	 */
-	public abstract Recette saisirUneRecette();
-
+	public float demanderUnFloat();
+	
 	/**
 	 * @return Un nom demande par la saisie
 	 */
 	public abstract String demanderUneChaineDeCaractere();
+	
+	/**
+	 * @return Un aliment saisie par l'utilisateur
+	 */
+	public abstract Aliment demanderUnAliment();
+
+	/**
+	 * @return Une recette saisie par l'utilisateur
+	 * @throws RecetteDejaEnMemoireException levé si la recette à déja été saisie
+	 */
+	public abstract Recette demanderUneRecette() throws RecetteDejaEnMemoireException;
 
 	/**
 	 * @return un evenement saisie par l'utilisateur
-	 * @throws HeureIncorrecteException 
+	 * @throws HeureIncorrecteException Levé si l'heure est impossible
 	 */
 	public abstract Evenement demanderUnEvenement() throws HeureIncorrecteException;
 	
@@ -63,11 +70,6 @@ public interface Interaction
 	 */
 	public abstract UE demanderUneUE();
 	
-	/**
-	 * @return un flottant saisie par l'utilisateur
-	 */
-	public float demanderUnFloat();
-
 	/**
 	 * @return une matiere saisie par l'utilisateur
 	 * @throws MatiereSaisieIncorrecteException levé si les données saisies sont incorrectes

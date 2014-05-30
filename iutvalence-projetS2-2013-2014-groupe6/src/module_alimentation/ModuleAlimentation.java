@@ -3,6 +3,7 @@ package module_alimentation;
 import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
 import exception.ChoixIncorrectException;
+import exception.RecetteDejaEnMemoireException;
 import interaction.Interaction;
 import affichage.Affichage;
 import general.Module;
@@ -50,7 +51,7 @@ public class ModuleAlimentation implements Module
 				affichageUtilise.demanderUnAliment();
 				try
 				{
-					this.leFrigo.insererAliment(interactionUtilise.saisirUnAliment());
+					this.leFrigo.insererAliment(interactionUtilise.demanderUnAliment());
 					affichageUtilise.notifierActionReussie();
 				}
 				catch (AlimentDejaPresentException e2)
@@ -103,7 +104,16 @@ public class ModuleAlimentation implements Module
 				break;
 			case 8:
 				affichageUtilise.demanderUneRecette();
-				interactionUtilise.saisirUneRecette();
+				try
+				{
+					interactionUtilise.demanderUneRecette();
+					affichageUtilise.notifierActionReussie();
+				}
+				catch (RecetteDejaEnMemoireException e2)
+				{
+					e2.printStackTrace();
+					affichageUtilise.notifierEchec();
+				}
 				break;
 			case 9 :
 				affichageUtilise.demanderUneQuantiteDAlimentAEnlever();
