@@ -28,7 +28,9 @@ public class AffichageConsole implements Affichage
 						+ "===========================\n"
 						+ " \n1-Inserer un aliment au frigo, \n2-Supprimer un aliment du frigo, "
 						+ "\n3-Afficher les aliments pÃ©rimÃ©s\n4-Supprimer les aliments perimÃ©s, \n5-Afficher le frigo,"
-						+ "\n6-Afficher les recettes disponibles,\n7-Afficher les recettes en mémoires,\n8-Saisissez une recette,\n9-Changez la quantité de nourriture,\n10-Afficher la valeur du contenu du frigo,\n\n0-Quitter.\n");
+						+ "\n6-Afficher les recettes disponibles,\n7-Afficher les recettes en mémoires,\n8-Saisissez une recette,"
+						+ "\n9-Changez la quantité de nourriture,\n10-Afficher la valeur du contenu du frigo,"
+						+ "\n11-Chercher une recette en méoire, \n12-Chercher une recette disponible,\n\n0-Quitter.\n");
 
 	}
 
@@ -108,13 +110,13 @@ public class AffichageConsole implements Affichage
 
 			for (Recette recetteCourante : recetteDisponible.values())
 			{
-				affichage += recetteCourante.toString() + ", ";
+				affichage += recetteCourante.obtenirNom() + ", ";
 			}
 
 			System.out.println(affichage + ".");
 		}
-		
-		//TODO Enlever les virgules et point en trop.
+
+		// TODO Enlever les virgules et point en trop.
 
 	}
 
@@ -209,12 +211,11 @@ public class AffichageConsole implements Affichage
 	{
 		System.out.println("Saisissez le nom de la recette que vous voulez consultée :");
 	}
-	
+
 	@Override
 	public void afficherUneRecette(Recette recetteAAfficher)
 	{
 		System.out.println(recetteAAfficher.toString());
-		
 	}
 
 }

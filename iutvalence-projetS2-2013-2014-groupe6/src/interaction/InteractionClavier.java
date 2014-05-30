@@ -1,5 +1,3 @@
-//TODO Faire en sorte que les méthodes renvois toujours un truc potable
-
 package interaction;
 
 import java.text.DateFormat;

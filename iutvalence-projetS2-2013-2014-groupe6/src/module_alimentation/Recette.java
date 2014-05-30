@@ -3,6 +3,7 @@ package module_alimentation;
 import java.util.Hashtable;
 
 import exception.RecetteDejaEnMemoireException;
+import exception.RecetteInconnueException;
 
 /**
  * @author geourjoa
@@ -122,12 +123,14 @@ public class Recette
 	/**
 	 * @param nomRecette nom de la recette à trouver
 	 * @return la recette si elle est presente, null sion
+	 * @throws RecetteInconnueException 
 	 */
-	public Recette obtenirLaRecette(String nomRecette)
+	public static Recette obtenirLaRecette(String nomRecette) throws RecetteInconnueException
 	{
 		if(Recette.toutesLesRecettesConnues.containsKey(nomRecette))
 			return Recette.toutesLesRecettesConnues.get(nomRecette);
-		return null;
+		else
+			throw new RecetteInconnueException();
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import exception.AlimentDejaPresentException;
 import exception.AlimentsInexistantException;
+import exception.RecetteInconnueException;
 
 /**
  * @author geourjoa
@@ -82,29 +83,7 @@ public class Frigo
 			throw new AlimentsInexistantException();
 	}
 
-	// /**
-	// * Supprimer les aliments périmées
-	// */
-	// public void supprimerAlimentsPerimes()
-	// {
-	// //TODO Completer.
-	// }
-	//
-	// /**
-	// * @return la liste des aliments périmés
-	// */
-	// public Hashtable<String, Aliment> alimentsPerimes()
-	// {
-	// //TODO Completer.
-	// }
-
-	// /**
-	// * Méthode qui met à jour les recettes possibles
-	// */
-	// private void mAJRecettePossible()
-	// {
-	// //TODO Completer.
-	// }
+	
 
 	public String toString()
 	{
@@ -180,11 +159,13 @@ public class Frigo
 	/**
 	 * @param nomRecette nom de la recette � trouver
 	 * @return la recette si elle est presente, null sion
+	 * @throws RecetteInconnueException 
 	 */
-	public Recette obtenirLaRecette(String nomRecette)
+	public Recette obtenirLaRecette(String nomRecette) throws RecetteInconnueException
 	{
 		if(this.recettesDisponibles.containsKey(nomRecette))
 			return this.recettesDisponibles.get(nomRecette);
-		return null;
+		else
+			throw new RecetteInconnueException();
 	}
 }
