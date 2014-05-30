@@ -2,33 +2,64 @@
 <section name="Workbench">
 	<item value="D:\Travail\S2\Projet\iutvalence-projetS2-2013-2014-groupe6\.git" key="GitSelectRepositoryPage.lastRepository"/>
 	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<list key="CommitDialog.authorValues">
+		<item value="AnthonyGeourjon &lt;anthony.geourjon@iut-valence.fr&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="AnthonyGeourjon &lt;anthony.geourjon@iut-valence.fr&gt;"/>
+	</list>
 	<list key="RepositorySelectionPage.UsedUris">
 		<item value="https://github.com/AnthonyGeourjon/iutvalence-projetS2-2013-2014-groupe6.git"/>
 	</list>
-	<section name="GitImportWizard">
-		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
-	</section>
 	<section name="org.eclipse.egit.ui.internal.dialogs.ResetTargetSelectionDialog.dialogBounds">
 		<item value="538" key="DIALOG_WIDTH"/>
 		<item value="8" key="DIALOG_Y_ORIGIN"/>
-		<item value="422" key="DIALOG_X_ORIGIN"/>
 		<item value="728" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item value="538" key="DIALOG_WIDTH"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<item value="658" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="GitCommitMessageComponent">
 	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.RebaseTargetSelectionDialog.dialogBounds">
+		<item value="538" key="DIALOG_WIDTH"/>
+		<item value="50" key="DIALOG_Y_ORIGIN"/>
+		<item value="484" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="PushToGerritPage">
+		<item value="https://github.com/AnthonyGeourjon/iutvalence-projetS2-2013-2014-groupe6.git" key="Repository[D:\Travail\S2\Projet\iutvalence-projetS2-2013-2014-groupe6\.git].lastUri"/>
+		<item value="master" key="Repository[D:\Travail\S2\Projet\iutvalence-projetS2-2013-2014-groupe6\.git].lastBranch"/>
+	</section>
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item value="628" key="DIALOG_WIDTH"/>
 		<item value="245" key="DIALOG_Y_ORIGIN"/>
-		<item value="537" key="DIALOG_X_ORIGIN"/>
 		<item value="400" key="DIALOG_HEIGHT"/>
+		<item value="537" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.merge.MergeResultDialog.dialogBounds">
+		<item value="546" key="DIALOG_WIDTH"/>
+		<item value="226" key="DIALOG_Y_ORIGIN"/>
+		<item value="219" key="DIALOG_HEIGHT"/>
+		<item value="418" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
 		<item value="666" key="DIALOG_WIDTH"/>
 		<item value="67" key="DIALOG_Y_ORIGIN"/>
-		<item value="358" key="DIALOG_X_ORIGIN"/>
 		<item value="458" key="DIALOG_HEIGHT"/>
+		<item value="338" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
