@@ -36,7 +36,7 @@ public class Aliment
 	 *            nom de l'aliment
 	 * @param quantiteInitiale
 	 *            quantite du produit
-	 * @param prix 
+	 * @param prix de l'aliment
 	 */
 	public Aliment(String nomAliment, Integer quantiteInitiale, Integer prix)
 	{
@@ -44,6 +44,8 @@ public class Aliment
 		this.quantite = quantiteInitiale;
 		this.prix=prix;
 	}
+	
+	
 
 	/**
 	 * @return nom

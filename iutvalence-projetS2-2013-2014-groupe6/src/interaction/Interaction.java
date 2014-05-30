@@ -82,6 +82,11 @@ public interface Interaction
 	 */
 	public abstract Note demanderUneNote() throws NoteSaisieIncorrecteException;
 
+	/**
+	 * @return un aliment mais sans demander un prix, il est mis à 0.
+	 */
+	public abstract Aliment demanderUnAlimentPourUneRecette();
+
 	
 	
 	

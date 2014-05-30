@@ -79,8 +79,22 @@ public class CouteauSuisse
 			case 2:
 				this.moduleScolaire.utiliserModule(this.affichage, this.interaction);
 				break;
-
-			/* TODO Rajouter l'utilisation des autres modules + affichage */
+			case 3 :
+				this.affichage.messageDErreur();
+				break;
+				//TODO ajouter module agenda.
+			case 4 :
+				this.affichage.messageDErreur();
+				break;
+				//TODO ajouter module budget.
+			case 5 :
+				this.affichage.messageDErreur();
+				break;
+				//TODO fonction de sauvegarde.
+			case 6 :
+				this.affichage.messageDErreur();
+				break;
+				//TODO fonction de chargement.
 
 			default:
 				try

@@ -132,6 +132,9 @@ public class ModuleAlimentation implements Module
 			case 10:
 				affichageUtilise.afficherPrixDuFrigo(this.leFrigo.prixDuFrigo());
 				break;
+			case 11:
+				affichageUtilise.demanderUnNomDeRecette();
+				affichageUtilise.afficherUneRecette(this.leFrigo.obtenirLaRecette(interactionUtilise.demanderUneChaineDeCaractere()));
 			default:
 				try
 				{

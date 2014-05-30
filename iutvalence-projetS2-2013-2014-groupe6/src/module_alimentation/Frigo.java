@@ -176,4 +176,15 @@ public class Frigo
 		
 		return prixFrigo;
 	}
+
+	/**
+	 * @param nomRecette nom de la recette à trouver
+	 * @return la recette si elle est presente, null sion
+	 */
+	public Recette obtenirLaRecette(String nomRecette)
+	{
+		if(this.recettesDisponibles.containsKey(nomRecette))
+			return this.recettesDisponibles.get(nomRecette);
+		return null;
+	}
 }

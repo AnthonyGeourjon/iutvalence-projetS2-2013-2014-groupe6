@@ -20,7 +20,7 @@ public interface Affichage
 	/**
 	 * Demander un choix numÃ©rique
 	 */
-	public abstract void demanderUnInt();
+	public abstract void demanderUnChoix();
 	
 	/**
 	 * Afficher le nom de l'application
@@ -126,6 +126,21 @@ public interface Affichage
 	 * @param prixDuFrigo prix a afficher
 	 */
 	public abstract void afficherPrixDuFrigo(Integer prixDuFrigo);
+
+	/**
+	 * Demander un entier à l'utilisateur
+	 */
+	public abstract void demanderUnEntier();
+
+	/**
+	 * Demander un nom de recette à l'utilisateur 
+	 */
+	public abstract void demanderUnNomDeRecette();
+
+	/**
+	 * @param recetteAAfficher recette qui sera affichée
+	 */
+	public abstract void afficherUneRecette(Recette recetteAAfficher);
 
 	
 	

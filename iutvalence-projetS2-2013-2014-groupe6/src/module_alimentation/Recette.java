@@ -1,6 +1,7 @@
 package module_alimentation;
 
 import java.util.Hashtable;
+
 import exception.RecetteDejaEnMemoireException;
 
 /**
@@ -94,8 +95,20 @@ public class Recette
 	 */
 	public String toString()
 	{
-		return this.nom;
+		String affichage = "";
+	
+		affichage+="La recette " + this.nom + " necessite : \n" ;
+		for(Aliment alimentCourant : this.alimentsNecessaires.values())
+		{
+			affichage+= alimentCourant.obtenirQuantite() +" " + alimentCourant.obtenirNom() + "(s),";
+		}
+		
+		return affichage +=".";
+		
+		//TODO Enlever la derniere virgule
 	}
+		
+		
 
 	/**
 	 * Initialise la collection qui contient toutes les recettes connues
@@ -105,5 +118,16 @@ public class Recette
 		Recette.toutesLesRecettesConnues=new Hashtable<>();
 		
 	}
-
+	
+	/**
+	 * @param nomRecette nom de la recette à trouver
+	 * @return la recette si elle est presente, null sion
+	 */
+	public Recette obtenirLaRecette(String nomRecette)
+	{
+		if(Recette.toutesLesRecettesConnues.containsKey(nomRecette))
+			return Recette.toutesLesRecettesConnues.get(nomRecette);
+		return null;
+	}
+	
 }

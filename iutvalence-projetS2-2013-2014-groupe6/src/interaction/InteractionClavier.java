@@ -75,6 +75,12 @@ public class InteractionClavier implements Interaction
 	}
 	
 	@Override
+	public Aliment demanderUnAlimentPourUneRecette()
+	{
+		return new Aliment(this.demanderUneChaineDeCaractere(), this.demanderUnInt(),0);
+	}
+	
+	@Override
 	public Recette demanderUneRecette() throws RecetteDejaEnMemoireException
 	{
 		String nom = this.demanderUneChaineDeCaractere();
@@ -85,7 +91,7 @@ public class InteractionClavier implements Interaction
 
 		for (int alimentNumero = 0; alimentNumero < nombreDAlimentDeLARecette; alimentNumero++)
 		{
-			Aliment alimentCourant = this.demanderUnAliment();
+			Aliment alimentCourant = this.demanderUnAlimentPourUneRecette();
 			alimentsNecessaires.put(alimentCourant.obtenirNom(), alimentCourant);
 		}
 
