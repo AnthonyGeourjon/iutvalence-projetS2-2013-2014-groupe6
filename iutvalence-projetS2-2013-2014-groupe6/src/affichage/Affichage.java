@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import module_alimentation.Frigo;
 import module_alimentation.Recette;
+import module_budget.Etat;
 
 /**
  * @author geourjoa
@@ -126,6 +127,18 @@ public interface Affichage
 	 * @param prixDuFrigo prix a afficher
 	 */
 	public abstract void afficherPrixDuFrigo(Integer prixDuFrigo);
+
+	public abstract void afficherMenuBudget();
+
+	public abstract void demanderSommeDArgent();
+
+	public abstract void afficherLeSoldeDuBudget(float soldeBudget);
+
+	public abstract void afficherDemandeAjoutArgent();
+
+	public abstract void afficherDemandeRetraitArgent();
+
+	public abstract void afficherLEtatDuBudget(Etat etat);
 
 	
 	

@@ -6,17 +6,14 @@ package module_budget;
  */
 
 
-import java.util.Scanner;
-
-
 public class Budget {
 	
 	private float solde ;
 	private Etat etat ;
 	
-	
-	public Budget(float solde){
+	public Budget(float solde, Etat etat){
 		this.solde = solde ;
+		this.etat = etat ;
 	}
 	
 	public float getSolde() {
@@ -37,14 +34,14 @@ public class Budget {
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 	}
-	
-	
-	// Est ce vraiment utile en sachant que il y a deja le Setter ??
-	public void initialiserBudget(float soldeDepart){
-		this.solde = soldeDepart ;
+
+	public void ajouterDeLArgent(float sommeDArgent) {
+		this.solde += sommeDArgent ;
 	}
-	
-	public void ajouterOuSoustraireArgentAuSolde(float sommeArgent){
-		this.solde += sommeArgent ;
+
+	public void soustraireDeLArgent(float sommeDArgent) {
+		this.solde -= sommeDArgent ;	
 	}
+
+
 }

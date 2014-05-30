@@ -4,6 +4,8 @@ import java.util.Hashtable;
 
 import module_alimentation.Frigo;
 import module_alimentation.Recette;
+import module_budget.Budget;
+import module_budget.Etat;
 
 /**
  * @author geourjoa 
@@ -71,7 +73,7 @@ public class AffichageConsole implements Affichage
 	public void afficherMenuPrincipal()
 	{
 		System.out.println("==========================\n" + "     Menu principal : \n" + "==========================\n"
-				+ "\n1-Module alimentation, \n2-Module scolaire\n0-Quitter.\n");
+				+ "\n1-Module alimentation, \n2-Module scolaire, \n3-Module agenda, \n4-Module budget\n0-Quitter.\n");
 
 	}
 
@@ -194,5 +196,44 @@ public class AffichageConsole implements Affichage
 		System.out.println("L'ensemble des aliments du frigo vaut " + prixDuFrigo + " euro(s).\n");
 		
 	}
+	
+	
+	public void afficherMenuBudget()
+	{
+		System.out.println("===========================\n"
+				+ " Module Gestion Budget :\n"
+				+ "===========================\n"
+				+ " \n1-Initialiser le budget, \n2-Afficher le solde du budget, "
+				+ "\n3-ajouter de l'argent, \n4-Retirer de l'argent, "
+				+ "\n0-Quitter.\n");
+	}
 
+	@Override
+	public void demanderSommeDArgent() {
+		System.out.println("Saisissez une somme d'argent pour initialiser votre budget: ");
+	}
+	
+	public void afficherLeSoldeDuBudget(float soldeBudget){
+		System.out.println("Le solde du budget est de " + soldeBudget + " euro(s).\n");
+	}
+
+	@Override
+	public void afficherDemandeAjoutArgent() {
+		System.out.println("Saisissez la somme que vous voulez ajouter à votre solde");
+	}
+
+	@Override
+	public void afficherDemandeRetraitArgent() {
+		System.out.println("Saisissez la somme que vous voulez soustraitre à votre solde");
+		
+	}
+
+	@Override
+	public void afficherLEtatDuBudget(Etat etat) {
+	}
+
+	
+
+	
+	
 }
